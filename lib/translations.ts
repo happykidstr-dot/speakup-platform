@@ -20,7 +20,14 @@ export const translations: Record<Locale, {
   moduleSection: { badge: string; title: string; sub: string; cta: string };
   pact: { title: string; sub: string; cta: string };
   footer: { tagline: string; eu: string; cerv: string; copyright: string; partners: string; learnLinks: string[]; communityLinks: string[]; legalLinks: string[] };
-  learnPage: { badge: string; title: string; sub: string };
+  learnPage: {
+    badge: string; title: string; sub: string;
+    moduleTitles: string[]; moduleTags: string[]; moduleDescs: string[];
+    levels: { beginner: string; intermediate: string; advanced: string };
+    learningPath: string; certLabel: string;
+    certTitle: string; certDesc: string;
+    beginBtn: string; startBtn: string;
+  };
   aboutPage: { badge: string; title: string; sub: string };
   toolkitPage: { badge: string; title: string; sub: string };
   communityPage: { badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string };
@@ -83,7 +90,24 @@ export const translations: Record<Locale, {
       communityLinks: ["Community Actions", "News & Events", "Policy Briefs", "Contact Us"],
       legalLinks: ["Privacy Policy", "GDPR Notice", "Accessibility", "Safeguarding"],
     },
-    learnPage: { badge: "📚 Youth Learning Area", title: "6 Free Modules.\n5 Languages.", sub: "Your step-by-step guide to understanding, recognising, and countering online hate speech — built for young people across Europe." },
+    learnPage: {
+      badge: "📚 Youth Learning Area", title: "6 Free Modules.\n5 Languages.", sub: "Your step-by-step guide to understanding, recognising, and countering online hate speech — built for young people across Europe.",
+      moduleTitles: ["What is Online Hate Speech?", "Recognising Hate Online", "Responding Safely", "Reporting & Protecting Yourself", "Creating Counter-Narratives", "Digital Citizenship & Rights"],
+      moduleTags: ["Foundation", "Awareness", "Skills", "Action", "Creative", "Rights"],
+      moduleDescs: [
+        "Understand what hate speech is, its different forms, and why it matters. Learn the legal and ethical framework across Europe.",
+        "Identify coded language, dog whistles, and subtle discrimination. Case studies from real social media platforms.",
+        "Learn evidence-based strategies for responding safely to hate online — without escalating or putting yourself at risk.",
+        "Know your rights. Learn how to document and report hate speech on major platforms and through legal channels.",
+        "Develop creative skills to create positive counter-narratives that challenge hate and promote inclusion.",
+        "Understand your digital rights, responsibilities, and how to be an active, ethical citizen in online spaces."
+      ],
+      levels: { beginner: "Beginner", intermediate: "Intermediate", advanced: "Advanced" },
+      learningPath: "Learning path:", certLabel: "Certificate",
+      certTitle: "Complete all 6 modules and earn your certificate",
+      certDesc: "A free digital certificate recognising your commitment to fighting online hate speech — shareable on LinkedIn and social media.",
+      beginBtn: "🚀 Begin Module 01", startBtn: "Start →",
+    },
     aboutPage: { badge: "🇪🇺 CERV Project · 2024–2026", title: "About SpeakUP against Hate", sub: "A 24-month transnational project funded by the European Union's CERV programme." },
     toolkitPage: { badge: "🤖 Educational AI Tool", title: "Toolkit & AI Hate Speech Awareness Tool", sub: "Download our evidence-based toolkit and explore our AI-powered educational tool." },
     communityPage: { badge: "✊ Community Actions", title: "Together We Can Make Online Spaces Safer", sub: "Sign the Anti-Hate Pact. Take community actions. Share your story.", tabPact: "✍️ Sign the Pact", tabActions: "🎯 Take Action", tabStories: "💬 Stories" },
@@ -151,7 +175,24 @@ export const translations: Record<Locale, {
       communityLinks: ["Działania społecznościowe", "Aktualności i wydarzenia", "Policy Briefs", "Kontakt"],
       legalLinks: ["Polityka prywatności", "Informacja RODO", "Dostępność", "Ochrona dzieci"],
     },
-    learnPage: { badge: "📚 Strefa nauki dla młodzieży", title: "6 bezpłatnych modułów.\n5 języków.", sub: "Twój przewodnik krok po kroku do rozumienia, rozpoznawania i przeciwdziałania mowie nienawiści w sieci." },
+    learnPage: {
+      badge: "📚 Strefa nauki dla młodzieży", title: "6 bezpłatnych modułów.\n5 języków.", sub: "Twój przewodnik krok po kroku do rozumienia, rozpoznawania i przeciwdziałania mowie nienawiści w sieci.",
+      moduleTitles: ["Czym jest mowa nienawiści online?", "Rozpoznawanie nienawiści w sieci", "Bezpieczne reagowanie", "Zgłaszanie i ochrona siebie", "Tworzenie kontrnarracji", "Obywatelstwo cyfrowe i prawa"],
+      moduleTags: ["Podstawy", "Świadomość", "Umiejętności", "Działanie", "Kreatywność", "Prawa"],
+      moduleDescs: [
+        "Zrozum, czym jest mowa nienawiści, jakie przybiera formy i dlaczego ma znaczenie.",
+        "Identyfikuj zakodowany język i subtelną dyskryminację na podstawie studiów przypadku z mediów społecznościowych.",
+        "Poznaj strategie bezpiecznego reagowania na nienawiść online bez eskalowania sytuacji.",
+        "Poznaj swoje prawa i naucz się dokumentować oraz zgłaszać mowę nienawiści na platformach i kanałach prawnych.",
+        "Rozwijaj umiejętności tworzenia pozytywnych kontrnarracji promujących włączenie społeczne.",
+        "Poznaj swoje prawa i obowiązki cyfrowe oraz jak być aktywnym, etycznym obywatelem online."
+      ],
+      levels: { beginner: "Początkujący", intermediate: "Średniozaawansowany", advanced: "Zaawansowany" },
+      learningPath: "Ścieżka nauki:", certLabel: "Certyfikat",
+      certTitle: "Ukończ wszystkie 6 modułów i zdobądź certyfikat",
+      certDesc: "Bezpłatny certyfikat cyfrowy potwierdzający Twoje zaangażowanie w walkę z mową nienawiści — do udostępnienia na LinkedIn i mediach społecznościowych.",
+      beginBtn: "🚀 Rozpocznij Moduł 01", startBtn: "Zacznij →",
+    },
     aboutPage: { badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projekcie SpeakUP against Hate", sub: "24-miesięczny projekt transnarodowy finansowany przez program CERV Unii Europejskiej." },
     toolkitPage: { badge: "🤖 Edukacyjne narzędzie AI", title: "Zestaw narzędzi i narzędzie AI do rozpoznawania mowy nienawiści", sub: "Pobierz nasz zestaw narzędzi oparty na dowodach i wypróbuj nasze narzędzie edukacyjne AI." },
     communityPage: { badge: "✊ Działania społecznościowe", title: "Razem możemy uczynić internet bezpieczniejszym", sub: "Podpisz Pakt Antynienawiści. Podejmij działania. Podziel się swoją historią.", tabPact: "✍️ Podpisz Pakt", tabActions: "🎯 Działaj", tabStories: "💬 Historie" },
@@ -219,7 +260,24 @@ export const translations: Record<Locale, {
       communityLinks: ["Acțiuni comunitare", "Știri și evenimente", "Documente de politică", "Contactați-ne"],
       legalLinks: ["Politica de confidențialitate", "Notificare GDPR", "Accesibilitate", "Protecția copilului"],
     },
-    learnPage: { badge: "📚 Zona de învățare pentru tineri", title: "6 module gratuite.\n5 limbi.", sub: "Ghidul tău pas cu pas pentru a înțelege, recunoaște și contracara discursul de ură online." },
+    learnPage: {
+      badge: "📚 Zona de învățare pentru tineri", title: "6 module gratuite.\n5 limbi.", sub: "Ghidul tău pas cu pas pentru a înțelege, recunoaște și contracara discursul de ură online.",
+      moduleTitles: ["Ce este discursul de ură online?", "Recunoașterea urii online", "Răspuns în siguranță", "Raportarea și protejarea ta", "Crearea de contranarative", "Cetățenie digitală și drepturi"],
+      moduleTags: ["Fundație", "Conștientizare", "Abilități", "Acțiune", "Creativitate", "Drepturi"],
+      moduleDescs: [
+        "Înțelege ce este discursul de ură, formele sale și de ce contează.",
+        "Identifică limbajul codat și discriminarea subtilă pe baza studiilor de caz din rețelele sociale.",
+        "Învață strategii bazate pe dovezi pentru a răspunde în siguranță la ura online.",
+        "Cunoaște-ți drepturile și învață cum să documentezi și să raportezi discursul de ură.",
+        "Dezvoltă abilități creative pentru a crea contranarative pozitive care promovează incluziunea.",
+        "Înțelege drepturile și responsabilitățile tale digitale și cum să fii un cetățean activ online."
+      ],
+      levels: { beginner: "Începător", intermediate: "Intermediar", advanced: "Avansat" },
+      learningPath: "Parcurs de învățare:", certLabel: "Certificat",
+      certTitle: "Finalizați toate cele 6 module și obțineți certificatul",
+      certDesc: "Un certificat digital gratuit care recunoaște angajamentul dvs. față de combaterea discursului de ură online — partajabil pe LinkedIn și rețele sociale.",
+      beginBtn: "🚀 Începeți Modulul 01", startBtn: "Start →",
+    },
     aboutPage: { badge: "🇪🇺 Proiect CERV · 2024–2026", title: "Despre SpeakUP against Hate", sub: "Un proiect transnațional de 24 de luni finanțat de programul CERV al Uniunii Europene." },
     toolkitPage: { badge: "🤖 Instrument AI educațional", title: "Toolkit și instrument AI de conștientizare a discursului de ură", sub: "Descarcă toolkit-ul nostru bazat pe dovezi și explorează instrumentul nostru educațional AI." },
     communityPage: { badge: "✊ Acțiuni comunitare", title: "Împreună putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împărtășește povestea ta.", tabPact: "✍️ Semnează Pactul", tabActions: "🎯 Acționează", tabStories: "💬 Povești" },
@@ -287,7 +345,24 @@ export const translations: Record<Locale, {
       communityLinks: ["Komunitní akce", "Aktuality a události", "Politické dokumenty", "Kontaktujte nás"],
       legalLinks: ["Zásady ochrany soukromí", "Oznámení GDPR", "Přístupnost", "Ochrana dětí"],
     },
-    learnPage: { badge: "📚 Vzdělávací prostor pro mládež", title: "6 bezplatných modulů.\n5 jazyků.", sub: "Tvůj průvodce krok za krokem k pochopení, rozpoznání a čelení online nenávistným projevům." },
+    learnPage: {
+      badge: "📚 Vzdělávací prostor pro mládež", title: "6 bezplatných modulů.\n5 jazyků.", sub: "Tvůj průvodce krok za krokem k pochopení, rozpoznání a čelení online nenávistným projevům.",
+      moduleTitles: ["Co je online nenávistný projev?", "Rozpoznávání online nenávisti", "Bezpečná reakce", "Hlášení a ochrana sebe", "Vytváření kontranaratívů", "Digitální občanství a práva"],
+      moduleTags: ["Základ", "Uvědomění", "Dovednosti", "Akce", "Kreativita", "Práva"],
+      moduleDescs: [
+        "Pochop, co je nenávistný projev, jaké má formy a proč je důležitý.",
+        "Rozpoznej zakódovaný jazyk a jemnou diskriminaci na základě případových studií ze sociálních sítí.",
+        "Nauč se strategie bezpečného reagování na online nenávist bez eskalace situace.",
+        "Znáš svá práva. Nauč se dokumentovat a hlásit nenávistné projevy na platformách a právními kanály.",
+        "Rozvíjej kreativní dovednosti pro tvorbu pozitivních kontranaratívů podporujících inkluzi.",
+        "Pochop svá digitální práva a povinnosti a jak být aktivním etickým občanem online."
+      ],
+      levels: { beginner: "Začátečník", intermediate: "Střední úroveň", advanced: "Pokročilý" },
+      learningPath: "Cesta učení:", certLabel: "Certifikát",
+      certTitle: "Dokončete všech 6 modulů a získejte certifikát",
+      certDesc: "Bezplatný digitální certifikát uznávající váš závazek bojovat s online nenávistným projevem — sdílitelný na LinkedIn a sociálních sítích.",
+      beginBtn: "🚀 Začít Modul 01", startBtn: "Začít →",
+    },
     aboutPage: { badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projektu SpeakUP against Hate", sub: "24měsíční nadnárodní projekt financovaný programem CERV Evropské unie." },
     toolkitPage: { badge: "🤖 Vzdělávací nástroj AI", title: "Sada nástrojů a AI nástroj pro uvědomění o nenávistných projevech", sub: "Stáhněte si naši sadu nástrojů podloženou důkazy a prozkoumejte náš vzdělávací nástroj AI." },
     communityPage: { badge: "✊ Komunitní akce", title: "Společně můžeme online prostory udělat bezpečnějšími", sub: "Podpiš Pakt proti nenávisti. Jednej. Sdílej svůj příběh.", tabPact: "✍️ Podepsit Pakt", tabActions: "🎯 Jednej", tabStories: "💬 Příběhy" },
@@ -355,7 +430,24 @@ export const translations: Record<Locale, {
       communityLinks: ["Kogukonna tegevused", "Uudised ja üritused", "Poliitikadokumendid", "Võtke meiega ühendust"],
       legalLinks: ["Privaatsuspoliitika", "Isikuandmete kaitse teade", "Ligipääsetavus", "Laste kaitse"],
     },
-    learnPage: { badge: "📚 Noorte õppimisvaldkond", title: "6 tasuta moodulit.\n5 keelt.", sub: "Sinu samm-sammuline juhend veebis esineva vaenukõne mõistmiseks, äratundmiseks ja sellele vastu seismiseks." },
+    learnPage: {
+      badge: "📚 Noorte õppimisvaldkond", title: "6 tasuta moodulit.\n5 keelt.", sub: "Sinu samm-sammuline juhend veebis esineva vaenukõne mõistmiseks, äratundmiseks ja sellele vastu seismiseks.",
+      moduleTitles: ["Mis on veebis leviv vaenukõne?", "Vaenukõne tuvastamine veebis", "Ohutu reageerimine", "Teatamine ja enda kaitsmine", "Vastunäitluste loomine", "Digitaalne kodakondsus ja õigused"],
+      moduleTags: ["Alustamine", "Teadlikkus", "Oskused", "Tegevus", "Loovus", "Õigused"],
+      moduleDescs: [
+        "Mõista, mis on vaenukõne, selle erinevad vormid ja miks see on oluline.",
+        "Tunne ära kodeeritud keel ja peen diskrimineerimine sotsiaalmeedia juhtumite põhjal.",
+        "Õpi tõenduspõhiseid strateegiaid veebis leviva vaenukõne ohutult käsitlemiseks.",
+        "Tunne oma õigusi. Õpi dokumenteerima ja teatama vaenukõnest platvormidel ja õiguslike kanalite kaudu.",
+        "Arendage loovaid oskusi positiivsete vastunäitluste loomiseks, mis edendavad kaasatust.",
+        "Mõista oma digitaalseid õigusi ja kohustusi ning kuidas olla aktiivne, eetiline kodanik veebis."
+      ],
+      levels: { beginner: "Algaja", intermediate: "Kesktase", advanced: "Edasijõudnu" },
+      learningPath: "Õpperada:", certLabel: "Sertifikaat",
+      certTitle: "Läbige kõik 6 moodulit ja teenige sertifikaat",
+      certDesc: "Tasuta digitaalne sertifikaat, mis tunnustab teie pühendumust veebis leviva vaenukõne vastu võitlemisel — jagatav LinkedInis ja sotsiaalvõrgustikes.",
+      beginBtn: "🚀 Alusta Moodul 01", startBtn: "Alusta →",
+    },
     aboutPage: { badge: "🇪🇺 CERV projekt · 2024–2026", title: "SpeakUP against Hate projektist", sub: "24-kuuline riikidevaheline projekt, mida rahastab Euroopa Liidu CERV programm." },
     toolkitPage: { badge: "🤖 Hariduslik AI tööriist", title: "Tööriistad ja AI vaenukõne teadlikkuse tõstmiseks", sub: "Laadi alla meie tõenduspõhine tööriistad ja uuri meie hariduslikku AI tööriista." },
     communityPage: { badge: "✊ Kogukonna tegevused", title: "Koos saame veebiruumi turvalisemaks muuta", sub: "Kirjuta alla Anti-Hate Paktile. Tegutse. Jaga oma lugu.", tabPact: "✍️ Kirjuta alla Paktile", tabActions: "🎯 Tegutse", tabStories: "💬 Lood" },
