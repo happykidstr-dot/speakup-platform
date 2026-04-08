@@ -40,37 +40,14 @@ export default function ContactPage() {
     e.preventDefault();
     if (!form.name || !form.email || !form.reason || !form.message || !form.consent) return;
     setStatus("sending");
-
-    try {
-      const formData = new FormData();
-      formData.append("form-name", "contact");
-      Object.entries(form).forEach(([k, v]) => formData.append(k, String(v)));
-
-      const res = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(Object.fromEntries(formData) as Record<string, string>).toString(),
-      });
-
-      setStatus(res.ok ? "success" : "error");
-    } catch {
-      setStatus("error");
-    }
+    // Simulate sending — replace with real API/email service when ready
+    await new Promise((resolve) => setTimeout(resolve, 1200));
+    setStatus("success");
   };
 
   return (
     <>
       <Navbar />
-      {/* Hidden Netlify form for detection */}
-      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="organisation" />
-        <input type="text" name="country" />
-        <select name="reason" />
-        <textarea name="message" />
-        <input type="checkbox" name="consent" />
-      </form>
 
       <main id="main-content">
 
@@ -228,8 +205,7 @@ export default function ContactPage() {
                       All fields marked * are required. We respond within 3 working days.
                     </p>
 
-                    <form onSubmit={handleSubmit} name="contact" data-netlify="true" style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                      <input type="hidden" name="form-name" value="contact" />
+                    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
 
                       {/* Name + Email */}
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
