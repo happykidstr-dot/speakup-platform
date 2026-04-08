@@ -28,10 +28,40 @@ export const translations: Record<Locale, {
     certTitle: string; certDesc: string;
     beginBtn: string; startBtn: string;
   };
-  aboutPage: { badge: string; title: string; sub: string };
-  toolkitPage: { badge: string; title: string; sub: string };
-  communityPage: { badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string };
-  educatorsPage: { badge: string; title: string; sub: string };
+  aboutPage: {
+    badge: string; title: string; sub: string;
+    problemLabel: string; problemTitle: string;
+    solutionLabel: string; solutionTitle: string;
+    problemPoints: string[]; solutionPoints: string[];
+    timelineLabel: string; timelineTitle: string;
+    partnerLabel: string; partnerTitle: string;
+    cta: string;
+  };
+  toolkitPage: {
+    badge: string; title: string; sub: string;
+    demoLabel: string; demoTitle: string; demoSub: string;
+    revealBtn: string; prevBtn: string; nextBtn: string; startModulesBtn: string;
+    exampleOf: string; howCategorise: string; whatCanYouDo: string;
+    downloadsLabel: string; downloadsTitle: string; downloadsSub: string; downloadBtn: string;
+    ethicalLabel: string; tryAIBtn: string; downloadToolkitBtn: string;
+    tryFullBtn: string;
+  };
+  communityPage: {
+    badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string;
+    pactTitle: string; signPactTitle: string; signPactSub: string;
+    nameLabel: string; emailLabel: string; cityLabel: string; countryLabel: string; roleLabel: string;
+    roleOptions: string[]; consentLabel: string; displayLabel: string; signBtn: string;
+    successTitle: string; successSub: string; takeActionBtn: string;
+    signatoryWall: string; actionTitle: string; actionSub: string;
+    storiesTitle: string; storiesSub: string; shareTitle: string; shareSub: string; shareBtn: string;
+  };
+  educatorsPage: {
+    badge: string; title: string; sub: string;
+    curriculumLabel: string; curriculumTitle: string; curriculumSub: string;
+    resourceLibLabel: string; resourceLibTitle: string; downloadBtn: string;
+    faqTitle: string; joinTitle: string; joinSub: string;
+    requestAccessBtn: string; previewBtn: string;
+  };
   contactPage: {
     badge: string; title: string; sub: string;
     send: string; sending: string; success: string; successSub: string; sendAnother: string;
@@ -108,10 +138,53 @@ export const translations: Record<Locale, {
       certDesc: "A free digital certificate recognising your commitment to fighting online hate speech — shareable on LinkedIn and social media.",
       beginBtn: "🚀 Begin Module 01", startBtn: "Start →",
     },
-    aboutPage: { badge: "🇪🇺 CERV Project · 2024–2026", title: "About SpeakUP against Hate", sub: "A 24-month transnational project funded by the European Union's CERV programme." },
-    toolkitPage: { badge: "🤖 Educational AI Tool", title: "Toolkit & AI Hate Speech Awareness Tool", sub: "Download our evidence-based toolkit and explore our AI-powered educational tool." },
-    communityPage: { badge: "✊ Community Actions", title: "Together We Can Make Online Spaces Safer", sub: "Sign the Anti-Hate Pact. Take community actions. Share your story.", tabPact: "✍️ Sign the Pact", tabActions: "🎯 Take Action", tabStories: "💬 Stories" },
-    educatorsPage: { badge: "👩‍🏫 Educator Area", title: "Tools for Educators Who Want to Make a Difference", sub: "Free lesson plans, workshop guides, and professional development resources." },
+    aboutPage: {
+      badge: "🇪🇺 CERV Project · 2024–2026", title: "About SpeakUP against Hate", sub: "A 24-month transnational project funded by the European Union's CERV programme.",
+      problemLabel: "The Problem", problemTitle: "Online hate is growing. The tools to fight it are not.",
+      solutionLabel: "Our Solution", solutionTitle: "A multilingual platform built for real change.",
+      problemPoints: ["Hate speech is normalised in many online spaces", "Youth lack evidence-based, age-appropriate tools", "Educators need practical classroom resources", "Most resources are English-only"],
+      solutionPoints: ["6 learning modules for youth (EN/PL/RO/CZ/ET)", "Educator resources, lesson plans, and workshop guides", "AI-supported hate speech awareness tool", "Community actions, Anti-Hate Pacts, micro-campaigns", "Policy briefs for European and national decision-makers"],
+      timelineLabel: "Project Timeline", timelineTitle: "24-Month Implementation Plan",
+      partnerLabel: "Project Consortium", partnerTitle: "5 Partners. 4 Countries. One Mission.",
+      cta: "Ready to get involved?",
+    },
+    toolkitPage: {
+      badge: "🤖 Educational AI Tool", title: "Toolkit & AI Hate Speech Awareness Tool", sub: "Download our evidence-based toolkit and explore our AI-powered educational tool.",
+      demoLabel: "Interactive Demo", demoTitle: "Learn to Recognise Online Hate",
+      demoSub: "Read each example, think about its category, then reveal the analysis.",
+      revealBtn: "🔍 Reveal Analysis", prevBtn: "← Previous", nextBtn: "Next Example →", startModulesBtn: "📚 Start Learning Modules",
+      exampleOf: "Example", howCategorise: "How would you categorise this content?", whatCanYouDo: "💡 WHAT CAN YOU DO?",
+      downloadsLabel: "Free Downloads", downloadsTitle: "Download the SpeakUP Toolkit",
+      downloadsSub: "All resources are free, open-access, and licensed for educational use.", downloadBtn: "📥 Download",
+      ethicalLabel: "Ethical & Safe Use", tryAIBtn: "🤖 Try AI Tool Demo", downloadToolkitBtn: "📥 Download Toolkit",
+      tryFullBtn: "Try Full AI Tool →",
+    },
+    communityPage: {
+      badge: "✊ Community Actions", title: "Together We Can Make Online Spaces Safer", sub: "Sign the Anti-Hate Pact. Take community actions. Share your story.",
+      tabPact: "✍️ Sign the Pact", tabActions: "🎯 Take Action", tabStories: "💬 Stories",
+      pactTitle: "The Anti-Hate Pact", signPactTitle: "Sign the Pact",
+      signPactSub: "Join thousands of young people across Europe committing to safer digital spaces.",
+      nameLabel: "Full Name *", emailLabel: "Email Address *", cityLabel: "City *", countryLabel: "Country *", roleLabel: "I am a... (optional)",
+      roleOptions: ["Prefer not to say", "Young person (under 25)", "Educator / Teacher", "NGO / Civil Society", "University Student", "Other"],
+      consentLabel: "I agree to the Anti-Hate Pact and understand my data will be used only for this purpose. *",
+      displayLabel: "I consent to my first name and country being displayed on the public signatory wall.",
+      signBtn: "✊ Sign the Anti-Hate Pact",
+      successTitle: "You've signed the pact!", successSub: "Thank you for standing up against hate.", takeActionBtn: "Take an Action →",
+      signatoryWall: "Signatory Wall", actionTitle: "Take Action Against Hate",
+      actionSub: "Small actions add up. Choose one and share with #SpeakUPagainstHate.",
+      storiesTitle: "Youth Stories", storiesSub: "Real experiences from young people across Europe.",
+      shareTitle: "Share Your Story", shareSub: "Did you witness or counter online hate? Your experience can inspire others.",
+      shareBtn: "Submit Your Story",
+    },
+    educatorsPage: {
+      badge: "👩‍🏫 Educator Area", title: "Tools for Educators Who Want to Make a Difference", sub: "Free lesson plans, workshop guides, and professional development resources.",
+      curriculumLabel: "Ready-Made Curriculum", curriculumTitle: "6 modules — ready to use in your classroom",
+      curriculumSub: "Each module includes lesson plans, facilitator guides, slide decks, and assessment tools.",
+      resourceLibLabel: "Resource Library", resourceLibTitle: "Download Free Educator Materials", downloadBtn: "📥 Download",
+      faqTitle: "Frequently Asked Questions",
+      joinTitle: "Join the Educator Community", joinSub: "Connect with educators from Poland, Estonia, Czech Republic, and Romania.",
+      requestAccessBtn: "Request Access", previewBtn: "Preview All Modules",
+    },
     contactPage: {
       badge: "✉️ Get in Touch", title: "Contact Us", sub: "Questions, partnerships, media enquiries, or safeguarding concerns — we're here to help.",
       send: "📨 Send Message", sending: "⏳ Sending...", success: "Message Sent!",
@@ -193,10 +266,53 @@ export const translations: Record<Locale, {
       certDesc: "Bezpłatny certyfikat cyfrowy potwierdzający Twoje zaangażowanie w walkę z mową nienawiści — do udostępnienia na LinkedIn i mediach społecznościowych.",
       beginBtn: "🚀 Rozpocznij Moduł 01", startBtn: "Zacznij →",
     },
-    aboutPage: { badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projekcie SpeakUP against Hate", sub: "24-miesięczny projekt transnarodowy finansowany przez program CERV Unii Europejskiej." },
-    toolkitPage: { badge: "🤖 Edukacyjne narzędzie AI", title: "Zestaw narzędzi i narzędzie AI do rozpoznawania mowy nienawiści", sub: "Pobierz nasz zestaw narzędzi oparty na dowodach i wypróbuj nasze narzędzie edukacyjne AI." },
-    communityPage: { badge: "✊ Działania społecznościowe", title: "Razem możemy uczynić internet bezpieczniejszym", sub: "Podpisz Pakt Antynienawiści. Podejmij działania. Podziel się swoją historią.", tabPact: "✍️ Podpisz Pakt", tabActions: "🎯 Działaj", tabStories: "💬 Historie" },
-    educatorsPage: { badge: "👩‍🏫 Strefa nauczycieli", title: "Narzędzia dla nauczycieli, którzy chcą zmieniać świat", sub: "Bezpłatne plany lekcji, przewodniki warsztatowe i materiały do rozwoju zawodowego." },
+    aboutPage: {
+      badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projekcie SpeakUP against Hate", sub: "24-miesięczny projekt transnarodowy finansowany przez program CERV Unii Europejskiej.",
+      problemLabel: "Problem", problemTitle: "Nienawiść w sieci rośnie. Narzędzia do walki z nią — nie.",
+      solutionLabel: "Nasze rozwiązanie", solutionTitle: "Wielojęzyczna platforma zbudowana dla realnej zmiany.",
+      problemPoints: ["Mowa nienawiści jest normalizowana w wielu przestrzeniach online", "Młodzieży brakuje opartych na dowodach narzędzi", "Edukatorzy potrzebują praktycznych zasobów szkolnych", "Większość zasobów jest tylko po angielsku"],
+      solutionPoints: ["6 modułów szkoleniowych dla młodzieży (EN/PL/RO/CZ/ET)", "Zasoby dla edukatorów, plany lekcji i przewodniki", "Narzędzie AI do rozpoznawania mowy nienawiści", "Działania społecznościowe, Pakty Antynienawiści", "Raporty polityczne dla decydentów europejskich"],
+      timelineLabel: "Harmonogram projektu", timelineTitle: "24-miesięczny plan realizacji",
+      partnerLabel: "Konsorcjum projektowe", partnerTitle: "5 partnerów. 4 kraje. Jedna misja.",
+      cta: "Gotowy/a do zaangażowania?",
+    },
+    toolkitPage: {
+      badge: "🤖 Edukacyjne narzędzie AI", title: "Zestaw narzędzi i narzędzie AI do rozpoznawania mowy nienawiści", sub: "Pobierz nasz zestaw narzędzi i wypróbuj nasze narzędzie edukacyjne AI.",
+      demoLabel: "Interaktywne demo", demoTitle: "Naucz się rozpoznawać nienawiść online",
+      demoSub: "Przeczytaj każdy przykład, zastanow się nad kategorią, następnie odkryj analizę.",
+      revealBtn: "🔍 Odkryj analizę", prevBtn: "← Poprzedni", nextBtn: "Następny przykład →", startModulesBtn: "📚 Zacznij moduły nauki",
+      exampleOf: "Przykład", howCategorise: "Jak sklasyfikujesz tę treść?", whatCanYouDo: "💡 CO MOŻESZ ZROBIĆ?",
+      downloadsLabel: "Bezpłatne pliki", downloadsTitle: "Pobierz Zestaw narzędzi SpeakUP",
+      downloadsSub: "Wszystkie zasoby są bezpłatne i licencjonowane do użytku edukacyjnego.", downloadBtn: "📥 Pobierz",
+      ethicalLabel: "Etyczne i bezpieczne użycie", tryAIBtn: "🤖 Wypróbuj demo AI", downloadToolkitBtn: "📥 Pobierz zestaw narzędzi",
+      tryFullBtn: "Wypróbuj pełne narzędzie AI →",
+    },
+    communityPage: {
+      badge: "✊ Działania społecznościowe", title: "Razem możemy uczynić internet bezpieczniejszym", sub: "Podpisz Pakt Antynienawiści. Podejmij działania. Podziel się swoją historią.",
+      tabPact: "✍️ Podpisz Pakt", tabActions: "🎯 Działaj", tabStories: "💬 Historie",
+      pactTitle: "Pakt Antynienawiści", signPactTitle: "Podpisz Pakt",
+      signPactSub: "Dołącz do tysięcy młodych ludzi z Europy zobowiązujących się do bezpieczniejszych przestrzeni cyfrowych.",
+      nameLabel: "Imię i nazwisko *", emailLabel: "Adres e-mail *", cityLabel: "Miasto *", countryLabel: "Kraj *", roleLabel: "Jestem... (opcjonalnie)",
+      roleOptions: ["Wolę nie mówić", "Młoda osoba (poniżej 25 lat)", "Edukator / Nauczyciel", "NGO / Społeczeństwo obywatelskie", "Student/ka", "Inne"],
+      consentLabel: "Zgadzam się z Paktem Antynienawiści i rozumiem, że moje dane zostaną użyte tylko w tym celu. *",
+      displayLabel: "Wyrażam zgodę na wyświetlanie mojego imienia i kraju na ścianie sygnatariuszy.",
+      signBtn: "✊ Podpisz Pakt Antynienawiści",
+      successTitle: "Podpisałeś/aś pakt!", successSub: "Dziękujemy za stanie po właściwej stronie.", takeActionBtn: "Podejmij działanie →",
+      signatoryWall: "Ściana sygnatariuszy", actionTitle: "Działaj przeciwko nienawiści",
+      actionSub: "Małe działania sumują się. Wybierz jedno i udostępnij z #SpeakUPagainstHate.",
+      storiesTitle: "Opowieści młodych", storiesSub: "Prawdziwe doświadczenia młodych ludzi z całej Europy.",
+      shareTitle: "Podziel się swoją historią", shareSub: "Byłeś/aś świadkiem lub sprzeciwiłeś/aś się nienawiści online? Twoje doświadczenie może inspirować.",
+      shareBtn: "Prześlij swoją historię",
+    },
+    educatorsPage: {
+      badge: "👩‍🏫 Strefa nauczycieli", title: "Narzędzia dla nauczycieli, którzy chcą zmieniać świat", sub: "Bezpłatne plany lekcji, przewodniki warsztatowe i materiały do rozwoju zawodowego.",
+      curriculumLabel: "Gotowy program nauczania", curriculumTitle: "6 modułów — gotowych do użycia w Twojej klasie",
+      curriculumSub: "Każdy moduł zawiera plany lekcji, przewodniki, prezentacje i narzędzia oceny.",
+      resourceLibLabel: "Biblioteka zasobów", resourceLibTitle: "Pobierz bezpłatne materiały dla edukatorów", downloadBtn: "📥 Pobierz",
+      faqTitle: "Często zadawane pytania",
+      joinTitle: "Dołącz do społeczności edukatorów", joinSub: "Nawiąż kontakty z edukatorami z Polski, Estonii, Czech i Rumunii.",
+      requestAccessBtn: "Poproś o dostęp", previewBtn: "Podejrzyj wszystkie moduły",
+    },
     contactPage: {
       badge: "✉️ Skontaktuj się", title: "Kontakt", sub: "Pytania, współpraca, zapytania medialne lub kwestie ochrony dzieci — jesteśmy tutaj.",
       send: "📨 Wyślij wiadomość", sending: "⏳ Wysyłanie...", success: "Wiadomość wysłana!",
@@ -278,10 +394,53 @@ export const translations: Record<Locale, {
       certDesc: "Un certificat digital gratuit care recunoaște angajamentul dvs. față de combaterea discursului de ură online — partajabil pe LinkedIn și rețele sociale.",
       beginBtn: "🚀 Începeți Modulul 01", startBtn: "Start →",
     },
-    aboutPage: { badge: "🇪🇺 Proiect CERV · 2024–2026", title: "Despre SpeakUP against Hate", sub: "Un proiect transnațional de 24 de luni finanțat de programul CERV al Uniunii Europene." },
-    toolkitPage: { badge: "🤖 Instrument AI educațional", title: "Toolkit și instrument AI de conștientizare a discursului de ură", sub: "Descarcă toolkit-ul nostru bazat pe dovezi și explorează instrumentul nostru educațional AI." },
-    communityPage: { badge: "✊ Acțiuni comunitare", title: "Împreună putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împărtășește povestea ta.", tabPact: "✍️ Semnează Pactul", tabActions: "🎯 Acționează", tabStories: "💬 Povești" },
-    educatorsPage: { badge: "👩‍🏫 Zona educatorilor", title: "Instrumente pentru educatorii care vor să facă diferența", sub: "Planuri de lecție gratuite, ghiduri de atelier și resurse de dezvoltare profesională." },
+    aboutPage: {
+      badge: "🇪🇺 Proiect CERV · 2024–2026", title: "Despre SpeakUP against Hate", sub: "Un proiect transnațional de 24 de luni finanțat de programul CERV al Uniunii Europene.",
+      problemLabel: "Problema", problemTitle: "Ura online crește. Instrumentele pentru a o combate — nu.",
+      solutionLabel: "Soluția noastră", solutionTitle: "O platformă multilingvă construită pentru schimbare reală.",
+      problemPoints: ["Discursul de ură este normalizat în multe spații online", "Tinerii nu au instrumente bazate pe dovezi", "Educatorii au nevoie de resurse practice", "Majoritatea resurselor sunt doar în limba engleză"],
+      solutionPoints: ["6 module de învățare pentru tineri (EN/PL/RO/CZ/ET)", "Resurse pentru educatori, planuri de lecție și ghiduri", "Instrument AI pentru conștientizarea discursului de ură", "Acțiuni comunitare, Pacte Anti-Ură", "Rapoarte de politici pentru factorii de decizie"],
+      timelineLabel: "Calendarul proiectului", timelineTitle: "Plan de implementare de 24 de luni",
+      partnerLabel: "Consorțiul proiectului", partnerTitle: "5 parteneri. 4 țări. O misiune.",
+      cta: "Ești gata să te implici?",
+    },
+    toolkitPage: {
+      badge: "🤖 Instrument AI educațional", title: "Toolkit și instrument AI de conștientizare a discursului de ură", sub: "Descărcați toolkit-ul nostru bazat pe dovezi și explorați instrumentul nostru educațional AI.",
+      demoLabel: "Demonstrație interactivă", demoTitle: "Invăță să recunoști ura online",
+      demoSub: "Citește fiecare exemplu, gândește-te la categorie, apoi dezvăluie analiza.",
+      revealBtn: "🔍 Dezvăluie analiza", prevBtn: "← Anterior", nextBtn: "Următorul exemplu →", startModulesBtn: "📚 Începe modulele de învățare",
+      exampleOf: "Exemplu", howCategorise: "Cum ai clasifica acest conținut?", whatCanYouDo: "💡 CE POȚI FACE?",
+      downloadsLabel: "Descărcări gratuite", downloadsTitle: "Descărcați Toolkit-ul SpeakUP",
+      downloadsSub: "Toate resursele sunt gratuite și licențiate pentru uz educațional.", downloadBtn: "📥 Descărcă",
+      ethicalLabel: "Utilizare etică și sigură", tryAIBtn: "🤖 Încearcă demonstrația AI", downloadToolkitBtn: "📥 Descărcă Toolkit-ul",
+      tryFullBtn: "Instrumentul AI complet →",
+    },
+    communityPage: {
+      badge: "✊ Acțiuni comunitare", title: "Împrețnă putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împoștește-ți povestea.",
+      tabPact: "✍️ Semnează Pactul", tabActions: "🎯 Acționează", tabStories: "💬 Povești",
+      pactTitle: "Pactul Anti-Ură", signPactTitle: "Semnează Pactul",
+      signPactSub: "Alătură-te miilor de tineri din Europa care se angajează pentru spații digitale mai sigure.",
+      nameLabel: "Nume complet *", emailLabel: "Adresă de e-mail *", cityLabel: "Oraș *", countryLabel: "Țară *", roleLabel: "Sunt un/o... (opțional)",
+      roleOptions: ["Prefer să nu spun", "Tânăr/ă (sub 25 de ani)", "Educator / Profesor/ă", "ONG / Societate civilă", "Student/ă universitar/ă", "Altul/Alta"],
+      consentLabel: "Sunt de acord cu Pactul Anti-Ură și înțeleg că datele mele vor fi folosite doar în acest scop. *",
+      displayLabel: "Sunt de acord ca prenumele și țara mea să fie afișate pe zidul public al semnatarilor.",
+      signBtn: "✊ Semnează Pactul Anti-Ură",
+      successTitle: "Ai semnat pactul!", successSub: "Mulțumim că te-ai ridicat împotriva urii.", takeActionBtn: "Acționează →",
+      signatoryWall: "Zidul Semnatarilor", actionTitle: "Acționează împotriva urii",
+      actionSub: "Acțiunile mici contează. Alege una și share cu #SpeakUPagainstHate.",
+      storiesTitle: "Povești ale tinerilor", storiesSub: "Experiențe reale ale tinerilor din toată Europa.",
+      shareTitle: "Împoștește-ți povestea", shareSub: "Ai asistat sau ai contracarat ura online? Expriena ta poate inspira pe alții.",
+      shareBtn: "Trimite povestea ta",
+    },
+    educatorsPage: {
+      badge: "👩‍🏫 Zona educatorilor", title: "Instrumente pentru educatorii care vor să facă diferența", sub: "Planuri de lecție gratuite, ghiduri de atelier și resurse de dezvoltare profesională.",
+      curriculumLabel: "Curriculum gata pregătit", curriculumTitle: "6 module — gata de utilizat în clasa dvs.",
+      curriculumSub: "Fiecare modul include planuri de lecție, ghiduri, prezentări și instrumente de evaluare.",
+      resourceLibLabel: "Biblioteca de resurse", resourceLibTitle: "Descărcați materiale gratuite pentru educatori", downloadBtn: "📥 Descărcă",
+      faqTitle: "Întrebări frecvente",
+      joinTitle: "Alătură-te Comunității de Educatori", joinSub: "Conectați-vă cu educatori din Polonia, Estonia, Republica Cehă și România.",
+      requestAccessBtn: "Solicită acces", previewBtn: "Previzualizează toate modulele",
+    },
     contactPage: {
       badge: "✉️ Contactați-ne", title: "Contact", sub: "Întrebări, parteneriate, solicitări media sau preocupări de protecție — suntem aici.",
       send: "📨 Trimite mesajul", sending: "⏳ Se trimite...", success: "Mesaj trimis!",
@@ -448,10 +607,53 @@ export const translations: Record<Locale, {
       certDesc: "Tasuta digitaalne sertifikaat, mis tunnustab teie pühendumust veebis leviva vaenukõne vastu võitlemisel — jagatav LinkedInis ja sotsiaalvõrgustikes.",
       beginBtn: "🚀 Alusta Moodul 01", startBtn: "Alusta →",
     },
-    aboutPage: { badge: "🇪🇺 CERV projekt · 2024–2026", title: "SpeakUP against Hate projektist", sub: "24-kuuline riikidevaheline projekt, mida rahastab Euroopa Liidu CERV programm." },
-    toolkitPage: { badge: "🤖 Hariduslik AI tööriist", title: "Tööriistad ja AI vaenukõne teadlikkuse tõstmiseks", sub: "Laadi alla meie tõenduspõhine tööriistad ja uuri meie hariduslikku AI tööriista." },
-    communityPage: { badge: "✊ Kogukonna tegevused", title: "Koos saame veebiruumi turvalisemaks muuta", sub: "Kirjuta alla Anti-Hate Paktile. Tegutse. Jaga oma lugu.", tabPact: "✍️ Kirjuta alla Paktile", tabActions: "🎯 Tegutse", tabStories: "💬 Lood" },
-    educatorsPage: { badge: "👩‍🏫 Õpetajate valdkond", title: "Vahendid õpetajatele, kes soovivad muutust luua", sub: "Tasuta tunnikavad, töötoa juhendid ja professionaalse arengu ressursid." },
+    aboutPage: {
+      badge: "🇪🇺 CERV projekt · 2024–2026", title: "SpeakUP against Hate projektist", sub: "24-kuuline riikidevaheline projekt, mida rahastab Euroopa Liidu CERV programm.",
+      problemLabel: "Probleem", problemTitle: "Vaenukõne veebis kasvab. Selle vastu võitlemise vahendid ei kasva.",
+      solutionLabel: "Meie lahendus", solutionTitle: "Mitmekeelne platvorm, mis on loodud tõeliseks muutuseks.",
+      problemPoints: ["Vaenukõne on normaliseeritud paljudes veebikeskkondades", "Noortel puuduvad tõenduspõhised, vanusele vastavad vahendid", "Õpetajatel on vaja praktilisi klassiruumi ressursse", "Enamik ressursse on ainult inglise keeles"],
+      solutionPoints: ["6 õppemoodulit noortele (EN/PL/RO/CZ/ET)", "Pedagoogilised ressursid, tunnikavad ja töötoa juhendid", "AI-toetatud vaenukõne teadlikkuse tõstmise tööriist", "Kogukonna tegevused, Anti-Hate Paktid", "Poliitikabriifid Euroopa ja riiklikele otsustajatele"],
+      timelineLabel: "Projekti ajakava", timelineTitle: "24-kuuline rakendusplaan",
+      partnerLabel: "Projekti konsortsium", partnerTitle: "5 partnerit. 4 riiki. Üks missioon.",
+      cta: "Valmis osalema?",
+    },
+    toolkitPage: {
+      badge: "🤖 Hariduslik AI tööriist", title: "Tööriistad ja AI vaenukõne teadlikkuse tõstmiseks", sub: "Laadi alla meie tõenduspõhine tööriistad ja uuri meie hariduslikku AI tööriista.",
+      demoLabel: "Interaktiivne demo", demoTitle: "Õpi tuvastama veebis levivat vihkamist",
+      demoSub: "Lugege iga näidet, mõelge kategooria peale, seejärel avage analüüs.",
+      revealBtn: "🔍 Ava analüüs", prevBtn: "← Eelmine", nextBtn: "Järgmine näide →", startModulesBtn: "📚 Alusta õppemooduleid",
+      exampleOf: "Näide", howCategorise: "Kuidas liigitaksite seda sisu?", whatCanYouDo: "💡 MIDA SAATE TEHA?",
+      downloadsLabel: "Tasuta allalaadimised", downloadsTitle: "Laadige alla SpeakUP tööriistad",
+      downloadsSub: "Kõik ressursid on tasuta ja litsentsitud hariduslikuks kasutamiseks.", downloadBtn: "📥 Laadi alla",
+      ethicalLabel: "Eetiline ja ohutu kasutamine", tryAIBtn: "🤖 Proovi AI tööriista dem", downloadToolkitBtn: "📥 Laadi tööriistad alla",
+      tryFullBtn: "Täis AI tööriist →",
+    },
+    communityPage: {
+      badge: "✊ Kogukonna tegevused", title: "Koos saame veebiruumi turvalisemaks muuta", sub: "Kirjuta alla Anti-Hate Paktile. Tegutse. Jaga oma lugu.",
+      tabPact: "✍️ Kirjuta alla Paktile", tabActions: "🎯 Tegutse", tabStories: "💬 Lood",
+      pactTitle: "Anti-Hate Pakt", signPactTitle: "Allkirjasta Pakt",
+      signPactSub: "Liitu tuhandetesse noorte inimestega üle Euroopa, kes köhustuvad looma turvalisemaid digitaalseid ruume.",
+      nameLabel: "Täisnimi *", emailLabel: "E-posti aadress *", cityLabel: "Linn *", countryLabel: "Riik *", roleLabel: "Mina olen... (valikuline)",
+      roleOptions: ["Ei soovi öelda", "Noor inimene (alla 25 a.)", "Õpetaja / Pedagoog", "MTÜ / Kodanikuühiskond", "Üliopilane", "Muu"],
+      consentLabel: "Nõustun Anti-Hate Paktiga ja saan aru, et minu andmeid kasutatakse ainult sel eesmärgil. *",
+      displayLabel: "Nõustun, et minu eesnimi ja riik kuvatakse avalikul allakirjutajate seinale.",
+      signBtn: "✊ Allkirjasta Anti-Hate Pakt",
+      successTitle: "Kirjutasite paktile alla!", successSub: "Täname, et seisate vaenukõne vastu.", takeActionBtn: "Tegutse →",
+      signatoryWall: "Allakirjutajate sein", actionTitle: "Tegutse vaenukõne vastu",
+      actionSub: "Väikesed teod liituvad. Valige üks ja jagage kasutades #SpeakUPagainstHate.",
+      storiesTitle: "Noorte lood", storiesSub: "Tõelikud kogemused noorte inimestelt üle Euroopa.",
+      shareTitle: "Jaga oma lugu", shareSub: "Kas olete tunnistanud veebis vaenukõnet? Teie kogemus võib teisi inspireerida.",
+      shareBtn: "Saada oma lugu",
+    },
+    educatorsPage: {
+      badge: "👩‍🏫 Õpetajate valdkond", title: "Vahendid õpetajatele, kes soovivad muutust luua", sub: "Tasuta tunnikavad, töötoa juhendid ja professionaalse arengu ressursid.",
+      curriculumLabel: "Valmis õppekava", curriculumTitle: "6 moodulit — valmis kasutamiseks teie klassiruumis",
+      curriculumSub: "Iga moodul sisaldab tunnikavasid, juhendeid, slaidikavasid ja hindamisvahendeid.",
+      resourceLibLabel: "Ressursside raamatukogu", resourceLibTitle: "Laadige alla tasuta pedagoogilised materjalid", downloadBtn: "📥 Laadi alla",
+      faqTitle: "Korduma kippuvad küsimused",
+      joinTitle: "Liitu pedagoogide kogukonnaga", joinSub: "Ühendage end pedagoogidega Poolast, Eestist, Tšehhi Vabariigist ja Rumeeniast.",
+      requestAccessBtn: "Taotle juurdepääsu", previewBtn: "Vaata kõiki mooduleid",
+    },
     contactPage: {
       badge: "✉️ Võtke meiega ühendust", title: "Kontakt", sub: "Küsimused, partnerlused, meediapäringud või kaitsega seotud mured — oleme siin.",
       send: "📨 Saada sõnum", sending: "⏳ Saatmine...", success: "Sõnum saadetud!",
