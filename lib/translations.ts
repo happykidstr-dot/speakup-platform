@@ -63,11 +63,16 @@ export const translations: Record<Locale, {
   };
   educatorsPage: {
     badge: string; title: string; sub: string;
-    heroStats: string[];
+    heroStats: string[]; heroStatValues: string[];
+    audience: { label: string; desc: string }[];
     curriculumLabel: string; curriculumTitle: string; curriculumSub: string; curriculumDesc1: string; curriculumDesc2: string;
+    moduleTitles: string[];
     resourceLibLabel: string; resourceLibTitle: string; downloadBtn: string;
+    filterLabels: string[];
+    resources: { title: string; desc: string; type: string; tags: string[] }[];
     filterAll: string; moduleLabel: string;
     faqTitle: string;
+    faqs: { q: string; a: string }[];
     joinTitle: string; joinSub: string;
     requestAccessBtn: string; previewBtn: string;
   };
@@ -209,14 +214,37 @@ export const translations: Record<Locale, {
     },
     educatorsPage: {
       badge: "👩‍🏫 Educator Area", title: "Tools for Educators Who Want to Make a Difference", sub: "Free lesson plans, workshop guides, and professional development resources.",
-      heroStats: ["Free Resources", "Languages", "Activity Cards", "Always"],
+      heroStats: ["Free Resources", "Languages", "Activity Cards", "Always"], heroStatValues: ["6+", "5", "48", "Free"],
+      audience: [
+        { label: "Secondary School Teachers", desc: "Ages 14–18 classroom settings" },
+        { label: "Higher Education Lecturers", desc: "University and college contexts" },
+        { label: "Youth Workers & NGOs", desc: "Community and informal education" },
+        { label: "Community Facilitators", desc: "Civic and municipal contexts" },
+      ],
       curriculumLabel: "Ready-Made Curriculum", curriculumTitle: "6 modules — ready to use in your classroom",
       curriculumSub: "Each module includes lesson plans, facilitator guides, slide decks, and assessment tools.",
       curriculumDesc1: "Each SpeakUP learning module comes with a corresponding lesson plan and supporting materials. You can use one module as a stand-alone session or deliver all six as a progressive curriculum.",
       curriculumDesc2: "All modules are designed for approximately 60–90 minutes each and include discussion questions, a key takeaways summary, and a quiz for knowledge review.",
+      moduleTitles: ["What is Online Hate Speech?", "Recognising Hate Online", "Responding Safely", "Reporting & Protecting Yourself", "Creating Counter-Narratives", "Digital Citizenship & Rights"],
       resourceLibLabel: "Resource Library", resourceLibTitle: "Download Free Educator Materials", downloadBtn: "📥 Download",
       filterAll: "All", moduleLabel: "Module",
+      filterLabels: ["Lesson Plan", "Workshop Guide", "Activity Cards", "Self-Study", "Assessment"],
+      resources: [
+        { title: "Lesson Plan: Introduction to Hate Speech", desc: "A complete 90-minute lesson plan for secondary students (ages 14–18). Includes discussion prompts, video links, and group activities.", type: "Lesson Plan", tags: ["Ages 14–18", "90 min", "Group work"] },
+        { title: "Lesson Plan: Recognising Coded Hate", desc: "Focused lesson on dog whistles, memes, and coded language. Includes image analysis exercises and class discussion framework.", type: "Lesson Plan", tags: ["Ages 16+", "60 min", "Critical thinking"] },
+        { title: "Workshop Guide: SpeakUP Sessions", desc: "A full facilitation guide for running 3-hour SpeakUP community workshops. Includes icebreakers, activities, debrief prompts, and safety protocols.", type: "Workshop Guide", tags: ["3 hours", "Facilitation", "Community"] },
+        { title: "Scenario Cards: What Would You Do?", desc: "48 printable scenario cards depicting online situations ranging from explicit to subtle hate speech. Use for discussion, debate, or role-play.", type: "Activity Cards", tags: ["Printable", "Discussion", "Ages 14+"] },
+        { title: "Educator Self-Study Guide", desc: "A professional development guide for teachers and educators to build their own understanding before delivering SpeakUP sessions.", type: "Self-Study", tags: ["CPD", "Self-paced", "Professional dev"] },
+        { title: "Assessment & Evaluation Templates", desc: "Pre- and post-session assessment tools to measure student learning, attitude shifts, and confidence in responding to online hate.", type: "Assessment", tags: ["Evaluation", "Impact", "Monitoring"] },
+      ],
       faqTitle: "Frequently Asked Questions",
+      faqs: [
+        { q: "Do I need to be an expert on hate speech to deliver SpeakUP?", a: "No. Our materials are designed for educators who are not specialists. The Educator Self-Study Guide prepares you to facilitate confidently. We also offer optional online training sessions." },
+        { q: "What age groups are the materials suitable for?", a: "Our core materials target ages 15–25. Some lesson plans are adapted for ages 14+ and some for higher education. Each resource clearly states the recommended age range." },
+        { q: "Are the materials available in languages other than English?", a: "Yes. All core materials are available in English, Polish, Romanian, Czech, and Estonian. Some supplementary resources are available in English and Polish." },
+        { q: "How do I get a badge or acknowledgement for my school/organisation?", a: "Schools and organisations that complete SpeakUP training can apply for a SpeakUP Partner Badge. Contact us via the contact form for more information." },
+        { q: "Is there support available when running sessions?", a: "Yes. You can access the educator community forum (registration required) and contact the project partner in your country for guidance." },
+      ],
       joinTitle: "Join the Educator Community", joinSub: "Connect with educators from Poland, Estonia, Czech Republic, and Romania.",
       requestAccessBtn: "Request Access", previewBtn: "Preview All Modules",
     },
@@ -363,14 +391,37 @@ export const translations: Record<Locale, {
     },
     educatorsPage: {
       badge: "👩‍🏫 Strefa nauczycieli", title: "Narzędzia dla nauczycieli, którzy chcą zmieniać świat", sub: "Bezpłatne plany lekcji, przewodniki warsztatowe i materiały do rozwoju zawodowego.",
-      heroStats: ["Bezpłatne zasoby", "Języki", "Karty aktywności", "Zawsze"],
+      heroStats: ["Bezpłatne zasoby", "Języki", "Karty aktywności", "Zawsze"], heroStatValues: ["6+", "5", "48", "Bezpłatnie"],
+      audience: [
+        { label: "Nauczyciele szkół średnich", desc: "Klasy w wieku 14–18 lat" },
+        { label: "Wykładowcy akademiccy", desc: "Konteksty uczelni i kolegiów" },
+        { label: "Pracownicy młodzieżowi i NGO", desc: "Edukacja społeczna i nieformalna" },
+        { label: "Animatorzy społeczni", desc: "Konteksty obywatelskie i samorządowe" },
+      ],
       curriculumLabel: "Gotowy program nauczania", curriculumTitle: "6 modułów — gotowych do użycia w Twojej klasie",
       curriculumSub: "Każdy moduł zawiera plany lekcji, przewodniki, prezentacje i narzędzia oceny.",
       curriculumDesc1: "Każdy moduł SpeakUP zawiera plan lekcji i materiały pomocnicze. Możesz użyć jednego jako samodzielnej sesji lub dostarczyć wszystkie sześć jako program nauczania.",
       curriculumDesc2: "Wszystkie moduły są zaprojektowane na ok. 60–90 minut i zawierają pytania dyskusyjne, podsumowanie i quiz.",
+      moduleTitles: ["Czym jest mowa nienawiści online?", "Rozpoznawanie nienawiści w sieci", "Bezpieczne reagowanie", "Zgłaszanie i ochrona siebie", "Tworzenie kontrnarracji", "Obywatelstwo cyfrowe i prawa"],
       resourceLibLabel: "Biblioteka zasobów", resourceLibTitle: "Pobierz bezpłatne materiały dla edukatorów", downloadBtn: "📥 Pobierz",
       filterAll: "Wszystkie", moduleLabel: "Moduł",
+      filterLabels: ["Plan lekcji", "Przewodnik warsztatowy", "Karty aktywności", "Samodzielna nauka", "Ocenianie"],
+      resources: [
+        { title: "Plan lekcji: Wprowadzenie do mowy nienawiści", desc: "Kompletny 90-minutowy plan lekcji dla uczniów szkoły średniej (14–18 lat). Zawiera tematy do dyskusji, linki do filmów i ćwiczenia grupowe.", type: "Plan lekcji", tags: ["14–18 lat", "90 min", "Praca grupowa"] },
+        { title: "Plan lekcji: Rozpoznawanie zakodowanej nienawiści", desc: "Lekcja o dog whistles, memach i zakodowanym języku. Zawiera ćwiczenia analizy obrazów i ramy dyskusji klasowej.", type: "Plan lekcji", tags: ["16+ lat", "60 min", "Myślenie krytyczne"] },
+        { title: "Przewodnik warsztatowy: Sesje SpeakUP", desc: "Pełny przewodnik facylitacyjny do prowadzenia 3-godzinnych warsztatów SpeakUP. Zawiera lodołamacze, aktywności, pytania podsumowujące i protokoły bezpieczeństwa.", type: "Przewodnik warsztatowy", tags: ["3 godziny", "Facylitacja", "Społeczność"] },
+        { title: "Karty scenariuszy: Co byś zrobił/a?", desc: "48 kart scenariuszy do druku przedstawiających sytuacje online — od jawnej do subtelnej mowy nienawiści. Użyj do dyskusji, debaty lub odgrywania ról.", type: "Karty aktywności", tags: ["Do druku", "Dyskusja", "14+ lat"] },
+        { title: "Przewodnik do samodzielnej nauki dla edukatorów", desc: "Podręcznik rozwoju zawodowego dla nauczycieli i edukatorów, by zbudować własne zrozumienie przed prowadzeniem sesji SpeakUP.", type: "Samodzielna nauka", tags: ["Rozwój zawodowy", "We własnym tempie", "Profesjonalizm"] },
+        { title: "Szablony oceny i ewaluacji", desc: "Narzędzia oceny przed i po sesji do mierzenia postępów uczniów, zmian postaw i pewności w reagowaniu na nienawiść online.", type: "Ocenianie", tags: ["Ewaluacja", "Wpływ", "Monitoring"] },
+      ],
       faqTitle: "Często zadawane pytania",
+      faqs: [
+        { q: "Czy muszę być ekspertem od mowy nienawiści, aby prowadzić SpeakUP?", a: "Nie. Nasze materiały są przeznaczone dla edukatorów niebędących specjalistami. Przewodnik do samodzielnej nauki przygotuje Cię do pewnego prowadzenia zajęć. Oferujemy też opcjonalne szkolenia online." },
+        { q: "Dla jakich grup wiekowych są przeznaczone materiały?", a: "Nasze podstawowe materiały są skierowane do osób w wieku 15–25 lat. Niektóre plany lekcji są dostosowane dla 14+ lat, a niektóre dla szkolnictwa wyższego. Każdy zasób wyraźnie określa zalecany zakres wiekowy." },
+        { q: "Czy materiały są dostępne w innych językach niż angielski?", a: "Tak. Wszystkie podstawowe materiały są dostępne w języku angielskim, polskim, rumuńskim, czeskim i estońskim. Niektóre materiały uzupełniające są dostępne po angielsku i polsku." },
+        { q: "Jak mogę uzyskać odznakę lub wyróżnienie dla mojej szkoły/organizacji?", a: "Szkoły i organizacje, które ukończą szkolenie SpeakUP, mogą ubiegać się o Odznakę Partnera SpeakUP. Skontaktuj się z nami przez formularz kontaktowy po więcej informacji." },
+        { q: "Czy dostępne jest wsparcie przy prowadzeniu sesji?", a: "Tak. Możesz korzystać z forum społeczności edukatorów (wymagana rejestracja) i skontaktować się z partnerem projektowym w swoim kraju po wsparcie." },
+      ],
       joinTitle: "Dołącz do społeczności edukatorów", joinSub: "Nawiąż kontakty z edukatorami z Polski, Estonii, Czech i Rumunii.",
       requestAccessBtn: "Poproś o dostęp", previewBtn: "Podejrzyj wszystkie moduły",
     },
@@ -517,14 +568,37 @@ export const translations: Record<Locale, {
     },
     educatorsPage: {
       badge: "👩‍🏫 Zona educatorilor", title: "Instrumente pentru educatorii care vor să facă diferența", sub: "Planuri de lecție gratuite, ghiduri de atelier și resurse de dezvoltare profesională.",
-      heroStats: ["Resurse gratuite", "Limbi", "Cărți de activități", "Întotdeauna"],
+      heroStats: ["Resurse gratuite", "Limbi", "Cărți de activități", "Întotdeauna"], heroStatValues: ["6+", "5", "48", "Gratuit"],
+      audience: [
+        { label: "Profesori de liceu", desc: "Clase de elevi 14–18 ani" },
+        { label: "Lectori universitari", desc: "Contexte universitare" },
+        { label: "Lucrători tineret și ONG-uri", desc: "Educație comunitară și informală" },
+        { label: "Facilitatori comunitari", desc: "Contexte civice și municipale" },
+      ],
       curriculumLabel: "Curriculum gata pregătit", curriculumTitle: "6 module — gata de utilizat în clasa dvs.",
       curriculumSub: "Fiecare modul include planuri de lecție, ghiduri, prezentări și instrumente de evaluare.",
       curriculumDesc1: "Fiecare modul SpeakUP vine cu un plan de lecție și materiale suport.",
       curriculumDesc2: "Toate modulele sunt proiectate pentru aproximativ 60–90 de minute și includ întrebări de discuție și un test.",
+      moduleTitles: ["Ce este discursul de ură online?", "Recunoașterea urii online", "Răspuns în siguranță", "Raportarea și protejarea ta", "Crearea de contranarative", "Cetățenie digitală și drepturi"],
       resourceLibLabel: "Biblioteca de resurse", resourceLibTitle: "Descărcați materiale gratuite pentru educatori", downloadBtn: "📥 Descărcă",
       filterAll: "Toate", moduleLabel: "Modul",
+      filterLabels: ["Plan de lecție", "Ghid de atelier", "Cărți de activități", "Studiu individual", "Evaluare"],
+      resources: [
+        { title: "Plan de lecție: Introducere în discursul de ură", desc: "Un plan complet de lecție de 90 de minute pentru elevi de liceu (14–18 ani). Include întrebări de discuție, linkuri video și activități de grup.", type: "Plan de lecție", tags: ["14–18 ani", "90 min", "Lucru în grup"] },
+        { title: "Plan de lecție: Recunoașterea urii codificate", desc: "Lecție focusată pe dog whistles, meme-uri și limbaj codificat. Include exerciții de analiză a imaginilor și cadru de discuție.", type: "Plan de lecție", tags: ["16+ ani", "60 min", "Gândire critică"] },
+        { title: "Ghid de atelier: Sesiuni SpeakUP", desc: "Un ghid complet de facilitare pentru ateliere comunitare SpeakUP de 3 ore. Include activități de spargere a gheții, activități, întrebări de debrief și protocoale de siguranță.", type: "Ghid de atelier", tags: ["3 ore", "Facilitare", "Comunitate"] },
+        { title: "Cărți de scenarii: Ce ai face?", desc: "48 de cărți de scenarii printabile care descriu situații online, de la discurs de ură explicit la subtil. Folosiți pentru discuție, dezbatere sau joc de rol.", type: "Cărți de activități", tags: ["Printabil", "Discuție", "14+ ani"] },
+        { title: "Ghid de studiu individual pentru educatori", desc: "Un ghid de dezvoltare profesională pentru profesori și educatori pentru a-și construi propria înțelegere înainte de a livra sesiunile SpeakUP.", type: "Studiu individual", tags: ["Dezvoltare profesională", "Ritm propriu", "Profesionalism"] },
+        { title: "Șabloane de evaluare", desc: "Instrumente de evaluare pre- și post-sesiune pentru a măsura progresul elevilor, schimbările de atitudine și încrederea în a răspunde la ura online.", type: "Evaluare", tags: ["Evaluare", "Impact", "Monitorizare"] },
+      ],
       faqTitle: "Întrebări frecvente",
+      faqs: [
+        { q: "Trebuie să fiu expert în discursul de ură pentru a livra SpeakUP?", a: "Nu. Materialele noastre sunt concepute pentru educatori care nu sunt specialiști. Ghidul de studiu individual vă pregătește să facilitați cu încredere. Oferim și sesiuni de formare online opționale." },
+        { q: "Pentru ce grupe de vârstă sunt potrivite materialele?", a: "Materialele noastre de bază vizează vârstele 15–25 ani. Unele planuri de lecție sunt adaptate pentru 14+ ani, iar altele pentru învățământul superior. Fiecare resursă precizează clar intervalul de vârstă recomandat." },
+        { q: "Materialele sunt disponibile în alte limbi decât engleza?", a: "Da. Toate materialele de bază sunt disponibile în engleză, poloneză, română, cehă și estonă. Unele resurse suplimentare sunt disponibile în engleză și poloneză." },
+        { q: "Cum pot obține o insignă sau recunoaștere pentru școala/organizația mea?", a: "Școlile și organizațiile care finalizează formarea SpeakUP pot aplica pentru Insigna de Partener SpeakUP. Contactați-ne prin formularul de contact pentru mai multe informații." },
+        { q: "Există suport disponibil când conduceți sesiuni?", a: "Da. Puteți accesa forumul comunității de educatori (înregistrare necesară) și contacta partenerul de proiect din țara dumneavoastră pentru îndrumare." },
+      ],
       joinTitle: "Alătură-te Comunității de Educatori", joinSub: "Conectați-vă cu educatori din Polonia, Estonia, Republica Cehă și România.",
       requestAccessBtn: "Solicită acces", previewBtn: "Previzualizează toate modulele",
     },
@@ -671,14 +745,37 @@ export const translations: Record<Locale, {
     },
     educatorsPage: {
       badge: "👩‍🏫 Prostor pro pedagogy", title: "Nástroje pro pedagogy, kteří chtějí změnit svět", sub: "Bezplatné plány hodin, průvodce workshopy a materiály pro profesní rozvoj.",
-      heroStats: ["Bezplatné zdroje", "Jazyky", "Karty aktivit", "Vždy"],
+      heroStats: ["Bezplatné zdroje", "Jazyky", "Karty aktivit", "Vždy"], heroStatValues: ["6+", "5", "48", "Zdarma"],
+      audience: [
+        { label: "Učitelé středních škol", desc: "Třídy ve věku 14–18 let" },
+        { label: "Univerzitní lektoři", desc: "Kontexty vysokých škol" },
+        { label: "Pracovníci s mládeží a NGO", desc: "Komunitní a neformální vzdělávání" },
+        { label: "Komunitní facilitátoři", desc: "Občanské a municipální kontexty" },
+      ],
       curriculumLabel: "Hotový vzdělávací program", curriculumTitle: "6 modulů — připravených k použití ve třídě",
       curriculumSub: "Každý modul obsahuje plány hodin, průvodce, prezentace a hodnotící nástroje.",
       curriculumDesc1: "Každý modul SpeakUP obsahuje plán hodiny a podpůrné materiály.",
       curriculumDesc2: "Všechny moduly jsou navrženy na cca 60–90 minut a obsahují diskusní otázky a kviz.",
+      moduleTitles: ["Co je online nenávistný projev?", "Rozpoznávání online nenávisti", "Bezpečná reakce", "Hlášení a ochrana sebe", "Vytváření kontranaratívů", "Digitální občanství a práva"],
       resourceLibLabel: "Knihovna zdrojů", resourceLibTitle: "Stáhněte si bezplatné materiály pro pedagogy", downloadBtn: "📥 Stáhnout",
       filterAll: "Vše", moduleLabel: "Modul",
+      filterLabels: ["Plán hodiny", "Průvodce workshopem", "Karty aktivit", "Samostudium", "Hodnocení"],
+      resources: [
+        { title: "Plán hodiny: Úvod do nenávistného projevu", desc: "Kompletní 90minutový plán hodiny pro středoškoláky (14–18 let). Obsahuje diskusní podněty, video odkazy a skupinové aktivity.", type: "Plán hodiny", tags: ["14–18 let", "90 min", "Skupinová práce"] },
+        { title: "Plán hodiny: Rozpoznávání kódované nenávisti", desc: "Lekce zaměřená na dog whistles, memy a kódovaný jazyk. Zahrnuje cvičení analýzy obrázků a rámec třídní diskuse.", type: "Plán hodiny", tags: ["16+ let", "60 min", "Kritické myšlení"] },
+        { title: "Průvodce workshopem: Sezení SpeakUP", desc: "Kompletní průvodce facilitací pro 3hodinové komunitní workshopy SpeakUP. Obsahuje icebreakery, aktivity, otázky k debriefingu a bezpečnostní protokoly.", type: "Průvodce workshopem", tags: ["3 hodiny", "Facilitace", "Komunita"] },
+        { title: "Scénářové karty: Co byste udělal/a?", desc: "48 tisknutelných scénářových karet zobrazujících online situace od explicitního po subtilní nenávistný projev. Použijte pro diskusi, debatu nebo hraní rolí.", type: "Karty aktivit", tags: ["Tisknutelné", "Diskuse", "14+ let"] },
+        { title: "Průvodce samostudiem pro pedagogy", desc: "Průvodce profesním rozvojem pro učitele a pedagogy k vybudování vlastního porozumění před vedením sezení SpeakUP.", type: "Samostudium", tags: ["Profesní rozvoj", "Vlastní tempo", "Profesionalita"] },
+        { title: "Šablony hodnocení a evaluace", desc: "Nástroje hodnocení před a po sezení pro měření pokroku studentů, změn postojů a jistoty v reagování na online nenávist.", type: "Hodnocení", tags: ["Evaluace", "Dopad", "Monitoring"] },
+      ],
       faqTitle: "Nejčastější dotazy",
+      faqs: [
+        { q: "Musím být odborníkem na nenávistné projevy, abych mohl/a vést SpeakUP?", a: "Ne. Naše materiály jsou navrženy pro pedagogy, kteří nejsou specialisté. Průvodce samostudiem vás připraví na sebevědomé facilitování. Nabízíme také volitelná online školení." },
+        { q: "Pro jaké věkové skupiny jsou materiály vhodné?", a: "Naše základní materiály cílí na věk 15–25 let. Některé plány hodin jsou přizpůsobeny pro 14+ let a některé pro vysokoškolské vzdělávání. Každý zdroj jasně uvádí doporučený věkový rozsah." },
+        { q: "Jsou materiály dostupné v jiných jazycích než angličtina?", a: "Ano. Všechny základní materiály jsou dostupné v angličtině, polštině, rumunštině, češtině a estonštině. Některé doplňkové zdroje jsou dostupné v angličtině a polštině." },
+        { q: "Jak mohu získat odznáček nebo uznání pro svou školu/organizaci?", a: "Školy a organizace, které dokončí školení SpeakUP, mohou zažádat o Odznáček partnera SpeakUP. Kontaktujte nás prostřednictvím kontaktního formuláře pro více informací." },
+        { q: "Je k dispozici podpora při vedení sezení?", a: "Ano. Můžete přistupovat k fóru komunity pedagogů (vyžadována registrace) a kontaktovat projektového partnera ve vaší zemi pro poradenství." },
+      ],
       joinTitle: "Připojte se ke komunitě pedagogů", joinSub: "Spojte se s pedagogy z Polska, Estonska, České republiky a Rumunska.",
       requestAccessBtn: "Požádat o přístup", previewBtn: "Prohlédnout všechny moduly",
     },
@@ -825,14 +922,37 @@ export const translations: Record<Locale, {
     },
     educatorsPage: {
       badge: "👩‍🏫 Õpetajate valdkond", title: "Vahendid õpetajatele, kes soovivad muutust luua", sub: "Tasuta tunnikavad, töötoa juhendid ja professionaalse arengu ressursid.",
-      heroStats: ["Tasuta ressursid", "Keeled", "Tegevuskaardid", "Alati"],
+      heroStats: ["Tasuta ressursid", "Keeled", "Tegevuskaardid", "Alati"], heroStatValues: ["6+", "5", "48", "Tasuta"],
+      audience: [
+        { label: "Keskkooli õpetajad", desc: "14–18-aastaste klassid" },
+        { label: "Kõrgkooli lektorid", desc: "Ülikooli ja kolledži kontekstid" },
+        { label: "Noorsootöötajad ja MTÜ-d", desc: "Kogukondlik ja mitteformaalne haridus" },
+        { label: "Kogukonna fasilitaatorid", desc: "Kodaniku- ja munitsipaalse kontekstid" },
+      ],
       curriculumLabel: "Valmis õppekava", curriculumTitle: "6 moodulit — valmis kasutamiseks teie klassiruumis",
       curriculumSub: "Iga moodul sisaldab tunnikavasid, juhendeid, slaidikavasid ja hindamisvahendeid.",
       curriculumDesc1: "Iga SpeakUP moodul sisaldab tunnipappi ja abimaterjale.",
       curriculumDesc2: "Kõik moodulid on mõeldud u. 60–90 minutiks ning sisaldavad arutlusküsimusi ja viktoriini.",
+      moduleTitles: ["Mis on veebis leviv vaenukõne?", "Vaenukõne tuvastamine veebis", "Ohutu reageerimine", "Teatamine ja enda kaitsmine", "Vastunäitluste loomine", "Digitaalne kodakondsus ja õigused"],
       resourceLibLabel: "Ressursside raamatukogu", resourceLibTitle: "Laadige alla tasuta pedagoogilised materjalid", downloadBtn: "📥 Laadi alla",
       filterAll: "Kõik", moduleLabel: "Moodul",
+      filterLabels: ["Tunnikava", "Töötoa juhend", "Tegevuskaardid", "Iseõpe", "Hindamine"],
+      resources: [
+        { title: "Tunnikava: Sissejuhatus vaenukõnesse", desc: "Täielik 90-minutiline tunnikava keskkooliõpilastele (14–18 a.). Sisaldab aruteluküsimusi, videolinke ja rühmatööd.", type: "Tunnikava", tags: ["14–18 a.", "90 min", "Rühmatöö"] },
+        { title: "Tunnikava: Kodeeritud vihkamise tuvastamine", desc: "Tund, mis keskendub dog whistlitele, meemidele ja kodeeritud keelele. Sisaldab pildianalüüsi harjutusi ja klassiarutelu raamistikku.", type: "Tunnikava", tags: ["16+ a.", "60 min", "Kriitiline mõtlemine"] },
+        { title: "Töötoa juhend: SpeakUP sessioonid", desc: "Täielik fasiliteerimise juhend 3-tunniste SpeakUP kogukonna töötubade läbiviimiseks. Sisaldab jäämurdjaid, tegevusi, kokkuvõtteküsimusi ja ohutusprotokollid.", type: "Töötoa juhend", tags: ["3 tundi", "Fasiliteerimine", "Kogukond"] },
+        { title: "Stsenaariumikaardid: Mida teeksite?", desc: "48 prinditavat stsenaariumikaarti, mis kujutavad veebisituatsioone alates ilmsest kuni peenest vaenukõnest. Kasutage aruteluks, väitluseks või rollimänguks.", type: "Tegevuskaardid", tags: ["Prinditav", "Arutelu", "14+ a."] },
+        { title: "Pedagoogi iseõppe juhend", desc: "Professionaalse arengu juhend õpetajatele ja pedagoogidele oma arusaamise ülesehitamiseks enne SpeakUP sessioonide läbiviimist.", type: "Iseõpe", tags: ["Professionaalne areng", "Omas tempos", "Professionaalsus"] },
+        { title: "Hindamise ja evalvatsiooni mallid", desc: "Sessiooni-eelsed ja -järgsed hindamisvahendid õpilaste õppimise, hoiakute muutuste ja veebis vaenukõnele reageerimise enesekindluse mõõtmiseks.", type: "Hindamine", tags: ["Evalvatsioon", "Mõju", "Seire"] },
+      ],
       faqTitle: "Korduma kippuvad küsimused",
+      faqs: [
+        { q: "Kas ma pean olema vaenukõne ekspert, et SpeakUP-i läbi viia?", a: "Ei. Meie materjalid on loodud pedagoogidele, kes ei ole spetsialistid. Iseõppe juhend valmistab teid enesekindlaks fasiliteerimiseks. Pakume ka valikulisi veebipõhiseid koolitusi." },
+        { q: "Millistele vanusegruppidele materjalid sobivad?", a: "Meie põhimaterjalid on suunatud 15–25-aastastele. Mõned tunnikavad on kohandatud 14+ vanusele ja mõned kõrgharidusele. Iga ressurss näitab selgelt soovitatud vanusevahemikku." },
+        { q: "Kas materjalid on saadaval ka muudes keeltes peale inglise keele?", a: "Jah. Kõik põhimaterjalid on saadaval inglise, poola, rumeenia, tšehhi ja eesti keeles. Mõned lisamaterjalid on saadaval inglise ja poola keeles." },
+        { q: "Kuidas saada oma koolile/organisatsioonile tunnusmärki?", a: "Koolid ja organisatsioonid, kes läbivad SpeakUP koolituse, saavad taotleda SpeakUP partnermärki. Võtke meiega ühendust kontaktvormi kaudu lisateabe saamiseks." },
+        { q: "Kas sessioonide läbiviimisel on tugi saadaval?", a: "Jah. Saate juurdepääsu pedagoogide kogukonna foorumile (nõuab registreerimist) ja saate ühendust võtta oma riigi projektipartneriga juhenduse saamiseks." },
+      ],
       joinTitle: "Liitu pedagoogide kogukonnaga", joinSub: "Ühendage end pedagoogidega Poolast, Eestist, Tšehhi Vabariigist ja Rumeeniast.",
       requestAccessBtn: "Taotle juurdepääsu", previewBtn: "Vaata kõiki mooduleid",
     },

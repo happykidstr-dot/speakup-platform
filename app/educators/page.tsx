@@ -5,69 +5,30 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const resources = [
-  {
-    icon: "📝", title: "Lesson Plan: Introduction to Hate Speech",
-    desc: "A complete 90-minute lesson plan for secondary students (ages 14–18). Includes discussion prompts, video links, and group activities.",
-    type: "Lesson Plan", pages: "12 pages", level: "Secondary", lang: "EN / PL / RO / CZ / ET",
-    color: "rgb(13,110,253)", tags: ["Ages 14–18", "90 min", "Group work"],
-  },
-  {
-    icon: "📝", title: "Lesson Plan: Recognising Coded Hate",
-    desc: "Focused lesson on dog whistles, memes, and coded language. Includes image analysis exercises and class discussion framework.",
-    type: "Lesson Plan", pages: "10 pages", level: "Secondary/Higher", lang: "EN / PL / RO",
-    color: "rgb(13,110,253)", tags: ["Ages 16+", "60 min", "Critical thinking"],
-  },
-  {
-    icon: "🎪", title: "Workshop Guide: SpeakUP Sessions",
-    desc: "A full facilitation guide for running 3-hour SpeakUP community workshops. Includes icebreakers, activities, debrief prompts, and safety protocols.",
-    type: "Workshop Guide", pages: "24 pages", level: "All levels", lang: "EN / PL / RO / CZ / ET",
-    color: "rgb(16,185,129)", tags: ["3 hours", "Facilitation", "Community"],
-  },
-  {
-    icon: "🃏", title: "Scenario Cards: What Would You Do?",
-    desc: "48 printable scenario cards depicting online situations ranging from explicit to subtle hate speech. Use for discussion, debate, or role-play.",
-    type: "Activity Cards", pages: "48 cards", level: "Secondary+", lang: "EN / PL",
-    color: "rgb(245,158,11)", tags: ["Printable", "Discussion", "Ages 14+"],
-  },
-  {
-    icon: "🎓", title: "Educator Self-Study Guide",
-    desc: "A professional development guide for teachers and educators to build their own understanding before delivering SpeakUP sessions.",
-    type: "Self-Study", pages: "32 pages", level: "Educator", lang: "EN",
-    color: "rgb(139,92,246)", tags: ["CPD", "Self-paced", "Professional dev"],
-  },
-  {
-    icon: "📊", title: "Assessment & Evaluation Templates",
-    desc: "Pre- and post-session assessment tools to measure student learning, attitude shifts, and confidence in responding to online hate.",
-    type: "Assessment", pages: "8 templates", level: "All", lang: "EN / PL / RO",
-    color: "rgb(239,68,68)", tags: ["Evaluation", "Impact", "Monitoring"],
-  },
+const resourceMeta = [
+  { icon: "📝", pages: "12 pages", level: "Secondary", lang: "EN / PL / RO / CZ / ET", color: "rgb(13,110,253)" },
+  { icon: "📝", pages: "10 pages", level: "Secondary/Higher", lang: "EN / PL / RO", color: "rgb(13,110,253)" },
+  { icon: "🎪", pages: "24 pages", level: "All levels", lang: "EN / PL / RO / CZ / ET", color: "rgb(16,185,129)" },
+  { icon: "🃏", pages: "48 cards", level: "Secondary+", lang: "EN / PL", color: "rgb(245,158,11)" },
+  { icon: "🎓", pages: "32 pages", level: "Educator", lang: "EN", color: "rgb(139,92,246)" },
+  { icon: "📊", pages: "8 templates", level: "All", lang: "EN / PL / RO", color: "rgb(239,68,68)" },
 ];
 
-const moduleLinks = [
-  { num: "01", topic: "What is Online Hate Speech?", icon: "💬", color: "rgb(13,110,253)" },
-  { num: "02", topic: "Recognising Hate Online", icon: "🔍", color: "rgb(245,158,11)" },
-  { num: "03", topic: "Responding Safely", icon: "🛡️", color: "rgb(16,185,129)" },
-  { num: "04", topic: "Reporting & Protecting Yourself", icon: "📣", color: "rgb(239,68,68)" },
-  { num: "05", topic: "Creating Counter-Narratives", icon: "✏️", color: "rgb(139,92,246)" },
-  { num: "06", topic: "Digital Citizenship & Rights", icon: "⚖️", color: "rgb(0,51,153)" },
+const moduleIcons = ["💬", "🔍", "🛡️", "📣", "✏️", "⚖️"];
+const moduleColors = [
+  "rgb(13,110,253)", "rgb(245,158,11)", "rgb(16,185,129)",
+  "rgb(239,68,68)", "rgb(139,92,246)", "rgb(0,51,153)",
 ];
-
-const faqs = [
-  { q: "Do I need to be an expert on hate speech to deliver SpeakUP?", a: "No. Our materials are designed for educators who are not specialists. The Educator Self-Study Guide prepares you to facilitate confidently. We also offer optional online training sessions." },
-  { q: "What age groups are the materials suitable for?", a: "Our core materials target ages 15–25. Some lesson plans are adapted for ages 14+ and some for higher education. Each resource clearly states the recommended age range." },
-  { q: "Are the materials available in languages other than English?", a: "Yes. All core materials are available in English, Polish, Romanian, Czech, and Estonian. Some supplementary resources are available in English and Polish." },
-  { q: "How do I get a badge or acknowledgement for my school/organisation?", a: "Schools and organisations that complete SpeakUP training can apply for a SpeakUP Partner Badge. Contact us via the contact form for more information." },
-  { q: "Is there support available when running sessions?", a: "Yes. You can access the educator community forum (registration required) and contact the project partner in your country for guidance." },
-];
+const audienceIcons = ["🏫", "🎓", "🌱", "🏛️"];
 
 export default function EducatorsPage() {
   const { t } = useLanguage();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [filter, setFilter] = useState<string | null>(null);
+  const [filterIdx, setFilterIdx] = useState<number | null>(null);
 
-  const filtered = !filter ? resources : resources.filter((r) => r.type === filter);
-
+  const filtered = filterIdx === null
+    ? t.educatorsPage.resources
+    : t.educatorsPage.resources.filter((r) => r.type === t.educatorsPage.filterLabels[filterIdx]);
 
   return (
     <>
@@ -98,15 +59,10 @@ export default function EducatorsPage() {
               {t.educatorsPage.sub}
             </p>
             <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-              {[
-                { val: "6+", label: t.educatorsPage.heroStats[0] },
-                { val: "5", label: t.educatorsPage.heroStats[1] },
-                { val: "48", label: t.educatorsPage.heroStats[2] },
-                { val: "Free", label: t.educatorsPage.heroStats[3] },
-              ].map((s) => (
-                <div key={s.label}>
-                  <div style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>{s.val}</div>
-                  <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{s.label}</div>
+              {t.educatorsPage.heroStats.map((label, i) => (
+                <div key={label}>
+                  <div style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>{t.educatorsPage.heroStatValues[i]}</div>
+                  <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.55)", textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</div>
                 </div>
               ))}
             </div>
@@ -117,18 +73,13 @@ export default function EducatorsPage() {
         <section className="section-sm" style={{ background: "rgb(var(--color-surface-2))", borderBottom: "1px solid rgb(var(--color-border))" }}>
           <div className="container">
             <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap", justifyContent: "center" }}>
-              {[
-                { icon: "🏫", label: "Secondary School Teachers", desc: "Ages 14–18 classroom settings" },
-                { icon: "🎓", label: "Higher Education Lecturers", desc: "University and college contexts" },
-                { icon: "🌱", label: "Youth Workers & NGOs", desc: "Community and informal education" },
-                { icon: "🏛️", label: "Community Facilitators", desc: "Civic and municipal contexts" },
-              ].map((a) => (
+              {t.educatorsPage.audience.map((a, i) => (
                 <div key={a.label} style={{
                   background: "white", border: "1px solid rgb(var(--color-border))",
                   borderRadius: "var(--radius-md)", padding: "1.25rem 1.5rem",
                   display: "flex", alignItems: "center", gap: "0.75rem", minWidth: 240,
                 }}>
-                  <span style={{ fontSize: "1.5rem" }}>{a.icon}</span>
+                  <span style={{ fontSize: "1.5rem" }}>{audienceIcons[i]}</span>
                   <div>
                     <div style={{ fontWeight: 700, fontSize: "0.9rem" }}>{a.label}</div>
                     <div style={{ fontSize: "0.78rem", color: "rgb(var(--color-text-muted))" }}>{a.desc}</div>
@@ -162,37 +113,42 @@ export default function EducatorsPage() {
                 </div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-                {moduleLinks.map((m) => (
-                  <Link key={m.num} href={`/learn/modules/${m.num}`} style={{ textDecoration: "none" }}>
-                    <div style={{
-                      background: "white", border: "1px solid rgb(var(--color-border))",
-                      borderRadius: "var(--radius-md)", padding: "0.875rem 1.25rem",
-                      display: "flex", alignItems: "center", gap: "1rem",
-                      transition: "all 0.2s",
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor = m.color;
-                      (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-sm)";
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.borderColor = "rgb(var(--color-border))";
-                      (e.currentTarget as HTMLElement).style.boxShadow = "none";
-                    }}>
+                {t.educatorsPage.moduleTitles.map((topic, i) => {
+                  const num = String(i + 1).padStart(2, "0");
+                  const color = moduleColors[i];
+                  const icon = moduleIcons[i];
+                  return (
+                    <Link key={num} href={`/learn/modules/${num}`} style={{ textDecoration: "none" }}>
                       <div style={{
-                        width: 40, height: 40, borderRadius: "10px", flexShrink: 0,
-                        background: m.color + "15", border: `1.5px solid ${m.color}30`,
-                        display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem",
-                      }}>{m.icon}</div>
-                      <div style={{ flex: 1 }}>
-                        <span style={{
-                          fontSize: "0.7rem", fontWeight: 700, color: m.color, textTransform: "uppercase",
-                        }}>{t.educatorsPage.moduleLabel} {m.num}</span>
-                        <div style={{ fontWeight: 600, fontSize: "0.88rem", color: "rgb(var(--color-text))" }}>{m.topic}</div>
+                        background: "white", border: "1px solid rgb(var(--color-border))",
+                        borderRadius: "var(--radius-md)", padding: "0.875rem 1.25rem",
+                        display: "flex", alignItems: "center", gap: "1rem",
+                        transition: "all 0.2s",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = color;
+                        (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow-sm)";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.currentTarget as HTMLElement).style.borderColor = "rgb(var(--color-border))";
+                        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+                      }}>
+                        <div style={{
+                          width: 40, height: 40, borderRadius: "10px", flexShrink: 0,
+                          background: color + "15", border: `1.5px solid ${color}30`,
+                          display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1.1rem",
+                        }}>{icon}</div>
+                        <div style={{ flex: 1 }}>
+                          <span style={{
+                            fontSize: "0.7rem", fontWeight: 700, color: color, textTransform: "uppercase",
+                          }}>{t.educatorsPage.moduleLabel} {num}</span>
+                          <div style={{ fontWeight: 600, fontSize: "0.88rem", color: "rgb(var(--color-text))" }}>{topic}</div>
+                        </div>
+                        <span style={{ color: color, fontSize: "0.85rem", fontWeight: 700 }}>→</span>
                       </div>
-                      <span style={{ color: m.color, fontSize: "0.85rem", fontWeight: 700 }}>→</span>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -213,58 +169,67 @@ export default function EducatorsPage() {
 
             {/* Type filter */}
             <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap", justifyContent: "center", marginBottom: "2rem" }}>
-              {[{ label: t.educatorsPage.filterAll, value: null }, ...[
-                "Lesson Plan", "Workshop Guide", "Activity Cards", "Self-Study", "Assessment"
-              ].map((s) => ({ label: s, value: s }))].map(({ label, value }) => (
-                <button key={label} onClick={() => setFilter(value)} style={{
+              <button onClick={() => setFilterIdx(null)} style={{
+                padding: "0.4rem 1rem", borderRadius: "999px", border: "1.5px solid",
+                borderColor: filterIdx === null ? "rgb(13,110,253)" : "rgb(var(--color-border))",
+                background: filterIdx === null ? "rgba(13,110,253,0.08)" : "white",
+                color: filterIdx === null ? "rgb(13,110,253)" : "rgb(var(--color-text-muted))",
+                fontWeight: 600, fontSize: "0.82rem", cursor: "pointer", transition: "all 0.2s",
+              }}>{t.educatorsPage.filterAll}</button>
+              {t.educatorsPage.filterLabels.map((label, i) => (
+                <button key={label} onClick={() => setFilterIdx(i)} style={{
                   padding: "0.4rem 1rem", borderRadius: "999px", border: "1.5px solid",
-                  borderColor: filter === value ? "rgb(13,110,253)" : "rgb(var(--color-border))",
-                  background: filter === value ? "rgba(13,110,253,0.08)" : "white",
-                  color: filter === value ? "rgb(13,110,253)" : "rgb(var(--color-text-muted))",
+                  borderColor: filterIdx === i ? "rgb(13,110,253)" : "rgb(var(--color-border))",
+                  background: filterIdx === i ? "rgba(13,110,253,0.08)" : "white",
+                  color: filterIdx === i ? "rgb(13,110,253)" : "rgb(var(--color-text-muted))",
                   fontWeight: 600, fontSize: "0.82rem", cursor: "pointer", transition: "all 0.2s",
                 }}>{label}</button>
               ))}
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-              {filtered.map((r) => (
-                <div key={r.title} style={{
-                  background: "white", border: "1px solid rgb(var(--color-border))",
-                  borderRadius: "var(--radius-lg)", padding: "1.75rem",
-                  borderTop: `4px solid ${r.color}`,
-                  display: "flex", flexDirection: "column",
-                }}>
-                  <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{r.icon}</div>
-                  <div style={{ marginBottom: "0.35rem" }}>
-                    <span style={{
-                      background: r.color + "15", color: r.color,
-                      borderRadius: "999px", padding: "0.15rem 0.65rem",
-                      fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase",
-                    }}>{r.type}</span>
-                  </div>
-                  <h3 style={{ fontSize: "0.95rem", margin: "0.5rem 0" }}>{r.title}</h3>
-                  <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6, flex: 1, marginBottom: "1rem" }}>{r.desc}</p>
-                  <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1rem" }}>
-                    {r.tags.map((tag) => (
-                      <span key={tag} style={{
-                        background: "rgb(var(--color-surface-2))", border: "1px solid rgb(var(--color-border))",
-                        borderRadius: "999px", padding: "0.15rem 0.55rem",
-                        fontSize: "0.68rem", color: "rgb(var(--color-text-muted))", fontWeight: 500,
-                      }}>{tag}</span>
-                    ))}
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgb(var(--color-border))", paddingTop: "0.75rem" }}>
-                    <div>
-                      <div style={{ fontSize: "0.72rem", color: "rgb(var(--color-text-muted))" }}>{r.pages} · {r.lang}</div>
+              {filtered.map((r, idx) => {
+                const originalIdx = t.educatorsPage.resources.indexOf(r);
+                const meta = resourceMeta[originalIdx] || resourceMeta[0];
+                return (
+                  <div key={r.title} style={{
+                    background: "white", border: "1px solid rgb(var(--color-border))",
+                    borderRadius: "var(--radius-lg)", padding: "1.75rem",
+                    borderTop: `4px solid ${meta.color}`,
+                    display: "flex", flexDirection: "column",
+                  }}>
+                    <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{meta.icon}</div>
+                    <div style={{ marginBottom: "0.35rem" }}>
+                      <span style={{
+                        background: meta.color + "15", color: meta.color,
+                        borderRadius: "999px", padding: "0.15rem 0.65rem",
+                        fontSize: "0.68rem", fontWeight: 700, textTransform: "uppercase",
+                      }}>{r.type}</span>
                     </div>
-                    <button style={{
-                      background: r.color, color: "white", border: "none",
-                      borderRadius: "999px", padding: "0.4rem 1rem",
-                      fontSize: "0.8rem", fontWeight: 700, cursor: "pointer",
-                    }}>{t.educatorsPage.downloadBtn}</button>
+                    <h3 style={{ fontSize: "0.95rem", margin: "0.5rem 0" }}>{r.title}</h3>
+                    <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6, flex: 1, marginBottom: "1rem" }}>{r.desc}</p>
+                    <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap", marginBottom: "1rem" }}>
+                      {r.tags.map((tag) => (
+                        <span key={tag} style={{
+                          background: "rgb(var(--color-surface-2))", border: "1px solid rgb(var(--color-border))",
+                          borderRadius: "999px", padding: "0.15rem 0.55rem",
+                          fontSize: "0.68rem", color: "rgb(var(--color-text-muted))", fontWeight: 500,
+                        }}>{tag}</span>
+                      ))}
+                    </div>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: "1px solid rgb(var(--color-border))", paddingTop: "0.75rem" }}>
+                      <div>
+                        <div style={{ fontSize: "0.72rem", color: "rgb(var(--color-text-muted))" }}>{meta.pages} · {meta.lang}</div>
+                      </div>
+                      <button style={{
+                        background: meta.color, color: "white", border: "none",
+                        borderRadius: "999px", padding: "0.4rem 1rem",
+                        fontSize: "0.8rem", fontWeight: 700, cursor: "pointer",
+                      }}>{t.educatorsPage.downloadBtn}</button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -276,7 +241,7 @@ export default function EducatorsPage() {
               <h2>{t.educatorsPage.faqTitle}</h2>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-              {faqs.map((faq, i) => (
+              {t.educatorsPage.faqs.map((faq, i) => (
                 <div key={i} style={{
                   background: "white", border: "1px solid rgb(var(--color-border))",
                   borderRadius: "var(--radius-md)", overflow: "hidden",
