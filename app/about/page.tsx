@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const partners = [
   {
@@ -72,6 +73,7 @@ const timeline = [
 ];
 
 export default function AboutPage() {
+  const { t } = useLanguage();
   return (
     <>
       <Navbar />
@@ -88,12 +90,12 @@ export default function AboutPage() {
               border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>🇪🇺 CERV Project · 2024–2026</span>
+            }}>{t.aboutPage.badge}</span>
             <h1 style={{ color: "white", marginBottom: "1rem", maxWidth: "700px" }}>
-              About SpeakUP against Hate
+              {t.aboutPage.title}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "620px", lineHeight: 1.7 }}>
-              A 24-month transnational project funded by the European Union's CERV programme, bringing together 5 organisations across 4 countries to combat online hate speech through education, toolkits, and community action.
+              {t.aboutPage.sub}
             </p>
           </div>
         </section>

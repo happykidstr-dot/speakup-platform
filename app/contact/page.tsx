@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const contactReasons = [
   { value: "general", label: "General Enquiry", icon: "💬" },
@@ -22,6 +23,7 @@ const partners = [
 ];
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [form, setForm] = useState({
     name: "", email: "", organisation: "", country: "", reason: "", message: "", consent: false,
   });
@@ -67,10 +69,10 @@ export default function ContactPage() {
               border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>✉️ Get in Touch</span>
-            <h1 style={{ color: "white", marginBottom: "1rem" }}>Contact Us</h1>
+            }}>{t.contactPage.badge}</span>
+            <h1 style={{ color: "white", marginBottom: "1rem" }}>{t.contactPage.title}</h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "520px", lineHeight: 1.7 }}>
-              Questions, partnerships, media enquiries, or safeguarding concerns — we're here to help. We aim to respond within 3 working days.
+              {t.contactPage.sub}
             </p>
           </div>
         </section>
@@ -184,7 +186,7 @@ export default function ContactPage() {
                     borderRadius: "var(--radius-xl)", padding: "3.5rem 2rem", textAlign: "center",
                   }}>
                     <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>✅</div>
-                    <h2 style={{ color: "rgb(16,185,129)", marginBottom: "0.75rem" }}>Message Sent!</h2>
+                    <h2 style={{ color: "rgb(16,185,129)", marginBottom: "0.75rem" }}>{t.contactPage.success}</h2>
                     <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.7, marginBottom: "1.5rem" }}>
                       Thank you, <strong>{form.name}</strong>. We've received your message and will get back to you at <strong>{form.email}</strong> within 3 working days.
                     </p>
@@ -345,7 +347,7 @@ export default function ContactPage() {
                         boxShadow: form.consent ? "0 4px 14px rgba(13,110,253,0.35)" : "none",
                         transition: "all 0.2s",
                       }}>
-                        {status === "sending" ? "⏳ Sending..." : "📨 Send Message"}
+                        {status === "sending" ? t.contactPage.sending : t.contactPage.send}
                       </button>
 
                       <p style={{ fontSize: "0.75rem", color: "rgb(var(--color-text-muted))", textAlign: "center" }}>

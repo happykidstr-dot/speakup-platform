@@ -2,6 +2,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const modules = [
   {
@@ -73,6 +74,7 @@ const modules = [
 ];
 
 export default function LearnPage() {
+  const { t } = useLanguage();
   return (
     <>
       <Navbar />
@@ -91,10 +93,14 @@ export default function LearnPage() {
               border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>📚 Youth Learning Area</span>
-            <h1 style={{ color: "white", marginBottom: "1rem" }}>6 Free Modules.<br />5 Languages.</h1>
+            }}>{t.learnPage.badge}</span>
+            <h1 style={{ color: "white", marginBottom: "1rem" }}>
+              {t.learnPage.title.split("\n").map((line, i) => (
+                <span key={i}>{line}{i === 0 && <br />}</span>
+              ))}
+            </h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "560px", lineHeight: 1.7 }}>
-              Your step-by-step guide to understanding, recognising, and countering online hate speech — built for young people across Europe.
+              {t.learnPage.sub}
             </p>
             <div style={{ display: "flex", gap: "2rem", marginTop: "2rem", flexWrap: "wrap" }}>
               {[

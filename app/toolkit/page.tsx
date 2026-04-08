@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const toolkitItems = [
   { icon: "📘", title: "Full Toolkit (PDF)", desc: "Complete SpeakUP toolkit — theory, exercises, facilitator notes. Available in 5 languages.", type: "Download", size: "4.2 MB", tag: "All languages" },
@@ -19,6 +20,7 @@ const scenarios = [
 ];
 
 export default function ToolkitPage() {
+  const { t } = useLanguage();
   const [demoStep, setDemoStep] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
@@ -45,12 +47,12 @@ export default function ToolkitPage() {
               border: "1px solid rgba(139,92,246,0.4)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>🤖 Educational AI Tool</span>
+            }}>{t.toolkitPage.badge}</span>
             <h1 style={{ color: "white", marginBottom: "1rem", maxWidth: "660px" }}>
-              Toolkit & AI Hate Speech Awareness Tool
+              {t.toolkitPage.title}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "580px", lineHeight: 1.7, marginBottom: "2rem" }}>
-              Download our evidence-based toolkit and explore our AI-powered educational tool — designed to help you recognise patterns of online hate speech in a safe, guided environment.
+              {t.toolkitPage.sub}
             </p>
             <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
               <a href="#ai-tool" className="btn btn-lg" style={{

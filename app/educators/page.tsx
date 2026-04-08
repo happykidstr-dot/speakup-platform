@@ -3,6 +3,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const resources = [
   {
@@ -61,6 +62,7 @@ const faqs = [
 ];
 
 export default function EducatorsPage() {
+  const { t } = useLanguage();
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [filter, setFilter] = useState("All");
 
@@ -88,12 +90,12 @@ export default function EducatorsPage() {
               border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>👩‍🏫 Educator Area</span>
+            }}>{t.educatorsPage.badge}</span>
             <h1 style={{ color: "white", marginBottom: "1rem", maxWidth: "700px" }}>
-              Tools for Educators Who Want to Make a Difference
+              {t.educatorsPage.title}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "580px", lineHeight: 1.7, marginBottom: "2rem" }}>
-              Free lesson plans, workshop guides, and professional development resources to bring hate speech education into your classroom, youth group, or community setting.
+              {t.educatorsPage.sub}
             </p>
             <div style={{ display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
               {[

@@ -3,6 +3,8 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 const signatories = [
   { name: "Ana Kovács", city: "Budapest", country: "Hungary", flag: "🇭🇺", date: "2026-04-01" },
@@ -47,10 +49,12 @@ const stories = [
 ];
 
 export default function CommunityPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: "", email: "", city: "", country: "", role: "", consent: false, display: false });
   const [submitted, setSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState<"pact" | "actions" | "stories">("pact");
   const [localSignatories, setLocalSignatories] = useState(signatories);
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,12 +101,12 @@ export default function CommunityPage() {
               border: "1px solid rgba(16,185,129,0.4)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-            }}>✊ Community Actions</span>
+            }}>{t.communityPage.badge}</span>
             <h1 style={{ color: "white", marginBottom: "1rem", maxWidth: "680px" }}>
-              Together We Can Make Online Spaces Safer
+              {t.communityPage.title}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.8)", fontSize: "1.1rem", maxWidth: "580px", lineHeight: 1.7 }}>
-              Sign the Anti-Hate Pact. Take community actions. Share your story. Be part of a Europe-wide movement against online hate.
+              {t.communityPage.sub}
             </p>
             <div style={{ display: "flex", gap: "1.5rem", marginTop: "2rem", flexWrap: "wrap" }}>
               {[
@@ -123,9 +127,9 @@ export default function CommunityPage() {
         {/* Tab Navigation */}
         <div style={{ borderBottom: "1px solid rgb(var(--color-border))", background: "white", position: "sticky", top: "68px", zIndex: 50 }}>
           <div className="container" style={{ display: "flex", gap: "0.5rem", padding: "0.75rem 1.5rem" }}>
-            <button style={tabStyle("pact")} onClick={() => setActiveTab("pact")}>✍️ Sign the Pact</button>
-            <button style={tabStyle("actions")} onClick={() => setActiveTab("actions")}>🎯 Take Action</button>
-            <button style={tabStyle("stories")} onClick={() => setActiveTab("stories")}>💬 Stories</button>
+            <button style={tabStyle("pact")} onClick={() => setActiveTab("pact")}>{t.communityPage.tabPact}</button>
+            <button style={tabStyle("actions")} onClick={() => setActiveTab("actions")}>{t.communityPage.tabActions}</button>
+            <button style={tabStyle("stories")} onClick={() => setActiveTab("stories")}>{t.communityPage.tabStories}</button>
           </div>
         </div>
 
