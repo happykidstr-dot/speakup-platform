@@ -35,7 +35,9 @@ export const translations: Record<Locale, {
     problemPoints: string[]; solutionPoints: string[];
     cervTitle: string; cervDesc: string; cervDisclaimer: string;
     timelineLabel: string; timelineTitle: string;
+    timeline: { phase: string; desc: string }[];
     partnerLabel: string; partnerTitle: string; coordinatorLabel: string;
+    partners: { desc: string; expertise: string[] }[];
     cta: string; ctaLearn: string; ctaCommunity: string; ctaContact: string;
   };
   toolkitPage: {
@@ -44,7 +46,11 @@ export const translations: Record<Locale, {
     revealBtn: string; prevBtn: string; nextBtn: string; startModulesBtn: string;
     exampleOf: string; howCategorise: string; whatCanYouDo: string;
     downloadsLabel: string; downloadsTitle: string; downloadsSub: string; downloadBtn: string;
-    ethicalLabel: string; tryAIBtn: string; downloadToolkitBtn: string;
+    downloads: { title: string; desc: string; tag: string }[];
+    scenarios: { text: string; label: string; explanation: string; advice: string }[];
+    ethicalLabel: string; ethicalDesc: string; ethicalDisclaimer: string;
+    aiToolHeader: string; aiToolSub: string; safeguardingBtn: string; privacyBtn: string;
+    tryAIBtn: string; downloadToolkitBtn: string;
     tryFullBtn: string;
   };
   communityPage: {
@@ -165,7 +171,23 @@ export const translations: Record<Locale, {
       cervDesc: "This project is funded under the CERV (Citizens, Equality, Rights and Values) Programme, Strand 2: Equality, Rights and Gender Equality. The CERV programme promotes and protects EU values, fundamental rights, and democratic participation.",
       cervDisclaimer: "The content of this platform represents the views of the authors only and is their sole responsibility. The European Commission does not accept any responsibility for use that may be made of the information it contains.",
       timelineLabel: "Project Timeline", timelineTitle: "24-Month Implementation Plan",
+      timeline: [
+        { phase: "Kick-off & Foundation", desc: "Project kick-off meeting, team formation, work plan finalisation, platform architecture design, initial target group research." },
+        { phase: "Research & Content Design", desc: "Gap analysis in each partner country, consultation with youth and educators, learning module curriculum development, AI tool specification." },
+        { phase: "Platform Development", desc: "Platform build (Phases 1–4), AI tool development, content creation in all 5 languages, first internal review, youth beta testing." },
+        { phase: "Soft Launch & Testing", desc: "Internal partner review, youth tester group (25 participants), educator tester group (15 participants), bug fixes, accessibility audit." },
+        { phase: "Public Launch", desc: "Full public launch, launch webinar across 5 countries, media outreach, social media campaign activation, first community actions." },
+        { phase: "Scaling & Community", desc: "Community Growth, Anti-Hate Pact campaign, school outreach programme, webinar series, policy brief publications, partner network expansion." },
+        { phase: "Evaluation & Sustainability", desc: "Final impact evaluation, sustainability planning, CMS training for post-project owners, final report, replication package publication." },
+      ],
       partnerLabel: "Project Consortium", partnerTitle: "5 Partners. 4 Countries. One Mission.", coordinatorLabel: "Coordinator",
+      partners: [
+        { desc: "A Polish foundation specialising in education, development and innovation. As coordinator, FERI leads project management, partner communication and overall quality assurance.", expertise: ["Project Management", "Adult Education", "Innovation"] },
+        { desc: "An Estonian organisation focused on digital skills, eLearning and professional development. Contributes expertise in digital literacy and the Estonian digital society.", expertise: ["Digital Skills", "eLearning", "Digital Society"] },
+        { desc: "A Czech civil society organisation working with youth and communities on reconnection, participation and social inclusion.", expertise: ["Youth Work", "Community Engagement", "Civil Society"] },
+        { desc: "A leading Romanian university providing the academic and research foundation for the project, including evidence-based content development and impact evaluation.", expertise: ["Academic Research", "Evidence Base", "University Networks"] },
+        { desc: "A Polish technology company specialising in AI, cybersecurity and digital tools. Leads the development of the AI-supported hate speech awareness tool.", expertise: ["AI Development", "Cybersecurity", "Digital Tools"] },
+      ],
       cta: "Ready to get involved?", ctaLearn: "📚 Start Learning", ctaCommunity: "🤝 Join the Community", ctaContact: "✉️ Contact Us",
     },
     toolkitPage: {
@@ -176,7 +198,24 @@ export const translations: Record<Locale, {
       exampleOf: "Example", howCategorise: "How would you categorise this content?", whatCanYouDo: "💡 WHAT CAN YOU DO?",
       downloadsLabel: "Free Downloads", downloadsTitle: "Download the SpeakUP Toolkit",
       downloadsSub: "All resources are free, open-access, and licensed for educational use.", downloadBtn: "📥 Download",
-      ethicalLabel: "Ethical & Safe Use", tryAIBtn: "🤖 Try AI Tool Demo", downloadToolkitBtn: "📥 Download Toolkit",
+      downloads: [
+        { title: "Full Toolkit (PDF)", desc: "Complete SpeakUP toolkit — theory, exercises, facilitator notes. Available in 5 languages.", tag: "All languages" },
+        { title: "School Guide", desc: "Step-by-step guide for teachers to use SpeakUP modules in secondary and upper secondary classrooms.", tag: "Educators" },
+        { title: "CSO & NGO Guide", desc: "Practical guide for civil society organisations to run SpeakUP community sessions and workshops.", tag: "Organisations" },
+        { title: "Interactive Exercises", desc: "Printable and digital exercises for each module — scenario cards, debate prompts, recognition activities.", tag: "Youth" },
+      ],
+      scenarios: [
+        { text: "I hate all immigrants. They're ruining our country and should be sent back.", label: "Explicit Hate Speech", explanation: "This contains direct, unambiguous hate speech targeting a group based on national origin.", advice: "Consider using the platform reporting tool. Document the content. Explore counter-narrative strategies in Module 5." },
+        { text: "Why do 'certain people' always complain? You know who I mean 👀", label: "Coded Hate / Dog Whistle", explanation: "This uses coded language that appears neutral on the surface but signals hate to a specific audience.", advice: "Consider using the platform reporting tool. Document the content. Explore counter-narrative strategies in Module 5." },
+        { text: "I totally disagree with this political position — it's damaging for society.", label: "Strong Opinion (Not Hate)", explanation: "This expresses a strong political disagreement but does not target a group based on their identity.", advice: "This is not hate speech — strong opinions are allowed. Continue engaging critically with different views." },
+        { text: "People like them don't belong here. It's just biology.", label: "Pseudoscientific Hate", explanation: "This uses false scientific framing to legitimise exclusion and discrimination.", advice: "Consider using the platform reporting tool. Document the content. Explore counter-narrative strategies in Module 5." },
+      ],
+      ethicalLabel: "Ethical & Safe Use",
+      ethicalDesc: "The SpeakUP AI tool is built on principles of educational ethics, child safeguarding, and GDPR compliance. No user data is stored. The tool does not make autonomous moderation, legal, or enforcement decisions.",
+      ethicalDisclaimer: "Educational purpose only. This AI tool is designed to support hate speech awareness and education. It does not make legal or content moderation decisions.",
+      aiToolHeader: "SpeakUP AI Awareness Tool", aiToolSub: "Educational Demo · GDPR Compliant · No data stored",
+      safeguardingBtn: "🛡️ Safeguarding Policy", privacyBtn: "🔒 Privacy Policy",
+      tryAIBtn: "🤖 Try AI Tool Demo", downloadToolkitBtn: "📥 Download Toolkit",
       tryFullBtn: "Try Full AI Tool →",
     },
     communityPage: {
@@ -342,7 +381,23 @@ export const translations: Record<Locale, {
       cervDesc: "Projekt jest finansowany w ramach Programu CERV (Obywatele, Równość, Prawa i Wartości), Nurt 2: Równość, Prawa i Równość płci. Program CERV promuje i chroni wartości UE.",
       cervDisclaimer: "Treść tej platformy wyraża wyłącznie poglądy autorów i stanowi ich wyłączną odpowiedzialność. Komisja Europejska nie ponosi odpowiedzialności za jakiekolwiek wykorzystanie zawartych tu informacji.",
       timelineLabel: "Harmonogram projektu", timelineTitle: "24-miesięczny plan realizacji",
+      timeline: [
+        { phase: "Inauguracja i podstawy", desc: "Spotkanie inauguracyjne projektu, formowanie zespołu, finalizacja planu pracy, projektowanie architektury platformy, wstępne badania grupy docelowej." },
+        { phase: "Badania i projektowanie treści", desc: "Analiza luk w każdym kraju partnerskim, konsultacje z młodzieżą i edukatorami, opracowanie programu modułów, specyfikacja narzędzia AI." },
+        { phase: "Rozwój platformy", desc: "Budowa platformy (fazy 1–4), rozwój narzędzia AI, tworzenie treści w 5 językach, pierwszy przegląd wewnętrzny, testy beta z młodzieżą." },
+        { phase: "Miękki start i testy", desc: "Wewnętrzny przegląd partnerski, grupa testowa młodzieży (25 uczestników), grupa testowa edukatorów (15 uczestników), poprawki, audyt dostępności." },
+        { phase: "Publiczne uruchomienie", desc: "Pełne publiczne uruchomienie, webinar w 5 krajach, kontakt z mediami, kampania w mediach społecznościowych, pierwsze działania społecznościowe." },
+        { phase: "Skalowanie i społeczność", desc: "Rozwój społeczności, kampania Paktu Antynienawiści, program dotarcia do szkół, serie webinarów, publikacje, ekspansja sieci partnerów." },
+        { phase: "Ewaluacja i trwałość", desc: "Końcowa ewaluacja wpływu, planowanie trwałości, szkolenie CMS, raport końcowy, publikacja pakietu replikacji." },
+      ],
       partnerLabel: "Konsorcjum projektowe", partnerTitle: "5 partnerów. 4 kraje. Jedna misja.", coordinatorLabel: "Koordynator",
+      partners: [
+        { desc: "Polska fundacja specjalizująca się w edukacji, rozwoju i innowacjach. Jako koordynator prowadzi zarządzanie projektem i zapewnienie jakości.", expertise: ["Zarządzanie projektem", "Edukacja dorosłych", "Innowacje"] },
+        { desc: "Estońska organizacja skupiona na umiejętnościach cyfrowych, e-learningu i rozwoju zawodowym.", expertise: ["Umiejętności cyfrowe", "E-learning", "Społeczeństwo cyfrowe"] },
+        { desc: "Czeska organizacja społeczeństwa obywatelskiego pracująca z młodzieżą nad partycypacją i inkluzją społeczną.", expertise: ["Praca z młodzieżą", "Zaangażowanie społeczne", "Społeczeństwo obywatelskie"] },
+        { desc: "Wiodący rumuński uniwersytet zapewniający akademickie fundamenty projektu, w tym rozwój treści i ewaluację wpływu.", expertise: ["Badania naukowe", "Baza dowodowa", "Sieci uczelni"] },
+        { desc: "Polska firma technologiczna specjalizująca się w AI, cyberbezpieczeństwie i narzędziach cyfrowych.", expertise: ["Rozwój AI", "Cyberbezpieczeństwo", "Narzędzia cyfrowe"] },
+      ],
       cta: "Gotowy/a do zaangażowania?", ctaLearn: "📚 Zacznij naukę", ctaCommunity: "🤝 Dołącz do społeczności", ctaContact: "✉️ Kontakt",
     },
     toolkitPage: {
@@ -353,7 +408,24 @@ export const translations: Record<Locale, {
       exampleOf: "Przykład", howCategorise: "Jak sklasyfikujesz tę treść?", whatCanYouDo: "💡 CO MOŻESZ ZROBIĆ?",
       downloadsLabel: "Bezpłatne pliki", downloadsTitle: "Pobierz Zestaw narzędzi SpeakUP",
       downloadsSub: "Wszystkie zasoby są bezpłatne i licencjonowane do użytku edukacyjnego.", downloadBtn: "📥 Pobierz",
-      ethicalLabel: "Etyczne i bezpieczne użycie", tryAIBtn: "🤖 Wypróbuj demo AI", downloadToolkitBtn: "📥 Pobierz zestaw narzędzi",
+      downloads: [
+        { title: "Pełny zestaw narzędzi (PDF)", desc: "Kompletny zestaw SpeakUP — teoria, ćwiczenia, notatki facylitatora. Dostępny w 5 językach.", tag: "Wszystkie języki" },
+        { title: "Przewodnik szkolny", desc: "Przewodnik krok po kroku do wykorzystania modułów SpeakUP w klasach szkoły średniej.", tag: "Edukatorzy" },
+        { title: "Przewodnik dla NGO", desc: "Praktyczny przewodnik dla organizacji społeczeństwa obywatelskiego do prowadzenia sesji i warsztatów.", tag: "Organizacje" },
+        { title: "Ćwiczenia interaktywne", desc: "Drukowane i cyfrowe ćwiczenia do każdego modułu — karty scenariuszy, debaty, rozpoznawanie.", tag: "Młodzież" },
+      ],
+      scenarios: [
+        { text: "Nienawidzę wszystkich imigrantów. Niszczą nasz kraj i powinni zostać odesłani.", label: "Jawna mowa nienawiści", explanation: "Zawiera bezpośrednią mowę nienawiści skierowaną wobec grupy ze względu na pochodzenie.", advice: "Użyj narzędzia zgłaszania. Udokumentuj treść. Poznaj strategie kontrnarracji w Module 5." },
+        { text: "Dlaczego 'pewne osoby' zawsze narzekają? Wiecie, o kim mówię 👀", label: "Zakodowana nienawiść", explanation: "Używa zakodowanego języka, który na powierzchni wydaje się neutralny, ale sygnalizuje nienawiść.", advice: "Użyj narzędzia zgłaszania. Udokumentuj treść. Poznaj strategie kontrnarracji w Module 5." },
+        { text: "Całkowicie nie zgadzam się z tą pozycją polityczną — jest szkodliwa.", label: "Zdecydowana opinia (nie nienawiść)", explanation: "Wyraża silną niezgodę polityczną, ale nie atakuje grupy ze względu na tożsamość.", advice: "To nie jest mowa nienawiści — silne opinie są dozwolone. Kontynuuj krytyczne zaangażowanie." },
+        { text: "Ludzie tacy jak oni nie pasują tutaj. To po prostu biologia.", label: "Pseudonaukowa nienawiść", explanation: "Używa fałszywych ram naukowych do legitymizowania wykluczenia i dyskryminacji.", advice: "Użyj narzędzia zgłaszania. Udokumentuj treść. Poznaj strategie kontrnarracji w Module 5." },
+      ],
+      ethicalLabel: "Etyczne i bezpieczne użycie",
+      ethicalDesc: "Narzędzie AI SpeakUP opiera się na zasadach etyki edukacyjnej, ochrony dzieci i zgodności z RODO. Żadne dane użytkownika nie są przechowywane.",
+      ethicalDisclaimer: "Wyłącznie cel edukacyjny. To narzędzie AI wspiera świadomość i edukację na temat mowy nienawiści.",
+      aiToolHeader: "Narzędzie AI SpeakUP", aiToolSub: "Demo edukacyjne · Zgodne z RODO · Bez przechowywania danych",
+      safeguardingBtn: "🛡️ Polityka ochrony", privacyBtn: "🔒 Polityka prywatności",
+      tryAIBtn: "🤖 Wypróbuj demo AI", downloadToolkitBtn: "📥 Pobierz zestaw narzędzi",
       tryFullBtn: "Wypróbuj pełne narzędzie AI →",
     },
     communityPage: {
@@ -519,7 +591,23 @@ export const translations: Record<Locale, {
       cervDesc: "Acest proiect este finanțat în cadrul Programului CERV (Cetățeni, Egalitate, Drepturi și Valori).",
       cervDisclaimer: "Conținutul acestei platforme reprezintă viziunile autorilor și este responsabilitatea lor exclusivă.",
       timelineLabel: "Calendarul proiectului", timelineTitle: "Plan de implementare de 24 de luni",
+      timeline: [
+        { phase: "Lansare și fundament", desc: "Întâlnirea de lansare, formarea echipei, finalizarea planului de lucru, designul arhitecturii platformei, cercetarea inițială a grupului țintă." },
+        { phase: "Cercetare și design conținut", desc: "Analiza lacunelor în fiecare țară parteneră, consultare cu tinerii și educatorii, dezvoltarea curriculumului, specificația instrumentului AI." },
+        { phase: "Dezvoltarea platformei", desc: "Construirea platformei (Fazele 1–4), dezvoltarea instrumentului AI, crearea conținutului în 5 limbi, prima revizuire internă, testare beta." },
+        { phase: "Lansare soft și testare", desc: "Revizuire internă, grup de testare tineri (25 participanți), grup de testare educatori (15 participanți), remedieri, audit de accesibilitate." },
+        { phase: "Lansare publică", desc: "Lansare publică completă, webinar în 5 țări, contactarea presei, campanie pe rețele sociale, primele acțiuni comunitare." },
+        { phase: "Scalare și comunitate", desc: "Creșterea comunității, campania Pactului Anti-Ură, programul de sensibilizare în școli, serii de webinare, publicații, extinderea rețelei." },
+        { phase: "Evaluare și sustenabilitate", desc: "Evaluarea finală a impactului, planificarea sustenabilității, formare CMS, raportul final, publicarea pachetului de replicare." },
+      ],
       partnerLabel: "Consorțiul proiectului", partnerTitle: "5 parteneri. 4 țări. O misiune.", coordinatorLabel: "Coordonator",
+      partners: [
+        { desc: "O fundație poloneză specializată în educație, dezvoltare și inovare. Ca coordonator, conduce managementul proiectului și asigurarea calității.", expertise: ["Management de proiect", "Educația adulților", "Inovare"] },
+        { desc: "O organizație estoniană focusată pe competențe digitale, eLearning și dezvoltare profesională.", expertise: ["Competențe digitale", "eLearning", "Societate digitală"] },
+        { desc: "O organizație cehă a societății civile care lucrează cu tinerii pe teme de participare și incluziune socială.", expertise: ["Lucru cu tinerii", "Angajament comunitar", "Societate civilă"] },
+        { desc: "O universitate românească de top care oferă fundamentul academic și de cercetare al proiectului.", expertise: ["Cercetare academică", "Bază de dovezi", "Rețele universitare"] },
+        { desc: "O companie poloneză de tehnologie specializată în AI, securitate cibernetică și instrumente digitale.", expertise: ["Dezvoltare AI", "Securitate cibernetică", "Instrumente digitale"] },
+      ],
       cta: "Ești gata să te implici?", ctaLearn: "📚 Învață", ctaCommunity: "🤝 Comunitate", ctaContact: "✉️ Contact",
     },
     toolkitPage: {
@@ -530,7 +618,24 @@ export const translations: Record<Locale, {
       exampleOf: "Exemplu", howCategorise: "Cum ai clasifica acest conținut?", whatCanYouDo: "💡 CE POȚI FACE?",
       downloadsLabel: "Descărcări gratuite", downloadsTitle: "Descărcați Toolkit-ul SpeakUP",
       downloadsSub: "Toate resursele sunt gratuite și licențiate pentru uz educațional.", downloadBtn: "📥 Descărcă",
-      ethicalLabel: "Utilizare etică și sigură", tryAIBtn: "🤖 Încearcă demonstrația AI", downloadToolkitBtn: "📥 Descărcă Toolkit-ul",
+      downloads: [
+        { title: "Toolkit complet (PDF)", desc: "Toolkit-ul complet SpeakUP — teorie, exerciții, note facilitator. Disponibil în 5 limbi.", tag: "Toate limbile" },
+        { title: "Ghid pentru școli", desc: "Ghid pas cu pas pentru profesori pentru utilizarea modulelor SpeakUP în clase.", tag: "Educatori" },
+        { title: "Ghid pentru ONG-uri", desc: "Ghid practic pentru organizații civile pentru sesiuni și ateliere SpeakUP.", tag: "Organizații" },
+        { title: "Exerciții interactive", desc: "Exerciții printabile și digitale — cărți de scenarii, teme de dezbatere, activități de recunoaștere.", tag: "Tineri" },
+      ],
+      scenarios: [
+        { text: "Urăsc toți imigranții. Ne distrug țara și ar trebui trimiși înapoi.", label: "Discurs de ură explicit", explanation: "Conține discurs de ură direct, vizând un grup pe baza originii naționale.", advice: "Folosește instrumentul de raportare. Documentează conținutul. Explorează strategii de contra-narativ în Modulul 5." },
+        { text: "De ce 'anumite persoane' se plâng mereu? Știți la cine mă refer 👀", label: "Ură codificată", explanation: "Folosește limbaj codificat care pare neutru dar semnalează ura către un public specific.", advice: "Folosește instrumentul de raportare. Documentează conținutul. Explorează strategii de contra-narativ în Modulul 5." },
+        { text: "Nu sunt deloc de acord cu această poziție politică — este dăunătoare.", label: "Opinie fermă (nu ură)", explanation: "Exprimă un dezacord politic puternic, dar nu vizează un grup pe baza identității.", advice: "Acesta nu este discurs de ură — opiniile ferme sunt permise. Continuă dialogul critic." },
+        { text: "Oameni ca ei nu au ce căuta aici. E doar biologie.", label: "Ură pseudoștiințifică", explanation: "Folosește cadre științifice false pentru a legitima excluderea și discriminarea.", advice: "Folosește instrumentul de raportare. Documentează conținutul. Explorează strategii de contra-narativ în Modulul 5." },
+      ],
+      ethicalLabel: "Utilizare etică și sigură",
+      ethicalDesc: "Instrumentul AI SpeakUP este construit pe principii de etică educativă, protecția copilului și conformitate GDPR. Nu se stochează date ale utilizatorilor.",
+      ethicalDisclaimer: "Exclusiv scop educativ. Acest instrument AI sprijină conștientizarea și educația privind discursul de ură.",
+      aiToolHeader: "Instrument AI SpeakUP", aiToolSub: "Demo educativ · Conform GDPR · Fără stocare de date",
+      safeguardingBtn: "🛡️ Politica de protecție", privacyBtn: "🔒 Politica de confidențialitate",
+      tryAIBtn: "🤖 Încearcă demonstrația AI", downloadToolkitBtn: "📥 Descărcă Toolkit-ul",
       tryFullBtn: "Instrumentul AI complet →",
     },
     communityPage: {
@@ -696,7 +801,23 @@ export const translations: Record<Locale, {
       cervDesc: "Tento projekt je financován v rámci programu CERV (Občané, rovnost, práva a hodnoty).",
       cervDisclaimer: "Obsah této platformy představuje výhradně pohledy autorů a je jejich výlučnou zodpovědností.",
       timelineLabel: "Harmonogram projektu", timelineTitle: "24měsíční plán realizace",
+      timeline: [
+        { phase: "Zahájení a základy", desc: "Zahajovací schůzka projektu, formování týmu, finalizace pracovního plánu, návrh architektury platformy, počáteční výzkum cílové skupiny." },
+        { phase: "Výzkum a návrh obsahu", desc: "Analýza mezer v každé partnerské zemi, konzultace s mládeží a pedagogy, vývoj kurikula, specifikace nástroje AI." },
+        { phase: "Vývoj platformy", desc: "Stavba platformy (fáze 1–4), vývoj nástroje AI, tvorba obsahu v 5 jazycích, první interní recenze, beta testování s mládeží." },
+        { phase: "Měkký start a testování", desc: "Interní partnerská recenze, testovací skupina mládeže (25 účastníků), testovací skupina pedagogů (15 účastníků), opravy, audit přístupnosti." },
+        { phase: "Veřejné spuštění", desc: "Plné veřejné spuštění, webinář v 5 zemích, mediální osvěta, kampaň na sociálních sítích, první komunitní akce." },
+        { phase: "Škálování a komunita", desc: "Růst komunity, kampaň Paktu proti nenávisti, program oslovování škol, série webinářů, publikace, rozšíření partnerské sítě." },
+        { phase: "Evaluace a udržitelnost", desc: "Závěrečná evaluace dopadu, plánování udržitelnosti, školení CMS, závěrečná zpráva, publikace replikačního balíčku." },
+      ],
       partnerLabel: "Projektové konsorcium", partnerTitle: "5 partnerů. 4 země. Jedna mise.", coordinatorLabel: "Koordinátor",
+      partners: [
+        { desc: "Polská nadace specializující se na vzdělávání, rozvoj a inovace. Jako koordinátor vede řízení projektu a zajištění kvality.", expertise: ["Řízení projektů", "Vzdělávání dospělých", "Inovace"] },
+        { desc: "Estonská organizace zaměřená na digitální dovednosti, eLearning a profesní rozvoj.", expertise: ["Digitální dovednosti", "eLearning", "Digitální společnost"] },
+        { desc: "Česká organizace občanské společnosti pracující s mládeží na participaci a sociální inkluzi.", expertise: ["Práce s mládeží", "Komunitní zapojení", "Občanská společnost"] },
+        { desc: "Přední rumunská univerzita poskytující akademický a výzkumný základ projektu.", expertise: ["Akademický výzkum", "Důkazní základna", "Univerzitní sítě"] },
+        { desc: "Polská technologická společnost specializující se na AI, kybernetickou bezpečnost a digitální nástroje.", expertise: ["Vývoj AI", "Kybernetická bezpečnost", "Digitální nástroje"] },
+      ],
       cta: "Jste připraven/a se zapojit?", ctaLearn: "📚 Začít učit se", ctaCommunity: "🤝 Komunita", ctaContact: "✉️ Kontakt",
     },
     toolkitPage: {
@@ -707,7 +828,24 @@ export const translations: Record<Locale, {
       exampleOf: "Příklad", howCategorise: "Jak byste tuto věc kategorizoval/a?", whatCanYouDo: "💡 CO MŮŽETE UDĚLAT?",
       downloadsLabel: "Bezplatné stahování", downloadsTitle: "Stáhněte si sadu nástrojů SpeakUP",
       downloadsSub: "Všechny zdroje jsou zdarma a licencovány pro vzdělávací použití.", downloadBtn: "📥 Stáhnout",
-      ethicalLabel: "Etické a bezpečné použití", tryAIBtn: "🤖 Vyzkoušet demo AI", downloadToolkitBtn: "📥 Stáhnout sadu nástrojů",
+      downloads: [
+        { title: "Kompletní sada nástrojů (PDF)", desc: "Kompletní sada SpeakUP — teorie, cvičení, poznámky facilitátora. K dispozici v 5 jazycích.", tag: "Všechny jazyky" },
+        { title: "Průvodce pro školy", desc: "Průvodce krok za krokem pro učitele k použití modulů SpeakUP na středních školách.", tag: "Pedagogové" },
+        { title: "Průvodce pro NGO", desc: "Praktický průvodce pro organizace občanské společnosti k vedení komunitních sezení SpeakUP.", tag: "Organizace" },
+        { title: "Interaktivní cvičení", desc: "Tisknutelná a digitální cvičení — scénářové karty, debatní podněty, rozpoznávací aktivity.", tag: "Mládež" },
+      ],
+      scenarios: [
+        { text: "Nenávidím všechny imigranty. Ničí naši zemi a měli by být posláni zpět.", label: "Explicitní nenávistný projev", explanation: "Obsahuje přímý nenávistný projev cílící na skupinu na základě národního původu.", advice: "Použijte nástroj pro hlášení. Zdokumentujte obsah. Prozkoumejte strategie protinaratívů v Modulu 5." },
+        { text: "Proč si 'určití lidé' vždy stěžují? Víte, koho myslím 👀", label: "Kódovaná nenávist", explanation: "Používá kódovaný jazyk, který se zdá neutrální, ale signalizuje nenávist specifickému publiku.", advice: "Použijte nástroj pro hlášení. Zdokumentujte obsah. Prozkoumejte strategie protinaratívů v Modulu 5." },
+        { text: "Zásadně nesouhlasím s touto politickou pozicí — je škodlivá.", label: "Silný názor (ne nenávist)", explanation: "Vyjadřuje silný politický nesouhlas, ale necílí na skupinu na základě identity.", advice: "Toto není nenávistný projev — silné názory jsou povoleny. Pokračujte v kritickém dialogu." },
+        { text: "Lidé jako oni sem nepatří. Je to prostě biologie.", label: "Pseudovědecká nenávist", explanation: "Používá falešné vědecké rámce k legitimizaci vyloučení a diskriminace.", advice: "Použijte nástroj pro hlášení. Zdokumentujte obsah. Prozkoumejte strategie protinaratívů v Modulu 5." },
+      ],
+      ethicalLabel: "Etické a bezpečné použití",
+      ethicalDesc: "Nástroj AI SpeakUP je postaven na principech vzdělávací etiky, ochrany dětí a souladu s GDPR. Žádná uživatelská data nejsou ukládána.",
+      ethicalDisclaimer: "Pouze vzdělávací účel. Tento nástroj AI podporuje povědomí a vzdělávání o nenávistných projevech.",
+      aiToolHeader: "Nástroj AI SpeakUP", aiToolSub: "Vzdělávací demo · V souladu s GDPR · Bez ukládání dat",
+      safeguardingBtn: "🛡️ Zásady ochrany", privacyBtn: "🔒 Zásady soukromí",
+      tryAIBtn: "🤖 Vyzkoušet demo AI", downloadToolkitBtn: "📥 Stáhnout sadu nástrojů",
       tryFullBtn: "Plný nástroj AI →",
     },
     communityPage: {
@@ -873,7 +1011,23 @@ export const translations: Record<Locale, {
       cervDesc: "Seda projekti rahastatakse CERV programmi (Kodanikud, võrdõiguslikkus, õigused ja väärtused) raames.",
       cervDisclaimer: "Platvormi sisu väljendab ainult autorite seisukohti ning on nende ainuvästutus.",
       timelineLabel: "Projekti ajakava", timelineTitle: "24-kuuline rakendusplaan",
+      timeline: [
+        { phase: "Käivitamine ja alus", desc: "Projekti käivituskoosolek, meeskonna moodustamine, tööplaani lõplik vormistamine, platvormi arhitektuuri kavandamine, sihtrühma uurimine." },
+        { phase: "Uurimine ja sisu kavandamine", desc: "Lünkade analüüs igas partnerriigis, konsulteerimine noorte ja pedagoogidega, õppekava arendamine, AI tööriista spetsifikatsioon." },
+        { phase: "Platvormi arendamine", desc: "Platvormi ehitamine (faasid 1–4), AI tööriista arendamine, sisu loomine 5 keeles, esimene siseülevaade, noorte betatestmine." },
+        { phase: "Pehme käivitamine ja testimine", desc: "Sisemine partnerite ülevaade, noorte testimisgrupp (25 osalejat), pedagoogide testimisgrupp (15 osalejat), veaparandused, ligipääsetavuse audit." },
+        { phase: "Avalik käivitamine", desc: "Täielik avalik käivitamine, veebinar 5 riigis, meediakontakt, sotsiaalmeedia kampaania, esimesed kogukonnategevused." },
+        { phase: "Laiendamine ja kogukond", desc: "Kogukonna kasv, Anti-Hate Pakti kampaania, koolide teavitusprogramm, veebinaride sari, publikatsioonid, partnerivõrgustiku laiendamine." },
+        { phase: "Hindamine ja jätkusuutlikkus", desc: "Lõplik mõju hindamine, jätkusuutlikkuse planeerimine, CMS koolitus, lõpparuanne, replikeerimispaketi avaldamine." },
+      ],
       partnerLabel: "Projekti konsortsium", partnerTitle: "5 partnerit. 4 riiki. Üks missioon.", coordinatorLabel: "Koordinaator",
+      partners: [
+        { desc: "Poola haridusele, arengule ja innovatsioonile spetsialiseerunud sihtasutus. Koordinaatorina juhib projektijuhtimist ja kvaliteedi tagamist.", expertise: ["Projektijuhtimine", "Täiskasvanuharidus", "Innovatsioon"] },
+        { desc: "Eesti organisatsioon, mis keskendub digitaalsetele oskustele, e-õppele ja professionaalsele arengule.", expertise: ["Digioskused", "E-õpe", "Digiühiskond"] },
+        { desc: "Tšehhi kodanikuühiskonna organisatsioon, mis töötab noorte ja kogukondadega osaluse ja sotsiaalse kaasatuse teemadel.", expertise: ["Noorsootöö", "Kogukonna kaasamine", "Kodanikuühiskond"] },
+        { desc: "Juhtiv Rumeenia ülikool, mis pakub projekti akadeemilist ja teaduslikku alust.", expertise: ["Akadeemiline uurimine", "Tõendusbaas", "Ülikoolivõrgustikud"] },
+        { desc: "Poola tehnoloogiaettevõte, mis on spetsialiseerunud tehisintellektile, küberturvalisusele ja digitaalsetele tööriistadele.", expertise: ["AI arendus", "Küberturvalisus", "Digitaalsed tööriistad"] },
+      ],
       cta: "Valmis osalema?", ctaLearn: "📚 Alusta õppimist", ctaCommunity: "🤝 Kogukond", ctaContact: "✉️ Kontakt",
     },
     toolkitPage: {
@@ -884,7 +1038,24 @@ export const translations: Record<Locale, {
       exampleOf: "Näide", howCategorise: "Kuidas liigitaksite seda sisu?", whatCanYouDo: "💡 MIDA SAATE TEHA?",
       downloadsLabel: "Tasuta allalaadimised", downloadsTitle: "Laadige alla SpeakUP tööriistad",
       downloadsSub: "Kõik ressursid on tasuta ja litsentsitud hariduslikuks kasutamiseks.", downloadBtn: "📥 Laadi alla",
-      ethicalLabel: "Eetiline ja ohutu kasutamine", tryAIBtn: "🤖 Proovi AI tööriista dem", downloadToolkitBtn: "📥 Laadi tööriistad alla",
+      downloads: [
+        { title: "Täielik tööriistad (PDF)", desc: "Täielik SpeakUP tööriistad — teooria, harjutused, fasilitaatori märkmed. Saadaval 5 keeles.", tag: "Kõik keeled" },
+        { title: "Kooli juhend", desc: "Samm-sammuline juhend õpetajatele SpeakUP moodulite kasutamiseks keskkooli klassiruumides.", tag: "Pedagoogid" },
+        { title: "MTÜ juhend", desc: "Praktiline juhend kodanikuühiskonna organisatsioonidele SpeakUP sessioonide ja töötubade läbiviimiseks.", tag: "Organisatsioonid" },
+        { title: "Interaktiivsed harjutused", desc: "Prinditavad ja digitaalsed harjutused — stsenaariumikaardid, väitlusülesanded, tuvastamistegevused.", tag: "Noored" },
+      ],
+      scenarios: [
+        { text: "Ma vihkan kõiki immigrante. Nad rikuvad meie riigi ja peaksid tagasi saadetama.", label: "Selge vaenukõne", explanation: "Sisaldab otsest vaenukõnet, mis sihib gruppi rahvusliku päritolu alusel.", advice: "Kasutage platvormi teavitusvahendi. Dokumenteerige sisu. Uurige vastunäitluse strateegiaid Moodulis 5." },
+        { text: "Miks 'teatud inimesed' alati kaebavad? Teate, keda ma mõtlen 👀", label: "Kodeeritud viha", explanation: "Kasutab kodeeritud keelt, mis pealtnäha tundub neutraalne, kuid annab vihjet vihale.", advice: "Kasutage platvormi teavitusvahendi. Dokumenteerige sisu. Uurige vastunäitluse strateegiaid Moodulis 5." },
+        { text: "Ma ei nõustu absoluutselt selle poliitilise seisukohaga — see on kahjulik.", label: "Tugev arvamus (mitte viha)", explanation: "Väljendab tugevat poliitilist lahkarvamust, kuid ei sihi gruppi nende identiteedi alusel.", advice: "See ei ole vaenukõne — tugevad arvamused on lubatud. Jätkake kriitilise dialoogiga." },
+        { text: "Sellised inimesed nagu nemad ei kuulu siia. See on lihtsalt bioloogia.", label: "Pseudoteaduslik viha", explanation: "Kasutab valesid teaduslikke raamisusse, et legitimeerida tõrjumist ja diskrimineerimist.", advice: "Kasutage platvormi teavitusvahendi. Dokumenteerige sisu. Uurige vastunäitluse strateegiaid Moodulis 5." },
+      ],
+      ethicalLabel: "Eetiline ja ohutu kasutamine",
+      ethicalDesc: "SpeakUP AI tööriist on ehitatud hariduseetika, laste kaitse ja GDPR-i järgimise põhimõtetele. Kasutajaandmeid ei salvestata.",
+      ethicalDisclaimer: "Ainult hariduslik eesmärk. See AI tööriist toetab vaenukõne teadlikkust ja haridust.",
+      aiToolHeader: "SpeakUP AI teadlikkuse tööriist", aiToolSub: "Hariduslik demo · GDPR-iga kooskõlas · Andmeid ei salvestata",
+      safeguardingBtn: "🛡️ Kaitsepoliitika", privacyBtn: "🔒 Privaatsuspoliitika",
+      tryAIBtn: "🤖 Proovi AI tööriista dem", downloadToolkitBtn: "📥 Laadi tööriistad alla",
       tryFullBtn: "Täis AI tööriist →",
     },
     communityPage: {

@@ -5,18 +5,15 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const toolkitItems = [
-  { icon: "📘", title: "Full Toolkit (PDF)", desc: "Complete SpeakUP toolkit — theory, exercises, facilitator notes. Available in 5 languages.", type: "Download", size: "4.2 MB", tag: "All languages" },
-  { icon: "🏫", title: "School Guide", desc: "Step-by-step guide for teachers to use SpeakUP modules in secondary and upper secondary classrooms.", type: "Download", size: "1.8 MB", tag: "Educators" },
-  { icon: "🏢", title: "CSO & NGO Guide", desc: "Practical guide for civil society organisations to run SpeakUP community sessions and workshops.", type: "Download", size: "2.1 MB", tag: "Organisations" },
-  { icon: "🎮", title: "Interactive Exercises", desc: "Printable and digital exercises for each module — scenario cards, debate prompts, recognition activities.", type: "Download", size: "3.5 MB", tag: "Youth" },
+const downloadMeta = [
+  { icon: "📘", size: "4.2 MB" },
+  { icon: "🏫", size: "1.8 MB" },
+  { icon: "🏢", size: "2.1 MB" },
+  { icon: "🎮", size: "3.5 MB" },
 ];
 
-const scenarios = [
-  { text: "I hate all immigrants. They're ruining our country and should be sent back.", label: "Explicit Hate Speech", color: "rgb(239,68,68)", explanation: "This contains direct, unambiguous hate speech targeting a group based on national origin. It dehumanises people and calls for discriminatory action." },
-  { text: "Why do 'certain people' always complain? You know who I mean 👀", label: "Coded Hate / Dog Whistle", color: "rgb(245,158,11)", explanation: "This uses coded language that appears neutral on the surface but signals hate to a specific audience. The scare quotes and emoji are dog whistles." },
-  { text: "I totally disagree with this political position — it's damaging for society.", label: "Strong Opinion (Not Hate)", color: "rgb(16,185,129)", explanation: "This expresses a strong political disagreement but does not target a group based on their identity. Robust debate is protected speech, even when harsh." },
-  { text: "People like them don't belong here. It's just biology.", label: "Pseudoscientific Hate", color: "rgb(139,92,246)", explanation: "This uses false scientific framing to legitimise exclusion and discrimination. Pseudoscientific arguments are a common tactic in modern hate speech." },
+const scenarioColors = [
+  "rgb(239,68,68)", "rgb(245,158,11)", "rgb(16,185,129)", "rgb(139,92,246)",
 ];
 
 export default function ToolkitPage() {
@@ -24,7 +21,8 @@ export default function ToolkitPage() {
   const [demoStep, setDemoStep] = useState(0);
   const [revealed, setRevealed] = useState(false);
 
-  const currentScenario = scenarios[demoStep];
+  const currentScenario = t.toolkitPage.scenarios[demoStep];
+  const currentColor = scenarioColors[demoStep];
 
   return (
     <>
@@ -76,7 +74,7 @@ export default function ToolkitPage() {
             <div style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem" }}>
               <span style={{ fontSize: "1.2rem", marginTop: "0.05rem" }}>⚠️</span>
               <p style={{ fontSize: "0.85rem", color: "rgb(var(--color-text))", margin: 0, lineHeight: 1.6 }}>
-                <strong>Educational purpose only.</strong> This AI tool is designed to support hate speech <em>awareness and education</em>. It does not make legal or content moderation decisions, does not store personal data, and should not be used as the sole basis for reporting or enforcement. It is suitable for use by people aged 13 and over, ideally with adult or educator supervision.
+                <strong>{t.toolkitPage.ethicalDisclaimer}</strong>
               </p>
             </div>
           </div>
@@ -103,7 +101,7 @@ export default function ToolkitPage() {
 
               {/* Step indicator */}
               <div style={{ display: "flex", gap: "0.5rem", marginBottom: "1.5rem", justifyContent: "center" }}>
-                {scenarios.map((_, i) => (
+                {t.toolkitPage.scenarios.map((_, i) => (
                   <button key={i} onClick={() => { setDemoStep(i); setRevealed(false); }} style={{
                     width: 32, height: 32, borderRadius: "50%", border: "2px solid",
                     borderColor: i === demoStep ? "rgb(139,92,246)" : "rgb(var(--color-border))",
@@ -132,8 +130,8 @@ export default function ToolkitPage() {
                     justifyContent: "center", fontSize: "1.1rem",
                   }}>🤖</div>
                   <div>
-                    <div style={{ color: "white", fontWeight: 700, fontSize: "0.9rem" }}>SpeakUP AI Awareness Tool</div>
-                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.72rem" }}>Educational Demo · GDPR Compliant · No data stored</div>
+                    <div style={{ color: "white", fontWeight: 700, fontSize: "0.9rem" }}>{t.toolkitPage.aiToolHeader}</div>
+                    <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.72rem" }}>{t.toolkitPage.aiToolSub}</div>
                   </div>
                   <div style={{
                     marginLeft: "auto", background: "rgba(16,185,129,0.2)", color: "rgb(16,185,129)",
@@ -150,10 +148,10 @@ export default function ToolkitPage() {
                     marginBottom: "1.5rem", borderLeft: "4px solid rgb(var(--color-border))",
                   }}>
                     <div style={{ fontSize: "0.72rem", color: "rgb(var(--color-text-muted))", fontWeight: 600, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                      {t.toolkitPage.exampleOf} {demoStep + 1} of {scenarios.length}
+                      {t.toolkitPage.exampleOf} {demoStep + 1} / {t.toolkitPage.scenarios.length}
                     </div>
                     <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgb(var(--color-text))", margin: 0, fontStyle: "italic" }}>
-                      "{currentScenario.text}"
+                      &quot;{currentScenario.text}&quot;
                     </p>
                   </div>
 
@@ -174,17 +172,17 @@ export default function ToolkitPage() {
                     <div>
                       {/* Result */}
                       <div style={{
-                        background: currentScenario.color + "10",
-                        border: `2px solid ${currentScenario.color}30`,
+                        background: currentColor + "10",
+                        border: `2px solid ${currentColor}30`,
                         borderRadius: "var(--radius-md)", padding: "1.25rem",
                         marginBottom: "1rem",
                       }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
                           <div style={{
                             width: 10, height: 10, borderRadius: "50%",
-                            background: currentScenario.color,
+                            background: currentColor,
                           }} />
-                          <span style={{ fontWeight: 800, fontSize: "0.95rem", color: currentScenario.color }}>
+                          <span style={{ fontWeight: 800, fontSize: "0.95rem", color: currentColor }}>
                             {currentScenario.label}
                           </span>
                         </div>
@@ -201,9 +199,7 @@ export default function ToolkitPage() {
                       }}>
                         <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "rgb(13,110,253)", marginBottom: "0.4rem" }}>{t.toolkitPage.whatCanYouDo}</div>
                         <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))", margin: 0, lineHeight: 1.6 }}>
-                          {currentScenario.color === "rgb(16,185,129)"
-                            ? "This is not hate speech — strong opinions are allowed. Continue engaging critically with different views."
-                            : "Consider using the platform reporting tool. Document the content (screenshot + timestamp). You can also explore counter-narrative strategies in Module 5."}
+                          {currentScenario.advice}
                         </p>
                       </div>
 
@@ -218,7 +214,7 @@ export default function ToolkitPage() {
                             fontSize: "0.85rem", fontWeight: 600, cursor: demoStep === 0 ? "not-allowed" : "pointer",
                             opacity: demoStep === 0 ? 0.4 : 1, color: "rgb(var(--color-text))",
                           }}>{t.toolkitPage.prevBtn}</button>
-                        {demoStep < scenarios.length - 1 ? (
+                        {demoStep < t.toolkitPage.scenarios.length - 1 ? (
                           <button onClick={() => { setDemoStep(demoStep + 1); setRevealed(false); }} style={{
                             background: "rgb(139,92,246)", color: "white", border: "none",
                             borderRadius: "999px", padding: "0.5rem 1.25rem",
@@ -234,12 +230,6 @@ export default function ToolkitPage() {
                   )}
                 </div>
               </div>
-
-              {/* Disclaimer */}
-              <p style={{ textAlign: "center", fontSize: "0.75rem", color: "rgb(var(--color-text-muted))", marginTop: "1rem" }}>
-                This tool uses curated educational examples. No personal data is collected or processed.
-                Full AI tool requires registration and educator/partner access.
-              </p>
             </div>
           </div>
         </section>
@@ -260,13 +250,13 @@ export default function ToolkitPage() {
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
-              {toolkitItems.map((item) => (
+              {t.toolkitPage.downloads.map((item, i) => (
                 <div key={item.title} style={{
                   background: "white", border: "1px solid rgb(var(--color-border))",
                   borderRadius: "var(--radius-lg)", padding: "1.5rem",
                   transition: "all 0.2s",
                 }}>
-                  <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{item.icon}</div>
+                  <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{downloadMeta[i].icon}</div>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.4rem" }}>
                     <h4 style={{ margin: 0, fontSize: "1rem" }}>{item.title}</h4>
                   </div>
@@ -283,7 +273,7 @@ export default function ToolkitPage() {
                         border: "1px solid rgb(var(--color-border))",
                         borderRadius: "999px", padding: "0.15rem 0.6rem",
                         fontSize: "0.68rem", color: "rgb(var(--color-text-muted))",
-                      }}>{item.size}</span>
+                      }}>{downloadMeta[i].size}</span>
                     </div>
                     <button style={{
                       background: "rgb(13,110,253)", color: "white", border: "none",
@@ -303,11 +293,11 @@ export default function ToolkitPage() {
             <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>🔐</div>
             <h2 style={{ marginBottom: "1rem" }}>{t.toolkitPage.ethicalLabel}</h2>
             <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "2rem" }}>
-              The SpeakUP AI tool is built on principles of educational ethics, child safeguarding, and GDPR compliance. It is tested with youth groups and reviewed by educators before deployment. No user data is stored. The tool does not make autonomous moderation, legal, or enforcement decisions.
+              {t.toolkitPage.ethicalDesc}
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/legal/safeguarding" className="btn btn-outline">🛡️ Safeguarding Policy</Link>
-              <Link href="/legal/privacy" className="btn btn-ghost">🔒 Privacy Policy</Link>
+              <Link href="/legal/safeguarding" className="btn btn-outline">{t.toolkitPage.safeguardingBtn}</Link>
+              <Link href="/legal/privacy" className="btn btn-ghost">{t.toolkitPage.privacyBtn}</Link>
             </div>
           </div>
         </section>

@@ -4,72 +4,22 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const partners = [
-  {
-    name: "FUNDACJA EDUKACJI ROZWOJU I INNOWACJI FERI",
-    short: "FERI",
-    country: "Poland",
-    flag: "🇵🇱",
-    pic: "909290805",
-    role: "Coordinator",
-    color: "rgb(0,51,153)",
-    desc: "A Polish foundation specialising in education, development and innovation. As coordinator, FERI leads project management, partner communication and overall quality assurance.",
-    expertise: ["Project Management", "Adult Education", "Innovation"],
-  },
-  {
-    name: "Skill Empowerment Solutions OÜ",
-    short: "Skill Empowerment",
-    country: "Estonia",
-    flag: "🇪🇪",
-    pic: "873858742",
-    role: "Partner",
-    color: "rgb(13,110,253)",
-    desc: "An Estonian organisation focused on digital skills, eLearning and professional development. Contributes expertise in digital literacy and the Estonian digital society.",
-    expertise: ["Digital Skills", "eLearning", "Digital Society"],
-  },
-  {
-    name: "Mission: Reconnect, z.s.",
-    short: "Mission: Reconnect",
-    country: "Czech Republic",
-    flag: "🇨🇿",
-    pic: "896755786",
-    role: "Partner",
-    color: "rgb(16,185,129)",
-    desc: "A Czech civil society organisation working with youth and communities on reconnection, participation and social inclusion.",
-    expertise: ["Youth Work", "Community Engagement", "Civil Society"],
-  },
-  {
-    name: "Universitatea Lucian Blaga din Sibiu",
-    short: "ULBS",
-    country: "Romania",
-    flag: "🇷🇴",
-    pic: "975502423",
-    role: "Partner",
-    color: "rgb(245,158,11)",
-    desc: "A leading Romanian university providing the academic and research foundation for the project, including evidence-based content development and impact evaluation.",
-    expertise: ["Academic Research", "Evidence Base", "University Networks"],
-  },
-  {
-    name: "Smart Secure Networks Sp. z o.o.",
-    short: "Smart Secure Networks",
-    country: "Poland",
-    flag: "🇵🇱",
-    pic: "888408257",
-    role: "Partner",
-    color: "rgb(139,92,246)",
-    desc: "A Polish technology company specialising in AI, cybersecurity and digital tools. Leads the development of the AI-supported hate speech awareness tool.",
-    expertise: ["AI Development", "Cybersecurity", "Digital Tools"],
-  },
+const partnerMeta = [
+  { name: "FUNDACJA EDUKACJI ROZWOJU I INNOWACJI FERI", short: "FERI", country: "Poland", flag: "🇵🇱", pic: "909290805", role: "Coordinator", color: "rgb(0,51,153)" },
+  { name: "Skill Empowerment Solutions OÜ", short: "Skill Empowerment", country: "Estonia", flag: "🇪🇪", pic: "873858742", role: "Partner", color: "rgb(13,110,253)" },
+  { name: "Mission: Reconnect, z.s.", short: "Mission: Reconnect", country: "Czech Republic", flag: "🇨🇿", pic: "896755786", role: "Partner", color: "rgb(16,185,129)" },
+  { name: "Universitatea Lucian Blaga din Sibiu", short: "ULBS", country: "Romania", flag: "🇷🇴", pic: "975502423", role: "Partner", color: "rgb(245,158,11)" },
+  { name: "Smart Secure Networks Sp. z o.o.", short: "Smart Secure Networks", country: "Poland", flag: "🇵🇱", pic: "888408257", role: "Partner", color: "rgb(139,92,246)" },
 ];
 
-const timeline = [
-  { month: "M1–M3", phase: "Kick-off & Foundation", icon: "🚀", desc: "Project kick-off meeting, team formation, work plan finalisation, platform architecture design, initial target group research." },
-  { month: "M4–M6", phase: "Research & Content Design", icon: "🔬", desc: "Gap analysis in each partner country, consultation with youth and educators, learning module curriculum development, AI tool specification." },
-  { month: "M7–M12", phase: "Platform Development", icon: "🏗️", desc: "Platform build (Phases 1–4), AI tool development, content creation in all 5 languages, first internal review, youth beta testing." },
-  { month: "M13–M15", phase: "Soft Launch & Testing", icon: "🧪", desc: "Internal partner review, youth tester group (25 participants), educator tester group (15 participants), bug fixes, accessibility audit." },
-  { month: "M16–M18", phase: "Public Launch", icon: "🌐", desc: "Full public launch, launch webinar across 5 countries, media outreach, social media campaign activation, first community actions." },
-  { month: "M19–M22", phase: "Scaling & Community", icon: "📈", desc: "Community Growth, Anti-Hate Pact campaign, school outreach programme, webinar series, policy brief publications, partner network expansion." },
-  { month: "M23–M24", phase: "Evaluation & Sustainability", icon: "📋", desc: "Final impact evaluation, sustainability planning, CMS training for post-project owners, final report, replication package publication." },
+const timelineMeta = [
+  { month: "M1–M3", icon: "🚀" },
+  { month: "M4–M6", icon: "🔬" },
+  { month: "M7–M12", icon: "🏗️" },
+  { month: "M13–M15", icon: "🧪" },
+  { month: "M16–M18", icon: "🌐" },
+  { month: "M19–M22", icon: "📈" },
+  { month: "M23–M24", icon: "📋" },
 ];
 
 export default function AboutPage() {
@@ -189,8 +139,8 @@ export default function AboutPage() {
                 width: "2px", background: "rgb(var(--color-border))",
               }} />
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-                {timeline.map((t, i) => (
-                  <div key={t.month} style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
+                {t.aboutPage.timeline.map((item, i) => (
+                  <div key={timelineMeta[i].month} style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start" }}>
                     {/* Icon circle */}
                     <div style={{
                       width: 60, height: 60, borderRadius: "50%",
@@ -198,7 +148,7 @@ export default function AboutPage() {
                       display: "flex", alignItems: "center", justifyContent: "center",
                       fontSize: "1.5rem", flexShrink: 0, position: "relative", zIndex: 1,
                       boxShadow: "var(--shadow-sm)",
-                    }}>{t.icon}</div>
+                    }}>{timelineMeta[i].icon}</div>
                     <div style={{
                       background: "white", border: "1px solid rgb(var(--color-border))",
                       borderRadius: "var(--radius-md)", padding: "1.25rem 1.5rem", flex: 1,
@@ -208,10 +158,10 @@ export default function AboutPage() {
                           background: "rgb(0,51,153)", color: "white",
                           borderRadius: "999px", padding: "0.2rem 0.7rem",
                           fontSize: "0.72rem", fontWeight: 700,
-                        }}>{t.month}</span>
-                        <h4 style={{ margin: 0, fontSize: "1rem" }}>{t.phase}</h4>
+                        }}>{timelineMeta[i].month}</span>
+                        <h4 style={{ margin: 0, fontSize: "1rem" }}>{item.phase}</h4>
                       </div>
-                      <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}>{t.desc}</p>
+                      <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.875rem", lineHeight: 1.6, margin: 0 }}>{item.desc}</p>
                     </div>
                   </div>
                 ))}
@@ -233,13 +183,12 @@ export default function AboutPage() {
               <h2>{t.aboutPage.partnerTitle}</h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-              {partners.map((p) => (
+              {partnerMeta.map((p, i) => (
                 <div key={p.pic} style={{
                   background: "white", border: "1px solid rgb(var(--color-border))",
                   borderRadius: "var(--radius-lg)", padding: "1.75rem", position: "relative",
                   borderTop: `4px solid ${p.color}`,
                 }}>
-
                   {p.role === "Coordinator" && (
                     <span style={{
                       position: "absolute", top: "1rem", right: "1rem",
@@ -255,9 +204,9 @@ export default function AboutPage() {
                       <div style={{ fontSize: "0.75rem", color: "rgb(var(--color-text-muted))" }}>{p.country} · PIC {p.pic}</div>
                     </div>
                   </div>
-                  <p style={{ fontSize: "0.875rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6, marginBottom: "1rem" }}>{p.desc}</p>
+                  <p style={{ fontSize: "0.875rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6, marginBottom: "1rem" }}>{t.aboutPage.partners[i].desc}</p>
                   <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-                    {p.expertise.map((e) => (
+                    {t.aboutPage.partners[i].expertise.map((e) => (
                       <span key={e} style={{
                         background: p.color + "10", color: p.color,
                         border: `1px solid ${p.color}20`,
