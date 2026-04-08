@@ -149,8 +149,8 @@ export default function EducatorsPage() {
                   border: "1px solid rgba(13,110,253,0.2)", borderRadius: "999px",
                   padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                   textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-                }}>Ready-Made Curriculum</span>
-                <h2 style={{ marginBottom: "1rem" }}>6 modules — ready to use in your classroom</h2>
+                }}>{t.educatorsPage.curriculumLabel}</span>
+                <h2 style={{ marginBottom: "1rem" }}>{t.educatorsPage.curriculumTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.7, marginBottom: "1.5rem" }}>
                   Each SpeakUP learning module comes with a corresponding lesson plan and supporting materials. You can use one module as a stand-alone session or deliver all six as a progressive curriculum.
                 </p>
@@ -158,7 +158,7 @@ export default function EducatorsPage() {
                   All modules are designed for approximately <strong>60–90 minutes</strong> each and include discussion questions, a key takeaways summary, and a quiz for knowledge review.
                 </p>
                 <div style={{ display: "flex", gap: "0.75rem" }}>
-                  <Link href="/learn" className="btn btn-primary">Preview All Modules</Link>
+                  <Link href="/learn" className="btn btn-primary">{t.educatorsPage.previewBtn}</Link>
                 </div>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
@@ -205,8 +205,8 @@ export default function EducatorsPage() {
                 border: "1px solid rgba(13,110,253,0.2)", borderRadius: "999px",
                 padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                 textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.75rem",
-              }}>Resource Library</span>
-              <h2>Download Free Educator Materials</h2>
+              }}>{t.educatorsPage.resourceLibLabel}</span>
+              <h2>{t.educatorsPage.resourceLibTitle}</h2>
             </div>
 
             {/* Type filter */}
@@ -257,7 +257,7 @@ export default function EducatorsPage() {
                       background: r.color, color: "white", border: "none",
                       borderRadius: "999px", padding: "0.4rem 1rem",
                       fontSize: "0.8rem", fontWeight: 700, cursor: "pointer",
-                    }}>📥 Download</button>
+                    }}>{t.educatorsPage.downloadBtn}</button>
                   </div>
                 </div>
               ))}
@@ -269,7 +269,7 @@ export default function EducatorsPage() {
         <section className="section">
           <div className="container-narrow">
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-              <h2>Frequently Asked Questions</h2>
+              <h2>{t.educatorsPage.faqTitle}</h2>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               {faqs.map((faq, i) => (
@@ -312,13 +312,13 @@ export default function EducatorsPage() {
         }}>
           <div className="container">
             <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>👩‍🏫</div>
-            <h2 style={{ color: "white", marginBottom: "0.75rem" }}>Join the Educator Community</h2>
+            <h2 style={{ color: "white", marginBottom: "0.75rem" }}>{t.educatorsPage.joinTitle}</h2>
             <p style={{ color: "rgba(255,255,255,0.8)", maxWidth: "480px", margin: "0 auto 1.75rem", lineHeight: 1.7 }}>
-              Connect with educators from Poland, Estonia, Czech Republic, and Romania. Share experiences, get support, and access exclusive resources.
+              {t.educatorsPage.joinSub}
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/contact" className="btn btn-accent btn-lg">Request Access</Link>
-              <Link href="/learn" className="btn btn-ghost btn-lg" style={{ color: "white", borderColor: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.1)" }}>Preview Modules First</Link>
+              <Link href="/contact" className="btn btn-accent btn-lg">{t.educatorsPage.requestAccessBtn}</Link>
+              <Link href="/learn" className="btn btn-ghost btn-lg" style={{ color: "white", borderColor: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.1)" }}>{t.educatorsPage.previewBtn}</Link>
             </div>
           </div>
         </section>

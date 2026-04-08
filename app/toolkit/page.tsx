@@ -58,11 +58,11 @@ export default function ToolkitPage() {
               <a href="#ai-tool" className="btn btn-lg" style={{
                 background: "rgba(139,92,246,0.9)", color: "white",
                 border: "1px solid rgba(139,92,246,0.5)",
-              }}>🤖 Try AI Tool Demo</a>
+              }}>{t.toolkitPage.tryAIBtn}</a>
               <a href="#downloads" className="btn btn-lg" style={{
                 background: "rgba(255,255,255,0.1)", color: "white",
                 border: "1px solid rgba(255,255,255,0.25)",
-              }}>📥 Download Toolkit</a>
+              }}>{t.toolkitPage.downloadToolkitBtn}</a>
             </div>
           </div>
         </section>
@@ -91,10 +91,10 @@ export default function ToolkitPage() {
                 border: "1px solid rgba(139,92,246,0.2)", borderRadius: "999px",
                 padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                 textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.75rem",
-              }}>Interactive Demo</span>
-              <h2>Learn to Recognise Online Hate</h2>
+              }}>{t.toolkitPage.demoLabel}</span>
+              <h2>{t.toolkitPage.demoTitle}</h2>
               <p style={{ color: "rgb(var(--color-text-muted))", maxWidth: "520px", margin: "0.75rem auto 0" }}>
-                Read each example. Think about what category it might belong to. Then reveal the analysis and explanation.
+                {t.toolkitPage.demoSub}
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export default function ToolkitPage() {
                     marginBottom: "1.5rem", borderLeft: "4px solid rgb(var(--color-border))",
                   }}>
                     <div style={{ fontSize: "0.72rem", color: "rgb(var(--color-text-muted))", fontWeight: 600, marginBottom: "0.5rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
-                      Example Statement {demoStep + 1} of {scenarios.length}
+                      {t.toolkitPage.exampleOf} {demoStep + 1} of {scenarios.length}
                     </div>
                     <p style={{ fontSize: "1rem", lineHeight: 1.6, color: "rgb(var(--color-text))", margin: 0, fontStyle: "italic" }}>
                       "{currentScenario.text}"
@@ -160,7 +160,7 @@ export default function ToolkitPage() {
                   {!revealed ? (
                     <div style={{ textAlign: "center" }}>
                       <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.875rem", marginBottom: "1rem" }}>
-                        How would you categorise this content?
+                        {t.toolkitPage.howCategorise}
                       </p>
                       <button onClick={() => setRevealed(true)} style={{
                         background: "linear-gradient(135deg, rgb(60,20,120), rgb(139,92,246))",
@@ -168,7 +168,7 @@ export default function ToolkitPage() {
                         padding: "0.75rem 2rem", fontSize: "0.95rem", fontWeight: 700,
                         cursor: "pointer", transition: "all 0.2s",
                         boxShadow: "0 4px 14px rgba(139,92,246,0.35)",
-                      }}>🔍 Reveal Analysis</button>
+                      }}>{t.toolkitPage.revealBtn}</button>
                     </div>
                   ) : (
                     <div>
@@ -199,7 +199,7 @@ export default function ToolkitPage() {
                         borderRadius: "var(--radius-md)", padding: "1rem",
                         marginBottom: "1.25rem",
                       }}>
-                        <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "rgb(13,110,253)", marginBottom: "0.4rem" }}>💡 WHAT CAN YOU DO?</div>
+                        <div style={{ fontSize: "0.78rem", fontWeight: 700, color: "rgb(13,110,253)", marginBottom: "0.4rem" }}>{t.toolkitPage.whatCanYouDo}</div>
                         <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))", margin: 0, lineHeight: 1.6 }}>
                           {currentScenario.color === "rgb(16,185,129)"
                             ? "This is not hate speech — strong opinions are allowed. Continue engaging critically with different views."
@@ -217,16 +217,16 @@ export default function ToolkitPage() {
                             borderRadius: "999px", padding: "0.5rem 1.25rem",
                             fontSize: "0.85rem", fontWeight: 600, cursor: demoStep === 0 ? "not-allowed" : "pointer",
                             opacity: demoStep === 0 ? 0.4 : 1, color: "rgb(var(--color-text))",
-                          }}>← Previous</button>
+                          }}>{t.toolkitPage.prevBtn}</button>
                         {demoStep < scenarios.length - 1 ? (
                           <button onClick={() => { setDemoStep(demoStep + 1); setRevealed(false); }} style={{
                             background: "rgb(139,92,246)", color: "white", border: "none",
                             borderRadius: "999px", padding: "0.5rem 1.25rem",
                             fontSize: "0.85rem", fontWeight: 700, cursor: "pointer",
-                          }}>Next Example →</button>
+                          }}>{t.toolkitPage.nextBtn}</button>
                         ) : (
                           <Link href="/learn" className="btn btn-primary" style={{ padding: "0.5rem 1.25rem", fontSize: "0.85rem" }}>
-                            📚 Start Learning Modules
+                            {t.toolkitPage.startModulesBtn}
                           </Link>
                         )}
                       </div>
@@ -253,10 +253,10 @@ export default function ToolkitPage() {
                 border: "1px solid rgba(13,110,253,0.2)", borderRadius: "999px",
                 padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                 textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.75rem",
-              }}>Free Downloads</span>
-              <h2>Download the SpeakUP Toolkit</h2>
+              }}>{t.toolkitPage.downloadsLabel}</span>
+              <h2>{t.toolkitPage.downloadsTitle}</h2>
               <p style={{ color: "rgb(var(--color-text-muted))", maxWidth: "500px", margin: "0.75rem auto 0" }}>
-                All resources are free, open-access, and licensed for educational use.
+                {t.toolkitPage.downloadsSub}
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.25rem" }}>
@@ -289,7 +289,7 @@ export default function ToolkitPage() {
                       background: "rgb(13,110,253)", color: "white", border: "none",
                       borderRadius: "999px", padding: "0.4rem 1rem",
                       fontSize: "0.8rem", fontWeight: 700, cursor: "pointer",
-                    }}>📥 Download</button>
+                    }}>{t.toolkitPage.downloadBtn}</button>
                   </div>
                 </div>
               ))}
@@ -301,7 +301,7 @@ export default function ToolkitPage() {
         <section className="section">
           <div className="container-narrow" style={{ textAlign: "center" }}>
             <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>🔐</div>
-            <h2 style={{ marginBottom: "1rem" }}>Ethical & Safe Use</h2>
+            <h2 style={{ marginBottom: "1rem" }}>{t.toolkitPage.ethicalLabel}</h2>
             <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "2rem" }}>
               The SpeakUP AI tool is built on principles of educational ethics, child safeguarding, and GDPR compliance. It is tested with youth groups and reviewed by educators before deployment. No user data is stored. The tool does not make autonomous moderation, legal, or enforcement decisions.
             </p>

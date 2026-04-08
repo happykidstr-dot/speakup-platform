@@ -110,20 +110,15 @@ export default function AboutPage() {
                   border: "1px solid rgba(239,68,68,0.2)", borderRadius: "999px",
                   padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                   textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-                }}>The Problem</span>
-                <h2 style={{ marginBottom: "1rem" }}>Online hate is growing. The tools to fight it are not.</h2>
+                }}>{t.aboutPage.problemLabel}</span>
+                <h2 style={{ marginBottom: "1rem" }}>{t.aboutPage.problemTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1rem" }}>
                   Young people across Europe encounter online hate speech daily — on social media, in gaming communities, and in messaging apps. Yet most young people and educators lack the practical knowledge and tools to respond effectively.
                 </p>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1rem" }}>
                   Existing resources are often monolingual, adult-centred, or disconnected from the realities of digital culture. There is a clear gap between EU-level policy ambitions and grassroots capacity to act.
                 </p>
-                {[
-                  "Hate speech is normalised in many online spaces",
-                  "Youth lack evidence-based, age-appropriate tools",
-                  "Educators need practical classroom resources",
-                  "Most resources are English-only",
-                ].map((pt) => (
+                {t.aboutPage.problemPoints.map((pt) => (
                   <div key={pt} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
                     <span style={{ color: "rgb(239,68,68)", fontSize: "1rem" }}>⚠️</span>
                     <span style={{ fontSize: "0.9rem", color: "rgb(var(--color-text))" }}>{pt}</span>
@@ -137,21 +132,15 @@ export default function AboutPage() {
                   border: "1px solid rgba(16,185,129,0.2)", borderRadius: "999px",
                   padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                   textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem",
-                }}>Our Solution</span>
-                <h2 style={{ marginBottom: "1rem" }}>A multilingual platform built for real change.</h2>
+                }}>{t.aboutPage.solutionLabel}</span>
+                <h2 style={{ marginBottom: "1rem" }}>{t.aboutPage.solutionTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1.5rem" }}>
                   SpeakUP against Hate builds a youth-friendly, educator-supported, AI-enhanced online platform that makes evidence-based anti-hate education accessible across 5 EU languages — for free.
                 </p>
-                {[
-                  ["📚", "6 learning modules for youth (EN/PL/RO/CZ/ET)"],
-                  ["👩‍🏫", "Educator resources, lesson plans, and workshop guides"],
-                  ["🤖", "AI-supported hate speech awareness tool"],
-                  ["🤝", "Community actions, Anti-Hate Pacts, micro-campaigns"],
-                  ["📑", "Policy briefs for European and national decision-makers"],
-                ].map(([icon, text]) => (
-                  <div key={text} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "0.75rem" }}>
+                {["📚", "👩‍🏫", "🤖", "🤝", "📑"].map((icon, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "0.75rem" }}>
                     <span style={{ fontSize: "1.1rem", marginTop: "0.05rem" }}>{icon}</span>
-                    <span style={{ fontSize: "0.9rem", color: "rgb(var(--color-text))", lineHeight: 1.6 }}>{text}</span>
+                    <span style={{ fontSize: "0.9rem", color: "rgb(var(--color-text))", lineHeight: 1.6 }}>{t.aboutPage.solutionPoints[i]}</span>
                   </div>
                 ))}
               </div>
@@ -190,8 +179,8 @@ export default function AboutPage() {
                 border: "1px solid rgba(13,110,253,0.2)", borderRadius: "999px",
                 padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                 textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.75rem",
-              }}>Project Timeline</span>
-              <h2>24-Month Implementation Plan</h2>
+              }}>{t.aboutPage.timelineLabel}</span>
+              <h2>{t.aboutPage.timelineTitle}</h2>
             </div>
             <div style={{ position: "relative" }}>
               {/* Vertical line */}
@@ -240,8 +229,8 @@ export default function AboutPage() {
                 border: "1px solid rgba(13,110,253,0.2)", borderRadius: "999px",
                 padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 700,
                 textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "0.75rem",
-              }}>Project Consortium</span>
-              <h2>5 Partners. 4 Countries. One Mission.</h2>
+              }}>{t.aboutPage.partnerLabel}</span>
+              <h2>{t.aboutPage.partnerTitle}</h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
               {partners.map((p) => (
@@ -285,7 +274,7 @@ export default function AboutPage() {
         {/* CTA */}
         <section className="section-sm">
           <div className="container" style={{ textAlign: "center" }}>
-            <h3 style={{ marginBottom: "1rem" }}>Ready to get involved?</h3>
+            <h3 style={{ marginBottom: "1rem" }}>{t.aboutPage.cta}</h3>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/learn" className="btn btn-primary btn-lg">📚 Start Learning</Link>
               <Link href="/community" className="btn btn-outline btn-lg">🤝 Join the Community</Link>

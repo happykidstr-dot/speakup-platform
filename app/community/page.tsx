@@ -141,7 +141,7 @@ export default function CommunityPage() {
 
                 {/* Pact text */}
                 <div>
-                  <h2 style={{ marginBottom: "1.5rem" }}>The Anti-Hate Pact</h2>
+                  <h2 style={{ marginBottom: "1.5rem" }}>{t.communityPage.pactTitle}</h2>
                   <div style={{
                     background: "rgb(var(--color-surface-2))",
                     border: "1px solid rgb(var(--color-border))",
@@ -165,15 +165,15 @@ export default function CommunityPage() {
                 <div>
                   {!submitted ? (
                     <div style={{ background: "white", border: "1px solid rgb(var(--color-border))", borderRadius: "var(--radius-lg)", padding: "2rem", boxShadow: "var(--shadow-md)" }}>
-                      <h3 style={{ marginBottom: "0.5rem" }}>Sign the Pact</h3>
+                      <h3 style={{ marginBottom: "0.5rem" }}>{t.communityPage.signPactTitle}</h3>
                       <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.85rem", marginBottom: "1.5rem" }}>
-                        Join thousands of young people across Europe committing to safer digital spaces.
+                        {t.communityPage.signPactSub}
                       </p>
                       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         {[
-                          { field: "name", label: "Full Name *", placeholder: "Your name", type: "text" },
-                          { field: "email", label: "Email Address *", placeholder: "you@example.com", type: "email" },
-                          { field: "city", label: "City *", placeholder: "Your city", type: "text" },
+                          { field: "name", label: t.communityPage.nameLabel, placeholder: "Your name", type: "text" },
+                          { field: "email", label: t.communityPage.emailLabel, placeholder: "you@example.com", type: "email" },
+                          { field: "city", label: t.communityPage.cityLabel, placeholder: "Your city", type: "text" },
                         ].map(({ field, label, placeholder, type }) => (
                           <div key={field}>
                             <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem", color: "rgb(var(--color-text))" }}>{label}</label>
@@ -198,7 +198,7 @@ export default function CommunityPage() {
 
                         {/* Country select */}
                         <div>
-                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem" }}>Country *</label>
+                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem" }}>{t.communityPage.countryLabel}</label>
                           <select
                             value={formData.country}
                             onChange={(e) => setFormData({ ...formData, country: e.target.value })}
@@ -218,7 +218,7 @@ export default function CommunityPage() {
 
                         {/* Role */}
                         <div>
-                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem" }}>I am a... (optional)</label>
+                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem" }}>{t.communityPage.roleLabel}</label>
                           <select
                             value={formData.role}
                             onChange={(e) => setFormData({ ...formData, role: e.target.value })}
@@ -228,19 +228,19 @@ export default function CommunityPage() {
                               borderRadius: "var(--radius-md)", fontSize: "0.9rem",
                               background: "white", outline: "none",
                             }}>
-                            <option value="">Prefer not to say</option>
-                            <option value="youth">Young person (under 25)</option>
-                            <option value="educator">Educator / Teacher</option>
-                            <option value="ngo">NGO / Civil Society</option>
-                            <option value="student">University Student</option>
-                            <option value="other">Other</option>
+                             <option value="">{t.communityPage.roleOptions[0]}</option>
+                             <option value="youth">{t.communityPage.roleOptions[1]}</option>
+                             <option value="educator">{t.communityPage.roleOptions[2]}</option>
+                             <option value="ngo">{t.communityPage.roleOptions[3]}</option>
+                             <option value="student">{t.communityPage.roleOptions[4]}</option>
+                             <option value="other">{t.communityPage.roleOptions[5]}</option>
                           </select>
                         </div>
 
                         {/* Checkboxes */}
                         {[
-                          { field: "consent", label: "I agree to the Anti-Hate Pact and understand my data will be used only for this purpose. *" },
-                          { field: "display", label: "I consent to my first name and country being displayed on the public signatory wall." },
+                          { field: "consent", label: t.communityPage.consentLabel },
+                          { field: "display", label: t.communityPage.displayLabel },
                         ].map(({ field, label }) => (
                           <label key={field} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem", cursor: "pointer" }}>
                             <input
@@ -260,7 +260,7 @@ export default function CommunityPage() {
                           cursor: "pointer", marginTop: "0.5rem",
                           boxShadow: "0 4px 14px rgba(16,185,129,0.35)",
                           transition: "all 0.2s",
-                        }}>✊ Sign the Anti-Hate Pact</button>
+                        }}>{t.communityPage.signBtn}</button>
                       </form>
                     </div>
                   ) : (
@@ -271,16 +271,16 @@ export default function CommunityPage() {
                       textAlign: "center",
                     }}>
                       <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>✊</div>
-                      <h3 style={{ color: "rgb(16,185,129)", marginBottom: "0.75rem" }}>You've signed the pact!</h3>
+                      <h3 style={{ color: "rgb(16,185,129)", marginBottom: "0.75rem" }}>{t.communityPage.successTitle}</h3>
                       <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-                        Thank you, <strong>{formData.name}</strong>. A confirmation has been sent to your email. Welcome to the movement.
+                        {t.communityPage.successSub}
                       </p>
                       <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
                         <button onClick={() => setActiveTab("actions")} style={{
                           background: "rgb(13,110,253)", color: "white", border: "none",
                           borderRadius: "999px", padding: "0.65rem 1.5rem",
                           fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
-                        }}>Take an Action →</button>
+                        }}>{t.communityPage.takeActionBtn}</button>
                         <Link href="/learn" className="btn btn-outline">📚 Start Learning</Link>
                       </div>
                     </div>
@@ -297,7 +297,7 @@ export default function CommunityPage() {
 
               {/* Signatory Wall */}
               <div style={{ marginTop: "4rem" }}>
-                <h3 style={{ marginBottom: "1.5rem", textAlign: "center" }}>Signatory Wall</h3>
+                <h3 style={{ marginBottom: "1.5rem", textAlign: "center" }}>{t.communityPage.signatoryWall}</h3>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", justifyContent: "center" }}>
                   {localSignatories.map((s, i) => (
                     <div key={i} style={{
@@ -324,9 +324,9 @@ export default function CommunityPage() {
           <section className="section">
             <div className="container">
               <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-                <h2>Take Action Against Hate</h2>
+                <h2>{t.communityPage.actionTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", maxWidth: "500px", margin: "0.75rem auto 0" }}>
-                  Small actions add up. Choose one of these community actions and share it with the hashtag <strong>#SpeakUPagainstHate</strong>.
+                  {t.communityPage.actionSub}
                 </p>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
@@ -366,9 +366,9 @@ export default function CommunityPage() {
           <section className="section">
             <div className="container">
               <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-                <h2>Youth Stories</h2>
+                <h2>{t.communityPage.storiesTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", maxWidth: "520px", margin: "0.75rem auto 0" }}>
-                  Real experiences from young people across Europe. Change starts with sharing.
+                  {t.communityPage.storiesSub}
                 </p>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "720px", margin: "0 auto" }}>
@@ -403,11 +403,11 @@ export default function CommunityPage() {
                   borderRadius: "var(--radius-lg)", padding: "2rem", maxWidth: "500px", margin: "0 auto",
                 }}>
                   <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>✍️</div>
-                  <h3 style={{ marginBottom: "0.5rem" }}>Share Your Story</h3>
+                  <h3 style={{ marginBottom: "0.5rem" }}>{t.communityPage.shareTitle}</h3>
                   <p style={{ fontSize: "0.875rem", color: "rgb(var(--color-text-muted))", marginBottom: "1.25rem", lineHeight: 1.6 }}>
-                    Did you witness or counter online hate? Your experience can inspire others. All stories are reviewed before publication.
+                    {t.communityPage.shareSub}
                   </p>
-                  <Link href="/contact" className="btn btn-primary">Submit Your Story</Link>
+                  <Link href="/contact" className="btn btn-primary">{t.communityPage.shareBtn}</Link>
                 </div>
               </div>
             </div>
