@@ -4,15 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const contactReasons = [
-  { value: "general", label: "General Enquiry", icon: "💬" },
-  { value: "educator", label: "Educator Partnership", icon: "👩‍🏫" },
-  { value: "partner", label: "Project Partnership", icon: "🤝" },
-  { value: "media", label: "Media & Press", icon: "📰" },
-  { value: "story", label: "Share My Story", icon: "✍️" },
-  { value: "technical", label: "Technical Issue", icon: "🔧" },
-  { value: "safeguarding", label: "Safeguarding Concern", icon: "🛡️" },
-];
+const contactReasonIcons = ["💬", "👩‍🏫", "🤝", "📰", "✍️", "🔧", "🛡️"];
+const contactReasonValues = ["general", "educator", "partner", "media", "story", "technical", "safeguarding"];
+
 
 const partners = [
   { name: "FERI (Coordinator)", country: "Poland 🇵🇱", email: "info@feri.org.pl" },
@@ -85,12 +79,12 @@ export default function ContactPage() {
               {/* Left column — info */}
               <div>
                 {/* Quick contact */}
-                <h3 style={{ marginBottom: "1.25rem" }}>Quick Contact</h3>
+                <h3 style={{ marginBottom: "1.25rem" }}>{t.contactPage.quickContact}</h3>
                 <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
                   {[
-                    { icon: "📧", label: "General", value: "contact@speakupagainsthate.eu", href: "mailto:contact@speakupagainsthate.eu" },
-                    { icon: "📰", label: "Media & Press", value: "media@speakupagainsthate.eu", href: "mailto:media@speakupagainsthate.eu" },
-                    { icon: "🛡️", label: "Safeguarding", value: "safeguarding@speakupagainsthate.eu", href: "mailto:safeguarding@speakupagainsthate.eu" },
+                    { icon: "📧", label: t.contactPage.general, value: "contact@speakupagainsthate.eu", href: "mailto:contact@speakupagainsthate.eu" },
+                    { icon: "📰", label: t.contactPage.mediaPress, value: "media@speakupagainsthate.eu", href: "mailto:media@speakupagainsthate.eu" },
+                    { icon: "🛡️", label: t.contactPage.safeguardingLabel, value: "safeguarding@speakupagainsthate.eu", href: "mailto:safeguarding@speakupagainsthate.eu" },
                   ].map((c) => (
                     <a key={c.label} href={c.href} style={{
                       display: "flex", alignItems: "center", gap: "1rem",
@@ -117,7 +111,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Social */}
-                <h4 style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>Follow the Project</h4>
+                <h4 style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>{t.contactPage.followProject}</h4>
                 <div style={{ display: "flex", gap: "0.75rem", marginBottom: "2.5rem" }}>
                   {[
                     { icon: "𝕏", label: "Twitter / X", color: "rgb(15,20,25)" },
@@ -140,7 +134,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Partner contacts */}
-                <h4 style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>Contact a Partner Directly</h4>
+                <h4 style={{ marginBottom: "0.75rem", fontSize: "0.9rem" }}>{t.contactPage.contactPartner}</h4>
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                   {partners.map((p, i) => (
                     <div key={p.name}>
@@ -188,13 +182,13 @@ export default function ContactPage() {
                     <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>✅</div>
                     <h2 style={{ color: "rgb(16,185,129)", marginBottom: "0.75rem" }}>{t.contactPage.success}</h2>
                     <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-                      Thank you, <strong>{form.name}</strong>. We've received your message and will get back to you at <strong>{form.email}</strong> within 3 working days.
+                      {t.contactPage.successSub}
                     </p>
                     <button onClick={() => { setForm({ name:"",email:"",organisation:"",country:"",reason:"",message:"",consent:false }); setStatus("idle"); }} style={{
                       background: "rgb(16,185,129)", color: "white", border: "none",
                       borderRadius: "999px", padding: "0.65rem 1.5rem",
                       fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
-                    }}>Send Another Message</button>
+                    }}>{t.contactPage.sendAnother}</button>
                   </div>
                 ) : (
                   <div style={{
@@ -202,9 +196,9 @@ export default function ContactPage() {
                     borderRadius: "var(--radius-xl)", padding: "2.5rem",
                     boxShadow: "var(--shadow-md)",
                   }}>
-                    <h2 style={{ marginBottom: "0.4rem" }}>Send Us a Message</h2>
+                    <h2 style={{ marginBottom: "0.4rem" }}>{t.contactPage.sendMessage}</h2>
                     <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.875rem", marginBottom: "2rem" }}>
-                      All fields marked * are required. We respond within 3 working days.
+                      {t.contactPage.formRequired}
                     </p>
 
                     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -212,8 +206,8 @@ export default function ContactPage() {
                       {/* Name + Email */}
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                         {[
-                          { name: "name", label: "Full Name *", type: "text", placeholder: "Your name" },
-                          { name: "email", label: "Email Address *", type: "email", placeholder: "you@example.com" },
+                          { name: "name", label: t.contactPage.nameLabel, type: "text", placeholder: t.contactPage.namePlaceholder },
+                          { name: "email", label: t.contactPage.emailLabel, type: "email", placeholder: "you@example.com" },
                         ].map((f) => (
                           <div key={f.name}>
                             <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem", color: "rgb(var(--color-text))" }}>{f.label}</label>
@@ -238,9 +232,9 @@ export default function ContactPage() {
                       {/* Organisation + Country */}
                       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                         <div>
-                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>Organisation</label>
+                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>{t.contactPage.orgLabel}</label>
                           <input
-                            type="text" name="organisation" placeholder="School, NGO, University..."
+                            type="text" name="organisation" placeholder={t.contactPage.orgPlaceholder}
                             value={form.organisation} onChange={handleChange}
                             style={{
                               width: "100%", padding: "0.65rem 0.9rem",
@@ -253,7 +247,7 @@ export default function ContactPage() {
                           />
                         </div>
                         <div>
-                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>Country</label>
+                          <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>{t.contactPage.countryLabel}</label>
                           <select name="country" value={form.country} onChange={handleChange}
                             style={{
                               width: "100%", padding: "0.65rem 0.9rem",
@@ -261,7 +255,7 @@ export default function ContactPage() {
                               borderRadius: "var(--radius-md)", fontSize: "0.88rem",
                               background: "white", outline: "none", fontFamily: "Inter, sans-serif",
                             }}>
-                            <option value="">Select country</option>
+                            <option value="">{t.contactPage.selectCountry}</option>
                             {["Poland", "Estonia", "Czech Republic", "Romania", "Germany", "France", "Spain", "Italy", "Netherlands", "Sweden", "Austria", "Belgium", "Other EU"].map((c) => (
                               <option key={c} value={c}>{c}</option>
                             ))}
@@ -271,21 +265,21 @@ export default function ContactPage() {
 
                       {/* Reason */}
                       <div>
-                        <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.5rem" }}>Reason for Contact *</label>
+                        <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.5rem" }}>{t.contactPage.reasonLabel}</label>
                         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                          {contactReasons.map((r) => (
-                            <button key={r.value} type="button"
-                              onClick={() => setForm((p) => ({ ...p, reason: r.value }))}
+                          {contactReasonValues.map((val, i) => (
+                            <button key={val} type="button"
+                              onClick={() => setForm((p) => ({ ...p, reason: val }))}
                               style={{
                                 padding: "0.45rem 0.9rem", borderRadius: "999px",
                                 border: "1.5px solid",
-                                borderColor: form.reason === r.value ? "rgb(13,110,253)" : "rgb(var(--color-border))",
-                                background: form.reason === r.value ? "rgba(13,110,253,0.08)" : "white",
-                                color: form.reason === r.value ? "rgb(13,110,253)" : "rgb(var(--color-text-muted))",
+                                borderColor: form.reason === val ? "rgb(13,110,253)" : "rgb(var(--color-border))",
+                                background: form.reason === val ? "rgba(13,110,253,0.08)" : "white",
+                                color: form.reason === val ? "rgb(13,110,253)" : "rgb(var(--color-text-muted))",
                                 fontWeight: 600, fontSize: "0.78rem", cursor: "pointer",
                                 transition: "all 0.15s",
                               }}>
-                              {r.icon} {r.label}
+                              {contactReasonIcons[i]} {t.contactPage.reasons[i]}
                             </button>
                           ))}
                         </div>
@@ -293,9 +287,9 @@ export default function ContactPage() {
 
                       {/* Message */}
                       <div>
-                        <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>Message *</label>
+                        <label style={{ display: "block", fontWeight: 600, fontSize: "0.82rem", marginBottom: "0.35rem" }}>{t.contactPage.messageLabel}</label>
                         <textarea
-                          name="message" placeholder="Tell us how we can help you..."
+                          name="message" placeholder={t.contactPage.msgPlaceholder}
                           value={form.message} onChange={handleChange} required rows={5}
                           style={{
                             width: "100%", padding: "0.75rem 0.9rem",
@@ -317,7 +311,7 @@ export default function ContactPage() {
                           style={{ marginTop: "0.2rem", accentColor: "rgb(13,110,253)", width: 16, height: 16, flexShrink: 0 }}
                         />
                         <span style={{ fontSize: "0.78rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6 }}>
-                          I agree to my data being processed in accordance with the <a href="/legal/privacy" style={{ color: "rgb(13,110,253)" }}>Privacy Policy</a> for the purpose of responding to this enquiry. *
+                          {t.contactPage.consentLabel}
                         </span>
                       </label>
 
@@ -328,14 +322,14 @@ export default function ContactPage() {
                           borderRadius: "var(--radius-md)", padding: "1rem",
                           fontSize: "0.82rem", color: "rgb(var(--color-text))", lineHeight: 1.6,
                         }}>
-                          🛡️ <strong>Safeguarding concern?</strong> If this is urgent or relates to the immediate safety of a young person, please contact your local emergency services or national child protection authority directly. We aim to respond to safeguarding enquiries within 24 hours.
+                          {t.contactPage.safeguardingNote}
                         </div>
                       )}
 
                       {/* Submit */}
                       {status === "error" && (
                         <div style={{ padding: "0.75rem 1rem", background: "rgba(239,68,68,0.08)", borderRadius: "var(--radius-md)", fontSize: "0.85rem", color: "rgb(239,68,68)" }}>
-                          ❌ Something went wrong. Please try again or email us directly.
+                          {t.contactPage.errorMsg}
                         </div>
                       )}
                       <button type="submit" disabled={status === "sending" || !form.consent} style={{
@@ -351,7 +345,7 @@ export default function ContactPage() {
                       </button>
 
                       <p style={{ fontSize: "0.75rem", color: "rgb(var(--color-text-muted))", textAlign: "center" }}>
-                        🔒 Your data is protected under GDPR. We will never share your information with third parties.
+                        {t.contactPage.gdprNote}
                       </p>
                     </form>
                   </div>

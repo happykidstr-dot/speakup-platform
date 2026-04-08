@@ -25,7 +25,18 @@ export const translations: Record<Locale, {
   toolkitPage: { badge: string; title: string; sub: string };
   communityPage: { badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string };
   educatorsPage: { badge: string; title: string; sub: string };
-  contactPage: { badge: string; title: string; sub: string; send: string; sending: string; success: string; successSub: string };
+  contactPage: {
+    badge: string; title: string; sub: string;
+    send: string; sending: string; success: string; successSub: string; sendAnother: string;
+    quickContact: string; followProject: string; contactPartner: string;
+    general: string; mediaPress: string; safeguardingLabel: string;
+    sendMessage: string; formRequired: string;
+    nameLabel: string; emailLabel: string; orgLabel: string; countryLabel: string; reasonLabel: string; messageLabel: string;
+    namePlaceholder: string; orgPlaceholder: string; msgPlaceholder: string;
+    selectCountry: string;
+    reasons: string[];
+    consentLabel: string; gdprNote: string; safeguardingNote: string; errorMsg: string;
+  };
 }> = {
   en: {
     lang: "English",
@@ -77,7 +88,22 @@ export const translations: Record<Locale, {
     toolkitPage: { badge: "🤖 Educational AI Tool", title: "Toolkit & AI Hate Speech Awareness Tool", sub: "Download our evidence-based toolkit and explore our AI-powered educational tool." },
     communityPage: { badge: "✊ Community Actions", title: "Together We Can Make Online Spaces Safer", sub: "Sign the Anti-Hate Pact. Take community actions. Share your story.", tabPact: "✍️ Sign the Pact", tabActions: "🎯 Take Action", tabStories: "💬 Stories" },
     educatorsPage: { badge: "👩‍🏫 Educator Area", title: "Tools for Educators Who Want to Make a Difference", sub: "Free lesson plans, workshop guides, and professional development resources." },
-    contactPage: { badge: "✉️ Get in Touch", title: "Contact Us", sub: "Questions, partnerships, media enquiries, or safeguarding concerns — we're here to help.", send: "📨 Send Message", sending: "⏳ Sending...", success: "Message Sent!", successSub: "Thank you. We've received your message and will respond within 3 working days." },
+    contactPage: {
+      badge: "✉️ Get in Touch", title: "Contact Us", sub: "Questions, partnerships, media enquiries, or safeguarding concerns — we're here to help.",
+      send: "📨 Send Message", sending: "⏳ Sending...", success: "Message Sent!",
+      successSub: "Thank you. We've received your message and will respond within 3 working days.", sendAnother: "Send Another Message",
+      quickContact: "Quick Contact", followProject: "Follow the Project", contactPartner: "Contact a Partner Directly",
+      general: "General", mediaPress: "Media & Press", safeguardingLabel: "Safeguarding",
+      sendMessage: "Send Us a Message", formRequired: "All fields marked * are required. We respond within 3 working days.",
+      nameLabel: "Full Name *", emailLabel: "Email Address *", orgLabel: "Organisation", countryLabel: "Country", reasonLabel: "Reason for Contact *", messageLabel: "Message *",
+      namePlaceholder: "Your name", orgPlaceholder: "School, NGO, University...", msgPlaceholder: "Tell us how we can help you...",
+      selectCountry: "Select country",
+      reasons: ["General Enquiry", "Educator Partnership", "Project Partnership", "Media & Press", "Share My Story", "Technical Issue", "Safeguarding Concern"],
+      consentLabel: "I agree to my data being processed in accordance with the Privacy Policy for the purpose of responding to this enquiry. *",
+      gdprNote: "🔒 Your data is protected under GDPR. We will never share your information with third parties.",
+      safeguardingNote: "🛡️ Safeguarding concern? If urgent, please contact your local emergency services directly. We aim to respond within 24 hours.",
+      errorMsg: "❌ Something went wrong. Please try again or email us directly.",
+    },
   },
 
   pl: {
@@ -130,7 +156,22 @@ export const translations: Record<Locale, {
     toolkitPage: { badge: "🤖 Edukacyjne narzędzie AI", title: "Zestaw narzędzi i narzędzie AI do rozpoznawania mowy nienawiści", sub: "Pobierz nasz zestaw narzędzi oparty na dowodach i wypróbuj nasze narzędzie edukacyjne AI." },
     communityPage: { badge: "✊ Działania społecznościowe", title: "Razem możemy uczynić internet bezpieczniejszym", sub: "Podpisz Pakt Antynienawiści. Podejmij działania. Podziel się swoją historią.", tabPact: "✍️ Podpisz Pakt", tabActions: "🎯 Działaj", tabStories: "💬 Historie" },
     educatorsPage: { badge: "👩‍🏫 Strefa nauczycieli", title: "Narzędzia dla nauczycieli, którzy chcą zmieniać świat", sub: "Bezpłatne plany lekcji, przewodniki warsztatowe i materiały do rozwoju zawodowego." },
-    contactPage: { badge: "✉️ Skontaktuj się", title: "Kontakt", sub: "Pytania, współpraca, zapytania medialne lub kwestie ochrony dzieci — jesteśmy tutaj.", send: "📨 Wyślij wiadomość", sending: "⏳ Wysyłanie...", success: "Wiadomość wysłana!", successSub: "Dziękujemy. Otrzymaliśmy Twoją wiadomość i odpowiemy w ciągu 3 dni roboczych." },
+    contactPage: {
+      badge: "✉️ Skontaktuj się", title: "Kontakt", sub: "Pytania, współpraca, zapytania medialne lub kwestie ochrony dzieci — jesteśmy tutaj.",
+      send: "📨 Wyślij wiadomość", sending: "⏳ Wysyłanie...", success: "Wiadomość wysłana!",
+      successSub: "Dziękujemy. Otrzymaliśmy Twoją wiadomość i odpowiemy w ciągu 3 dni roboczych.", sendAnother: "Wyślij kolejną wiadomość",
+      quickContact: "Szybki kontakt", followProject: "Śledź projekt", contactPartner: "Skontaktuj się z partnerem",
+      general: "Ogólny", mediaPress: "Media i prasa", safeguardingLabel: "Ochrona dzieci",
+      sendMessage: "Wyślij nam wiadomość", formRequired: "Pola oznaczone * są wymagane. Odpowiadamy w ciągu 3 dni roboczych.",
+      nameLabel: "Imię i nazwisko *", emailLabel: "Adres e-mail *", orgLabel: "Organizacja", countryLabel: "Kraj", reasonLabel: "Powód kontaktu *", messageLabel: "Wiadomość *",
+      namePlaceholder: "Twoje imię", orgPlaceholder: "Szkoła, NGO, Uczelnia...", msgPlaceholder: "Powiedz nam, jak możemy Ci pomóc...",
+      selectCountry: "Wybierz kraj",
+      reasons: ["Zapytanie ogólne", "Partnerstwo edukacyjne", "Partnerstwo projektowe", "Media i prasa", "Moja historia", "Problem techniczny", "Ochrona dzieci"],
+      consentLabel: "Wyrażam zgodę na przetwarzanie moich danych zgodnie z Polityką Prywatności w celu udzielenia odpowiedzi na zapytanie. *",
+      gdprNote: "🔒 Twoje dane są chronione zgodnie z RODO. Nigdy nie udostępnimy Twoich danych osobom trzecim.",
+      safeguardingNote: "🛡️ Kwestia ochrony dzieci? W nagłych przypadkach prosimy o kontakt z lokalną policją lub organem ochrony dzieci. Odpowiadamy w ciągu 24 godzin.",
+      errorMsg: "❌ Coś poszło nie tak. Spróbuj ponownie lub napisz do nas bezpośrednio.",
+    },
   },
 
   ro: {
@@ -183,7 +224,22 @@ export const translations: Record<Locale, {
     toolkitPage: { badge: "🤖 Instrument AI educațional", title: "Toolkit și instrument AI de conștientizare a discursului de ură", sub: "Descarcă toolkit-ul nostru bazat pe dovezi și explorează instrumentul nostru educațional AI." },
     communityPage: { badge: "✊ Acțiuni comunitare", title: "Împreună putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împărtășește povestea ta.", tabPact: "✍️ Semnează Pactul", tabActions: "🎯 Acționează", tabStories: "💬 Povești" },
     educatorsPage: { badge: "👩‍🏫 Zona educatorilor", title: "Instrumente pentru educatorii care vor să facă diferența", sub: "Planuri de lecție gratuite, ghiduri de atelier și resurse de dezvoltare profesională." },
-    contactPage: { badge: "✉️ Contactați-ne", title: "Contact", sub: "Întrebări, parteneriate, solicitări media sau preocupări de protecție — suntem aici.", send: "📨 Trimite mesajul", sending: "⏳ Se trimite...", success: "Mesaj trimis!", successSub: "Vă mulțumim. Am primit mesajul dvs. și vă vom răspunde în 3 zile lucrătoare." },
+    contactPage: {
+      badge: "✉️ Contactați-ne", title: "Contact", sub: "Întrebări, parteneriate, solicitări media sau preocupări de protecție — suntem aici.",
+      send: "📨 Trimite mesajul", sending: "⏳ Se trimite...", success: "Mesaj trimis!",
+      successSub: "Vă mulțumim. Am primit mesajul dvs. și vă vom răspunde în 3 zile lucrătoare.", sendAnother: "Trimite un alt mesaj",
+      quickContact: "Contact rapid", followProject: "Urmează proiectul", contactPartner: "Contactați direct un partener",
+      general: "General", mediaPress: "Media și presă", safeguardingLabel: "Protecția copilului",
+      sendMessage: "Trimiteți-ne un mesaj", formRequired: "Câmpurile marcate cu * sunt obligatorii. Răspundem în 3 zile lucrătoare.",
+      nameLabel: "Nume complet *", emailLabel: "Adresă de e-mail *", orgLabel: "Organizație", countryLabel: "Țară", reasonLabel: "Motivul contactului *", messageLabel: "Mesaj *",
+      namePlaceholder: "Numele dumneavoastră", orgPlaceholder: "Școală, ONG, Universitate...", msgPlaceholder: "Spuneți-ne cum vă putem ajuta...",
+      selectCountry: "Selectați țara",
+      reasons: ["Cerere generală", "Parteneriat educațional", "Parteneriat de proiect", "Media și presă", "Împărtășește povestea", "Problemă tehnică", "Protecția copilului"],
+      consentLabel: "Sunt de acord ca datele mele să fie prelucrate în conformitate cu Politica de Confidențialitate în scopul răspunsului la această solicitare. *",
+      gdprNote: "🔒 Datele dvs. sunt protejate în conformitate cu GDPR. Nu vom împărți niciodată informațiile dvs. cu terțe părți.",
+      safeguardingNote: "🛡️ Preocupare privind protecția? În caz de urgență, contactați serviciile de urgență locale. Răspundem la solicitările de protecție în 24 de ore.",
+      errorMsg: "❌ Ceva nu a mers bine. Vă rugăm să încercați din nou sau să ne trimiteți un e-mail direct.",
+    },
   },
 
   cz: {
@@ -236,7 +292,22 @@ export const translations: Record<Locale, {
     toolkitPage: { badge: "🤖 Vzdělávací nástroj AI", title: "Sada nástrojů a AI nástroj pro uvědomění o nenávistných projevech", sub: "Stáhněte si naši sadu nástrojů podloženou důkazy a prozkoumejte náš vzdělávací nástroj AI." },
     communityPage: { badge: "✊ Komunitní akce", title: "Společně můžeme online prostory udělat bezpečnějšími", sub: "Podpiš Pakt proti nenávisti. Jednej. Sdílej svůj příběh.", tabPact: "✍️ Podepsit Pakt", tabActions: "🎯 Jednej", tabStories: "💬 Příběhy" },
     educatorsPage: { badge: "👩‍🏫 Prostor pro pedagogy", title: "Nástroje pro pedagogy, kteří chtějí změnit svět", sub: "Bezplatné plány hodin, průvodce workshopy a materiály pro profesní rozvoj." },
-    contactPage: { badge: "✉️ Kontaktujte nás", title: "Kontakt", sub: "Dotazy, partnerství, tiskové dotazy nebo obavy o bezpečnost — jsme zde.", send: "📨 Odeslat zprávu", sending: "⏳ Odesílání...", success: "Zpráva odeslána!", successSub: "Děkujeme. Vaši zprávu jsme obdrželi a odpovíme do 3 pracovních dnů." },
+    contactPage: {
+      badge: "✉️ Kontaktujte nás", title: "Kontakt", sub: "Dotazy, partnerství, tiskové dotazy nebo obavy o bezpečnost — jsme zde.",
+      send: "📨 Odeslat zprávu", sending: "⏳ Odesílání...", success: "Zpráva odeslána!",
+      successSub: "Děkujeme. Vaši zprávu jsme obdrželi a odpovíme do 3 pracovních dnů.", sendAnother: "Odeslat další zprávu",
+      quickContact: "Rychlý kontakt", followProject: "Sleduj projekt", contactPartner: "Kontaktujte přímo partnera",
+      general: "Obecný", mediaPress: "Média a tisk", safeguardingLabel: "Ochrana dětí",
+      sendMessage: "Napište nám", formRequired: "Pole označená * jsou povinná. Odpovídáme do 3 pracovních dnů.",
+      nameLabel: "Celé jméno *", emailLabel: "E-mailová adresa *", orgLabel: "Organizace", countryLabel: "Země", reasonLabel: "Důvod kontaktu *", messageLabel: "Zpráva *",
+      namePlaceholder: "Vaše jméno", orgPlaceholder: "Škola, NGO, Univerzita...", msgPlaceholder: "Řekněte nám, jak vám můžeme pomoci...",
+      selectCountry: "Vyberte zemi",
+      reasons: ["Obecný dotaz", "Vzdělávací partnerství", "Projektové partnerství", "Média a tisk", "Sdílet svůj příběh", "Technický problém", "Ochrana dětí"],
+      consentLabel: "Souhlasím se zpracováním svých údajů v souladu se Zásadami ochrany soukromí za účelem odpovědi na tento dotaz. *",
+      gdprNote: "🔒 Vaše data jsou chráněna v souladu s GDPR. Nikdy nebudeme sdílet vaše informace s třetími stranami.",
+      safeguardingNote: "🛡️ Zájem o ochranu dětí? V naléhavých případech se obraťte přímo na místní záchranné služby. Na dotazy ohledně ochrany odpovídáme do 24 hodin.",
+      errorMsg: "❌ Něco se pokazilo. Zkuste to prosím znovu nebo nám napište přímo e-mailem.",
+    },
   },
 
   et: {
@@ -289,6 +360,21 @@ export const translations: Record<Locale, {
     toolkitPage: { badge: "🤖 Hariduslik AI tööriist", title: "Tööriistad ja AI vaenukõne teadlikkuse tõstmiseks", sub: "Laadi alla meie tõenduspõhine tööriistad ja uuri meie hariduslikku AI tööriista." },
     communityPage: { badge: "✊ Kogukonna tegevused", title: "Koos saame veebiruumi turvalisemaks muuta", sub: "Kirjuta alla Anti-Hate Paktile. Tegutse. Jaga oma lugu.", tabPact: "✍️ Kirjuta alla Paktile", tabActions: "🎯 Tegutse", tabStories: "💬 Lood" },
     educatorsPage: { badge: "👩‍🏫 Õpetajate valdkond", title: "Vahendid õpetajatele, kes soovivad muutust luua", sub: "Tasuta tunnikavad, töötoa juhendid ja professionaalse arengu ressursid." },
-    contactPage: { badge: "✉️ Võtke meiega ühendust", title: "Kontakt", sub: "Küsimused, partnerlused, meediapäringud või kaitsega seotud mured — oleme siin.", send: "📨 Saada sõnum", sending: "⏳ Saatmine...", success: "Sõnum saadetud!", successSub: "Täname. Oleme teie sõnumi kätte saanud ja vastame 3 tööpäeva jooksul." },
+    contactPage: {
+      badge: "✉️ Võtke meiega ühendust", title: "Kontakt", sub: "Küsimused, partnerlused, meediapäringud või kaitsega seotud mured — oleme siin.",
+      send: "📨 Saada sõnum", sending: "⏳ Saatmine...", success: "Sõnum saadetud!",
+      successSub: "Täname. Oleme teie sõnumi kätte saanud ja vastame 3 tööpäeva jooksul.", sendAnother: "Saada teine sõnum",
+      quickContact: "Kiirkontakt", followProject: "Jälgi projekti", contactPartner: "Võtke otse partneriga ühendust",
+      general: "Üldine", mediaPress: "Meedia ja ajakirjandus", safeguardingLabel: "Laste kaitse",
+      sendMessage: "Saatke meile sõnum", formRequired: "Tärniga * märgitud väljad on kohustuslikud. Vastame 3 tööpäeva jooksul.",
+      nameLabel: "Täisnimi *", emailLabel: "E-posti aadress *", orgLabel: "Organisatsioon", countryLabel: "Riik", reasonLabel: "Kontakti põhjus *", messageLabel: "Sõnum *",
+      namePlaceholder: "Teie nimi", orgPlaceholder: "Kool, MTÜ, Ülikool...", msgPlaceholder: "Rääkige meile, kuidas saame teid aidata...",
+      selectCountry: "Valige riik",
+      reasons: ["Üldine päring", "Hariduspartnerlus", "Projektipartnerlus", "Meedia ja ajakirjandus", "Jaga oma lugu", "Tehniline probleem", "Laste kaitsega seotud mure"],
+      consentLabel: "Nõustun oma andmete töötlemisega vastavalt privaatsuspoliitikale selle päringu vastamiseks. *",
+      gdprNote: "🔒 Teie andmed on kaitstud vastavalt GDPR-ile. Me ei jaga teie teavet kunagi kolmandate isikutega.",
+      safeguardingNote: "🛡️ Laste kaitsega seotud mure? Kiireloomulistel juhtudel võtke otse ühendust kohaliku häirekeskusega. Vastame kaitsepäringutele 24 tunni jooksul.",
+      errorMsg: "❌ Midagi läks valesti. Proovige uuesti või kirjutage meile otse e-postiga.",
+    },
   },
 };
