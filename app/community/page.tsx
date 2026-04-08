@@ -21,32 +21,14 @@ const signatories = [
   { name: "Elena Radu", city: "Timișoara", country: "Romania", flag: "🇷🇴", date: "2026-04-08" },
 ];
 
-const pactText = `We, the undersigned, commit to speaking up against online hate speech in our digital communities.
 
-We pledge to:
-• Recognise hate speech when we encounter it — including coded and subtle forms
-• Not stay silent when hate is directed at others in our communities
-• Report hateful content through available platform tools and legal channels
-• Support targets of hate speech with solidarity and care
-• Choose words that build respect and inclusion, not division
-• Never share, amplify or like hateful content — even "as a joke"
-• Educate ourselves and others about the harms of hate speech
-• Stand for the equal dignity of every person, regardless of their identity
-
-We believe safer digital spaces are possible — and that each of us has a role to play in creating them.`;
-
-const communityActions = [
-  { icon: "🎨", title: "Create a Counter-Narrative Post", desc: "Design a social media post promoting inclusion and digital respect. Share with #SpeakUPagainstHate.", tag: "Creative", color: "rgb(139,92,246)" },
-  { icon: "📢", title: "Organise a School Discussion", desc: "Facilitate a classroom discussion about hate speech with your peers using our free facilitation guide.", tag: "Education", color: "rgb(13,110,253)" },
-  { icon: "🤝", title: "Recruit 5 Pact Signatories", desc: "Share the Anti-Hate Pact with 5 friends and invite them to sign. Every signature counts.", tag: "Community", color: "rgb(16,185,129)" },
-  { icon: "🎤", title: "Share Your Story", desc: "Tell us about a time you witnessed or countered online hate. Your story can inspire others.", tag: "Stories", color: "rgb(245,158,11)" },
+const actionColors = [
+  "rgb(139,92,246)",
+  "rgb(13,110,253)",
+  "rgb(16,185,129)",
+  "rgb(245,158,11)",
 ];
 
-const stories = [
-  { name: "Maria, 19", country: "Romania 🇷🇴", story: "I saw a classmate being targeted in a group chat because of their religion. I didn't know what to do at first, but after using SpeakUP I found the courage to speak up privately and report the messages." },
-  { name: "Jakub, 22", country: "Czech Republic 🇨🇿", story: "I used to scroll past hate comments thinking they weren't my problem. Now I understand that silence is also a choice — and it's usually the wrong one." },
-  { name: "Kristiina, 17", country: "Estonia 🇪🇪", story: "Our school organised a SpeakUP session and we made an Anti-Hate Pact together. It felt like our class became closer and more aware of each other's experiences." },
-];
 
 export default function CommunityPage() {
   const { t } = useLanguage();
@@ -110,10 +92,10 @@ export default function CommunityPage() {
             </p>
             <div style={{ display: "flex", gap: "1.5rem", marginTop: "2rem", flexWrap: "wrap" }}>
               {[
-                { val: localSignatories.length + "+", label: "Pact Signatories" },
-                { val: "5", label: "Countries" },
-                { val: "12+", label: "Community Actions" },
-                { val: "3", label: "Youth Stories" },
+                { val: localSignatories.length + "+", label: t.communityPage.heroStats[0] },
+                { val: "5", label: t.communityPage.heroStats[1] },
+                { val: "12+", label: t.communityPage.heroStats[2] },
+                { val: "3", label: t.communityPage.heroStats[3] },
               ].map((s) => (
                 <div key={s.label}>
                   <div style={{ fontSize: "1.5rem", fontWeight: 800, color: "white" }}>{s.val}</div>
@@ -154,10 +136,10 @@ export default function CommunityPage() {
                     whiteSpace: "pre-line",
                     marginBottom: "1.5rem",
                   }}>
-                    {pactText}
+                    {t.communityPage.pactText}
                   </div>
                   <p style={{ fontSize: "0.8rem", color: "rgb(var(--color-text-muted))" }}>
-                    🔒 By signing, you agree to your name (if consented) being displayed on the public signatory wall. Your email will only be used to send a confirmation. GDPR compliant.
+                    {t.communityPage.gdprNote}
                   </p>
                 </div>
 
@@ -171,9 +153,9 @@ export default function CommunityPage() {
                       </p>
                       <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         {[
-                          { field: "name", label: t.communityPage.nameLabel, placeholder: "Your name", type: "text" },
-                          { field: "email", label: t.communityPage.emailLabel, placeholder: "you@example.com", type: "email" },
-                          { field: "city", label: t.communityPage.cityLabel, placeholder: "Your city", type: "text" },
+                          { field: "name", label: t.communityPage.nameLabel, placeholder: t.communityPage.namePlaceholder, type: "text" },
+                          { field: "email", label: t.communityPage.emailLabel, placeholder: t.communityPage.emailPlaceholder, type: "email" },
+                          { field: "city", label: t.communityPage.cityLabel, placeholder: t.communityPage.cityPlaceholder, type: "text" },
                         ].map(({ field, label, placeholder, type }) => (
                           <div key={field}>
                             <label style={{ display: "block", fontWeight: 600, fontSize: "0.85rem", marginBottom: "0.35rem", color: "rgb(var(--color-text))" }}>{label}</label>
@@ -209,7 +191,7 @@ export default function CommunityPage() {
                               borderRadius: "var(--radius-md)", fontSize: "0.9rem",
                               background: "white", outline: "none",
                             }}>
-                            <option value="">Select your country</option>
+                            <option value="">{t.communityPage.selectCountry}</option>
                             {["Poland", "Estonia", "Czech Republic", "Romania", "Germany", "France", "Spain", "Italy", "Netherlands", "Sweden", "Austria", "Belgium", "Other EU Country"].map((c) => (
                               <option key={c} value={c}>{c}</option>
                             ))}
@@ -281,16 +263,16 @@ export default function CommunityPage() {
                           borderRadius: "999px", padding: "0.65rem 1.5rem",
                           fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
                         }}>{t.communityPage.takeActionBtn}</button>
-                        <Link href="/learn" className="btn btn-outline">📚 Start Learning</Link>
+                        <Link href="/learn" className="btn btn-outline">{t.communityPage.startLearnBtn}</Link>
                       </div>
                     </div>
                   )}
 
                   {/* Signatory count */}
                   <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
-                    <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))" }}>
-                      🌍 <strong>{localSignatories.length} people</strong> have already signed from 5+ countries
-                    </p>
+                      <p style={{ fontSize: "0.82rem", color: "rgb(var(--color-text-muted))" }}>
+                        🌍 <strong>{localSignatories.length} {t.communityPage.signatoryCount}</strong>
+                      </p>
                   </div>
                 </div>
               </div>
@@ -330,32 +312,36 @@ export default function CommunityPage() {
                 </p>
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1.5rem" }}>
-                {communityActions.map((a) => (
+                {t.communityPage.actions.map((a, i) => {
+                  const actionIcons = ["🎨", "📢", "🤝", "🎤"];
+                  const color = actionColors[i] || "rgb(13,110,253)";
+                  return (
                   <div key={a.title} style={{
                     background: "white", border: "1px solid rgb(var(--color-border))",
                     borderRadius: "var(--radius-lg)", padding: "2rem",
-                    borderTop: `4px solid ${a.color}`,
+                    borderTop: `4px solid ${color}`,
                     transition: "all 0.2s",
                   }}>
-                    <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>{a.icon}</div>
+                    <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>{actionIcons[i]}</div>
                     <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "0.5rem" }}>
                       <h3 style={{ fontSize: "1rem", margin: 0 }}>{a.title}</h3>
                     </div>
                     <p style={{ fontSize: "0.875rem", color: "rgb(var(--color-text-muted))", lineHeight: 1.6, marginBottom: "1.25rem" }}>{a.desc}</p>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                       <span style={{
-                        background: a.color + "15", color: a.color,
+                        background: color + "15", color: color,
                         borderRadius: "999px", padding: "0.2rem 0.7rem",
                         fontSize: "0.7rem", fontWeight: 700,
                       }}>{a.tag}</span>
                       <button style={{
-                        background: a.color, color: "white", border: "none",
-                        borderRadius: "999px", padding: "0.4rem 1rem",
-                        fontSize: "0.82rem", fontWeight: 700, cursor: "pointer",
-                      }}>Start →</button>
+                        background: color, color: "white", border: "none",
+                          borderRadius: "999px", padding: "0.4rem 1rem",
+                          fontSize: "0.82rem", fontWeight: 700, cursor: "pointer",
+                        }}>{t.communityPage.startBtn}</button>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </section>
@@ -372,7 +358,7 @@ export default function CommunityPage() {
                 </p>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", maxWidth: "720px", margin: "0 auto" }}>
-                {stories.map((s) => (
+                {t.communityPage.stories.map((s) => (
                   <div key={s.name} style={{
                     background: "white", border: "1px solid rgb(var(--color-border))",
                     borderRadius: "var(--radius-lg)", padding: "2rem",

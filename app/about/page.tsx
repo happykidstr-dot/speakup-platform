@@ -113,10 +113,10 @@ export default function AboutPage() {
                 }}>{t.aboutPage.problemLabel}</span>
                 <h2 style={{ marginBottom: "1rem" }}>{t.aboutPage.problemTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1rem" }}>
-                  Young people across Europe encounter online hate speech daily — on social media, in gaming communities, and in messaging apps. Yet most young people and educators lack the practical knowledge and tools to respond effectively.
+                  {t.aboutPage.problemDesc1}
                 </p>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1rem" }}>
-                  Existing resources are often monolingual, adult-centred, or disconnected from the realities of digital culture. There is a clear gap between EU-level policy ambitions and grassroots capacity to act.
+                  {t.aboutPage.problemDesc2}
                 </p>
                 {t.aboutPage.problemPoints.map((pt) => (
                   <div key={pt} style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.5rem" }}>
@@ -135,7 +135,7 @@ export default function AboutPage() {
                 }}>{t.aboutPage.solutionLabel}</span>
                 <h2 style={{ marginBottom: "1rem" }}>{t.aboutPage.solutionTitle}</h2>
                 <p style={{ color: "rgb(var(--color-text-muted))", lineHeight: 1.8, marginBottom: "1.5rem" }}>
-                  SpeakUP against Hate builds a youth-friendly, educator-supported, AI-enhanced online platform that makes evidence-based anti-hate education accessible across 5 EU languages — for free.
+                  {t.aboutPage.solutionDesc}
                 </p>
                 {["📚", "👩‍🏫", "🤖", "🤝", "📑"].map((icon, i) => (
                   <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: "0.75rem", marginBottom: "0.75rem" }}>
@@ -158,12 +158,12 @@ export default function AboutPage() {
             }}>
               <div style={{ fontSize: "3rem" }}>🇪🇺</div>
               <div style={{ flex: 1, minWidth: 280 }}>
-                <h3 style={{ marginBottom: "0.5rem" }}>Co-funded by the European Union</h3>
+                <h3 style={{ marginBottom: "0.5rem" }}>{t.aboutPage.cervTitle}</h3>
                 <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "0.5rem" }}>
-                  This project is funded under the <strong>CERV (Citizens, Equality, Rights and Values) Programme</strong>, Strand 2: Equality, Rights and Gender Equality. The CERV programme promotes and protects EU values, fundamental rights, and democratic participation.
+                  {t.aboutPage.cervDesc}
                 </p>
                 <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.82rem" }}>
-                  The content of this platform represents the views of the authors only and is their sole responsibility. The European Commission does not accept any responsibility for use that may be made of the information it contains.
+                  {t.aboutPage.cervDisclaimer}
                 </p>
               </div>
             </div>
@@ -239,13 +239,14 @@ export default function AboutPage() {
                   borderRadius: "var(--radius-lg)", padding: "1.75rem", position: "relative",
                   borderTop: `4px solid ${p.color}`,
                 }}>
+
                   {p.role === "Coordinator" && (
                     <span style={{
                       position: "absolute", top: "1rem", right: "1rem",
                       background: "rgb(255,204,0)", color: "rgb(0,51,153)",
                       borderRadius: "999px", padding: "0.2rem 0.65rem",
                       fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em",
-                    }}>Coordinator</span>
+                    }}>{t.aboutPage.coordinatorLabel}</span>
                   )}
                   <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.75rem" }}>
                     <span style={{ fontSize: "2rem" }}>{p.flag}</span>
@@ -276,9 +277,9 @@ export default function AboutPage() {
           <div className="container" style={{ textAlign: "center" }}>
             <h3 style={{ marginBottom: "1rem" }}>{t.aboutPage.cta}</h3>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-              <Link href="/learn" className="btn btn-primary btn-lg">📚 Start Learning</Link>
-              <Link href="/community" className="btn btn-outline btn-lg">🤝 Join the Community</Link>
-              <Link href="/contact" className="btn btn-ghost btn-lg">✉️ Contact Us</Link>
+              <Link href="/learn" className="btn btn-primary btn-lg">{t.aboutPage.ctaLearn}</Link>
+              <Link href="/community" className="btn btn-outline btn-lg">{t.aboutPage.ctaCommunity}</Link>
+              <Link href="/contact" className="btn btn-ghost btn-lg">{t.aboutPage.ctaContact}</Link>
             </div>
           </div>
         </section>

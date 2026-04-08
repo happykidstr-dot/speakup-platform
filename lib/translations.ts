@@ -30,12 +30,13 @@ export const translations: Record<Locale, {
   };
   aboutPage: {
     badge: string; title: string; sub: string;
-    problemLabel: string; problemTitle: string;
-    solutionLabel: string; solutionTitle: string;
+    problemLabel: string; problemTitle: string; problemDesc1: string; problemDesc2: string;
+    solutionLabel: string; solutionTitle: string; solutionDesc: string;
     problemPoints: string[]; solutionPoints: string[];
+    cervTitle: string; cervDesc: string; cervDisclaimer: string;
     timelineLabel: string; timelineTitle: string;
-    partnerLabel: string; partnerTitle: string;
-    cta: string;
+    partnerLabel: string; partnerTitle: string; coordinatorLabel: string;
+    cta: string; ctaLearn: string; ctaCommunity: string; ctaContact: string;
   };
   toolkitPage: {
     badge: string; title: string; sub: string;
@@ -50,16 +51,24 @@ export const translations: Record<Locale, {
     badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string;
     pactTitle: string; signPactTitle: string; signPactSub: string;
     nameLabel: string; emailLabel: string; cityLabel: string; countryLabel: string; roleLabel: string;
+    namePlaceholder: string; emailPlaceholder: string; cityPlaceholder: string;
     roleOptions: string[]; consentLabel: string; displayLabel: string; signBtn: string;
     successTitle: string; successSub: string; takeActionBtn: string;
+    heroStats: string[]; selectCountry: string; startLearnBtn: string; signatoryCount: string; startBtn: string;
     signatoryWall: string; actionTitle: string; actionSub: string;
     storiesTitle: string; storiesSub: string; shareTitle: string; shareSub: string; shareBtn: string;
+    pactText: string; gdprNote: string;
+    actions: { title: string; desc: string; tag: string }[];
+    stories: { name: string; country: string; story: string }[];
   };
   educatorsPage: {
     badge: string; title: string; sub: string;
-    curriculumLabel: string; curriculumTitle: string; curriculumSub: string;
+    heroStats: string[];
+    curriculumLabel: string; curriculumTitle: string; curriculumSub: string; curriculumDesc1: string; curriculumDesc2: string;
     resourceLibLabel: string; resourceLibTitle: string; downloadBtn: string;
-    faqTitle: string; joinTitle: string; joinSub: string;
+    filterAll: string; moduleLabel: string;
+    faqTitle: string;
+    joinTitle: string; joinSub: string;
     requestAccessBtn: string; previewBtn: string;
   };
   contactPage: {
@@ -141,12 +150,18 @@ export const translations: Record<Locale, {
     aboutPage: {
       badge: "🇪🇺 CERV Project · 2024–2026", title: "About SpeakUP against Hate", sub: "A 24-month transnational project funded by the European Union's CERV programme.",
       problemLabel: "The Problem", problemTitle: "Online hate is growing. The tools to fight it are not.",
+      problemDesc1: "Young people across Europe encounter online hate speech daily — on social media, in gaming communities, and in messaging apps. Yet most young people and educators lack the practical knowledge and tools to respond effectively.",
+      problemDesc2: "Existing resources are often monolingual, adult-centred, or disconnected from the realities of digital culture. There is a clear gap between EU-level policy ambitions and grassroots capacity to act.",
       solutionLabel: "Our Solution", solutionTitle: "A multilingual platform built for real change.",
+      solutionDesc: "SpeakUP against Hate builds a youth-friendly, educator-supported, AI-enhanced online platform that makes evidence-based anti-hate education accessible across 5 EU languages — for free.",
       problemPoints: ["Hate speech is normalised in many online spaces", "Youth lack evidence-based, age-appropriate tools", "Educators need practical classroom resources", "Most resources are English-only"],
       solutionPoints: ["6 learning modules for youth (EN/PL/RO/CZ/ET)", "Educator resources, lesson plans, and workshop guides", "AI-supported hate speech awareness tool", "Community actions, Anti-Hate Pacts, micro-campaigns", "Policy briefs for European and national decision-makers"],
+      cervTitle: "Co-funded by the European Union",
+      cervDesc: "This project is funded under the CERV (Citizens, Equality, Rights and Values) Programme, Strand 2: Equality, Rights and Gender Equality. The CERV programme promotes and protects EU values, fundamental rights, and democratic participation.",
+      cervDisclaimer: "The content of this platform represents the views of the authors only and is their sole responsibility. The European Commission does not accept any responsibility for use that may be made of the information it contains.",
       timelineLabel: "Project Timeline", timelineTitle: "24-Month Implementation Plan",
-      partnerLabel: "Project Consortium", partnerTitle: "5 Partners. 4 Countries. One Mission.",
-      cta: "Ready to get involved?",
+      partnerLabel: "Project Consortium", partnerTitle: "5 Partners. 4 Countries. One Mission.", coordinatorLabel: "Coordinator",
+      cta: "Ready to get involved?", ctaLearn: "📚 Start Learning", ctaCommunity: "🤝 Join the Community", ctaContact: "✉️ Contact Us",
     },
     toolkitPage: {
       badge: "🤖 Educational AI Tool", title: "Toolkit & AI Hate Speech Awareness Tool", sub: "Download our evidence-based toolkit and explore our AI-powered educational tool.",
@@ -165,22 +180,42 @@ export const translations: Record<Locale, {
       pactTitle: "The Anti-Hate Pact", signPactTitle: "Sign the Pact",
       signPactSub: "Join thousands of young people across Europe committing to safer digital spaces.",
       nameLabel: "Full Name *", emailLabel: "Email Address *", cityLabel: "City *", countryLabel: "Country *", roleLabel: "I am a... (optional)",
+      namePlaceholder: "Your name", emailPlaceholder: "you@example.com", cityPlaceholder: "Your city",
       roleOptions: ["Prefer not to say", "Young person (under 25)", "Educator / Teacher", "NGO / Civil Society", "University Student", "Other"],
       consentLabel: "I agree to the Anti-Hate Pact and understand my data will be used only for this purpose. *",
       displayLabel: "I consent to my first name and country being displayed on the public signatory wall.",
       signBtn: "✊ Sign the Anti-Hate Pact",
       successTitle: "You've signed the pact!", successSub: "Thank you for standing up against hate.", takeActionBtn: "Take an Action →",
+      heroStats: ["Pact Signatories", "Countries", "Community Actions", "Youth Stories"],
+      selectCountry: "Select your country", startLearnBtn: "📚 Start Learning", signatoryCount: "people have already signed from 5+ countries", startBtn: "Start →",
       signatoryWall: "Signatory Wall", actionTitle: "Take Action Against Hate",
       actionSub: "Small actions add up. Choose one and share with #SpeakUPagainstHate.",
       storiesTitle: "Youth Stories", storiesSub: "Real experiences from young people across Europe.",
       shareTitle: "Share Your Story", shareSub: "Did you witness or counter online hate? Your experience can inspire others.",
       shareBtn: "Submit Your Story",
+      pactText: "We, the undersigned, commit to speaking up against online hate speech in our digital communities.\n\nWe pledge to:\n• Recognise hate speech when we encounter it — including coded and subtle forms\n• Not stay silent when hate is directed at others in our communities\n• Report hateful content through available platform tools and legal channels\n• Support targets of hate speech with solidarity and care\n• Choose words that build respect and inclusion, not division\n• Never share, amplify or like hateful content — even \"as a joke\"\n• Educate ourselves and others about the harms of hate speech\n• Stand for the equal dignity of every person, regardless of their identity\n\nWe believe safer digital spaces are possible — and that each of us has a role to play in creating them.",
+      gdprNote: "🔒 By signing, you agree to your name (if consented) being displayed on the public signatory wall. Your email will only be used to send a confirmation. GDPR compliant.",
+      actions: [
+        { title: "Create a Counter-Narrative Post", desc: "Design a social media post promoting inclusion and digital respect. Share with #SpeakUPagainstHate.", tag: "Creative" },
+        { title: "Organise a School Discussion", desc: "Facilitate a classroom discussion about hate speech with your peers using our free facilitation guide.", tag: "Education" },
+        { title: "Recruit 5 Pact Signatories", desc: "Share the Anti-Hate Pact with 5 friends and invite them to sign. Every signature counts.", tag: "Community" },
+        { title: "Share Your Story", desc: "Tell us about a time you witnessed or countered online hate. Your story can inspire others.", tag: "Stories" },
+      ],
+      stories: [
+        { name: "Maria, 19", country: "Romania 🇷🇴", story: "I saw a classmate being targeted in a group chat because of their religion. I didn't know what to do at first, but after using SpeakUP I found the courage to speak up privately and report the messages." },
+        { name: "Jakub, 22", country: "Czech Republic 🇨🇿", story: "I used to scroll past hate comments thinking they weren't my problem. Now I understand that silence is also a choice — and it's usually the wrong one." },
+        { name: "Kristiina, 17", country: "Estonia 🇪🇪", story: "Our school organised a SpeakUP session and we made an Anti-Hate Pact together. It felt like our class became closer and more aware of each other's experiences." },
+      ],
     },
     educatorsPage: {
       badge: "👩‍🏫 Educator Area", title: "Tools for Educators Who Want to Make a Difference", sub: "Free lesson plans, workshop guides, and professional development resources.",
+      heroStats: ["Free Resources", "Languages", "Activity Cards", "Always"],
       curriculumLabel: "Ready-Made Curriculum", curriculumTitle: "6 modules — ready to use in your classroom",
       curriculumSub: "Each module includes lesson plans, facilitator guides, slide decks, and assessment tools.",
+      curriculumDesc1: "Each SpeakUP learning module comes with a corresponding lesson plan and supporting materials. You can use one module as a stand-alone session or deliver all six as a progressive curriculum.",
+      curriculumDesc2: "All modules are designed for approximately 60–90 minutes each and include discussion questions, a key takeaways summary, and a quiz for knowledge review.",
       resourceLibLabel: "Resource Library", resourceLibTitle: "Download Free Educator Materials", downloadBtn: "📥 Download",
+      filterAll: "All", moduleLabel: "Module",
       faqTitle: "Frequently Asked Questions",
       joinTitle: "Join the Educator Community", joinSub: "Connect with educators from Poland, Estonia, Czech Republic, and Romania.",
       requestAccessBtn: "Request Access", previewBtn: "Preview All Modules",
@@ -269,17 +304,23 @@ export const translations: Record<Locale, {
     aboutPage: {
       badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projekcie SpeakUP against Hate", sub: "24-miesięczny projekt transnarodowy finansowany przez program CERV Unii Europejskiej.",
       problemLabel: "Problem", problemTitle: "Nienawiść w sieci rośnie. Narzędzia do walki z nią — nie.",
+      problemDesc1: "Młodzi ludzie w Europie codziennie napotykają mowę nienawiści w mediach społecznościowych, grach i komunikatorach. Większość nie posiada odpowiednich narzędzi, by skutecznie reagować.",
+      problemDesc2: "Dostępne zasoby są często jednojęzyczne, nastawione na dorosłych lub oderwane od realiów kultury cyfrowej. Istnieje wyraźna luka między polityką UE a oddolną zdolnością do działania.",
       solutionLabel: "Nasze rozwiązanie", solutionTitle: "Wielojęzyczna platforma zbudowana dla realnej zmiany.",
+      solutionDesc: "SpeakUP against Hate tworzy przyjazną dla młodzieży platformę edukacyjną, która udostępnia edukację antynenawiści opartą na dowodach w 5 językach UE — bezpłatnie.",
       problemPoints: ["Mowa nienawiści jest normalizowana w wielu przestrzeniach online", "Młodzieży brakuje opartych na dowodach narzędzi", "Edukatorzy potrzebują praktycznych zasobów szkolnych", "Większość zasobów jest tylko po angielsku"],
       solutionPoints: ["6 modułów szkoleniowych dla młodzieży (EN/PL/RO/CZ/ET)", "Zasoby dla edukatorów, plany lekcji i przewodniki", "Narzędzie AI do rozpoznawania mowy nienawiści", "Działania społecznościowe, Pakty Antynienawiści", "Raporty polityczne dla decydentów europejskich"],
+      cervTitle: "Współfinansowane przez Unię Europejską",
+      cervDesc: "Projekt jest finansowany w ramach Programu CERV (Obywatele, Równość, Prawa i Wartości), Nurt 2: Równość, Prawa i Równość płci. Program CERV promuje i chroni wartości UE.",
+      cervDisclaimer: "Treść tej platformy wyraża wyłącznie poglądy autorów i stanowi ich wyłączną odpowiedzialność. Komisja Europejska nie ponosi odpowiedzialności za jakiekolwiek wykorzystanie zawartych tu informacji.",
       timelineLabel: "Harmonogram projektu", timelineTitle: "24-miesięczny plan realizacji",
-      partnerLabel: "Konsorcjum projektowe", partnerTitle: "5 partnerów. 4 kraje. Jedna misja.",
-      cta: "Gotowy/a do zaangażowania?",
+      partnerLabel: "Konsorcjum projektowe", partnerTitle: "5 partnerów. 4 kraje. Jedna misja.", coordinatorLabel: "Koordynator",
+      cta: "Gotowy/a do zaangażowania?", ctaLearn: "📚 Zacznij naukę", ctaCommunity: "🤝 Dołącz do społeczności", ctaContact: "✉️ Kontakt",
     },
     toolkitPage: {
       badge: "🤖 Edukacyjne narzędzie AI", title: "Zestaw narzędzi i narzędzie AI do rozpoznawania mowy nienawiści", sub: "Pobierz nasz zestaw narzędzi i wypróbuj nasze narzędzie edukacyjne AI.",
       demoLabel: "Interaktywne demo", demoTitle: "Naucz się rozpoznawać nienawiść online",
-      demoSub: "Przeczytaj każdy przykład, zastanow się nad kategorią, następnie odkryj analizę.",
+      demoSub: "Przeczytaj każdy przykład, zastanów się nad kategorią, następnie odkryj analizę.",
       revealBtn: "🔍 Odkryj analizę", prevBtn: "← Poprzedni", nextBtn: "Następny przykład →", startModulesBtn: "📚 Zacznij moduły nauki",
       exampleOf: "Przykład", howCategorise: "Jak sklasyfikujesz tę treść?", whatCanYouDo: "💡 CO MOŻESZ ZROBIĆ?",
       downloadsLabel: "Bezpłatne pliki", downloadsTitle: "Pobierz Zestaw narzędzi SpeakUP",
@@ -293,22 +334,42 @@ export const translations: Record<Locale, {
       pactTitle: "Pakt Antynienawiści", signPactTitle: "Podpisz Pakt",
       signPactSub: "Dołącz do tysięcy młodych ludzi z Europy zobowiązujących się do bezpieczniejszych przestrzeni cyfrowych.",
       nameLabel: "Imię i nazwisko *", emailLabel: "Adres e-mail *", cityLabel: "Miasto *", countryLabel: "Kraj *", roleLabel: "Jestem... (opcjonalnie)",
+      namePlaceholder: "Twoje imię", emailPlaceholder: "ty@przykład.pl", cityPlaceholder: "Twoje miasto",
       roleOptions: ["Wolę nie mówić", "Młoda osoba (poniżej 25 lat)", "Edukator / Nauczyciel", "NGO / Społeczeństwo obywatelskie", "Student/ka", "Inne"],
       consentLabel: "Zgadzam się z Paktem Antynienawiści i rozumiem, że moje dane zostaną użyte tylko w tym celu. *",
       displayLabel: "Wyrażam zgodę na wyświetlanie mojego imienia i kraju na ścianie sygnatariuszy.",
       signBtn: "✊ Podpisz Pakt Antynienawiści",
       successTitle: "Podpisałeś/aś pakt!", successSub: "Dziękujemy za stanie po właściwej stronie.", takeActionBtn: "Podejmij działanie →",
+      heroStats: ["Sygnatariusze Paktu", "Kraje", "Działania społecznościowe", "Opowieści młodych"],
+      selectCountry: "Wybierz swój kraj", startLearnBtn: "📚 Zacznij naukę", signatoryCount: "osób już podpisało z 5+ krajów", startBtn: "Zacznij →",
       signatoryWall: "Ściana sygnatariuszy", actionTitle: "Działaj przeciwko nienawiści",
       actionSub: "Małe działania sumują się. Wybierz jedno i udostępnij z #SpeakUPagainstHate.",
       storiesTitle: "Opowieści młodych", storiesSub: "Prawdziwe doświadczenia młodych ludzi z całej Europy.",
       shareTitle: "Podziel się swoją historią", shareSub: "Byłeś/aś świadkiem lub sprzeciwiłeś/aś się nienawiści online? Twoje doświadczenie może inspirować.",
       shareBtn: "Prześlij swoją historię",
+      gdprNote: "🔒 Podpisując, wyrażasz zgodę na wyświetlanie Twojego imienia (za Twoją zgodą) na publicznej ścianie sygnatariuszy. Twój e-mail będzie użyty wyłącznie do potwierdzenia. Zgodne z RODO.",
+      pactText: "My, niżej podpisani, zobowiązujemy się mówić głośno przeciwko mowie nienawiści w sieci w naszych społecznościach cyfrowych.\n\nZobowiązujemy się:\n• Rozpoznawać mowę nienawiści, gdy się z nią spotykamy — w tym jej zakodowane i subtelne formy\n• Nie milczeć, gdy nienawiść jest skierowana do innych w naszych społecznościach\n• Zgłaszać nienawistne treści za pomocą dostępnych narzędzi platform i kanałów prawnych\n• Wspierać ofiary mowy nienawiści z solidarnością i troską\n• Wybierać słowa budujące szacunek i włączenie, a nie podziały\n• Nigdy nie udostępniać, wzmacniać ani polubić nienawistnych treści — nawet \"jako żart\"\n• Edukować siebie i innych o szkodach wynikających z mowy nienawiści\n• Stać na straży równej godności każdej osoby, niezależnie od jej tożsamości\n\nWierzymy, że bezpieczniejsze przestrzenie cyfrowe są możliwe — i że każdy z nas ma rolę do odegrania w ich tworzeniu.",
+      actions: [
+        { title: "Stwórz post kontrnarracyjny", desc: "Zaprojektuj post w mediach społecznościowych promujący inkluzywność i szacunek. Udostępnij z #SpeakUPagainstHate.", tag: "Kreatywność" },
+        { title: "Zorganizuj dyskusję szkolną", desc: "Przeprowadź dyskusję klasową na temat mowy nienawiści z rówieśnikami, korzystając z naszego bezpłatnego przewodnika.", tag: "Edukacja" },
+        { title: "Zrekrutuj 5 sygnatariuszy", desc: "Podziel się Paktem Antynienawiści z 5 znajomymi i zaproś ich do podpisania. Każdy podpis się liczy.", tag: "Społeczność" },
+        { title: "Podziel się swoją historią", desc: "Opowiedz nam o czasach, gdy byłeś świadkiem lub przeciwdziałałeś nienawiści online. Twoja historia może inspirować.", tag: "Historie" },
+      ],
+      stories: [
+        { name: "Maria, 19", country: "Rumunia 🇷🇴", story: "Widziałam, jak kolega był atakowany na czacie grupowym z powodu swojej religii. Na początku nie wiedziałam, co zrobić, ale po skorzystaniu z SpeakUP znalazłam odwagę, żeby porozmawiać prywatnie i zgłosić wiadomości." },
+        { name: "Jakub, 22", country: "Czechy 🇨🇿", story: "Kiedyś przewijałem komentarze pełne nienawiści, myśląc, że to nie mój problem. Teraz rozumiem, że milczenie też jest wyborem — i zazwyczaj złym." },
+        { name: "Kristiina, 17", country: "Estonia 🇪🇪", story: "Nasza szkoła zorganizowała sesję SpeakUP i razem podpisaliśmy Pakt Antynienawiści. Poczułam, że klasa stała się bliższa i bardziej świadoma doświadczeń innych." },
+      ],
     },
     educatorsPage: {
       badge: "👩‍🏫 Strefa nauczycieli", title: "Narzędzia dla nauczycieli, którzy chcą zmieniać świat", sub: "Bezpłatne plany lekcji, przewodniki warsztatowe i materiały do rozwoju zawodowego.",
+      heroStats: ["Bezpłatne zasoby", "Języki", "Karty aktywności", "Zawsze"],
       curriculumLabel: "Gotowy program nauczania", curriculumTitle: "6 modułów — gotowych do użycia w Twojej klasie",
       curriculumSub: "Każdy moduł zawiera plany lekcji, przewodniki, prezentacje i narzędzia oceny.",
+      curriculumDesc1: "Każdy moduł SpeakUP zawiera plan lekcji i materiały pomocnicze. Możesz użyć jednego jako samodzielnej sesji lub dostarczyć wszystkie sześć jako program nauczania.",
+      curriculumDesc2: "Wszystkie moduły są zaprojektowane na ok. 60–90 minut i zawierają pytania dyskusyjne, podsumowanie i quiz.",
       resourceLibLabel: "Biblioteka zasobów", resourceLibTitle: "Pobierz bezpłatne materiały dla edukatorów", downloadBtn: "📥 Pobierz",
+      filterAll: "Wszystkie", moduleLabel: "Moduł",
       faqTitle: "Często zadawane pytania",
       joinTitle: "Dołącz do społeczności edukatorów", joinSub: "Nawiąż kontakty z edukatorami z Polski, Estonii, Czech i Rumunii.",
       requestAccessBtn: "Poproś o dostęp", previewBtn: "Podejrzyj wszystkie moduły",
@@ -395,14 +456,20 @@ export const translations: Record<Locale, {
       beginBtn: "🚀 Începeți Modulul 01", startBtn: "Start →",
     },
     aboutPage: {
-      badge: "🇪🇺 Proiect CERV · 2024–2026", title: "Despre SpeakUP against Hate", sub: "Un proiect transnațional de 24 de luni finanțat de programul CERV al Uniunii Europene.",
+      badge: "🇪🇺 Proiect CERV · 2024–2026", title: "Despre SpeakUP against Hate", sub: "Un proiect transnational de 24 de luni finanțat de programul CERV al Uniunii Europene.",
       problemLabel: "Problema", problemTitle: "Ura online crește. Instrumentele pentru a o combate — nu.",
+      problemDesc1: "Tinerii din Europa se confruntă zilnic cu discurs de ură pe rețelele de socializare, în comunitățile de gaming și aplicații de mesagerie.",
+      problemDesc2: "Resursele existente sunt adesea monolingve, orientate spre adulți sau rupte de realitățile culturii digitale.",
       solutionLabel: "Soluția noastră", solutionTitle: "O platformă multilingvă construită pentru schimbare reală.",
+      solutionDesc: "SpeakUP against Hate construiește o platformă educativă accesibilă în 5 limbi UE — gratuit.",
       problemPoints: ["Discursul de ură este normalizat în multe spații online", "Tinerii nu au instrumente bazate pe dovezi", "Educatorii au nevoie de resurse practice", "Majoritatea resurselor sunt doar în limba engleză"],
       solutionPoints: ["6 module de învățare pentru tineri (EN/PL/RO/CZ/ET)", "Resurse pentru educatori, planuri de lecție și ghiduri", "Instrument AI pentru conștientizarea discursului de ură", "Acțiuni comunitare, Pacte Anti-Ură", "Rapoarte de politici pentru factorii de decizie"],
+      cervTitle: "Cofinanțat de Uniunea Europeană",
+      cervDesc: "Acest proiect este finanțat în cadrul Programului CERV (Cetățeni, Egalitate, Drepturi și Valori).",
+      cervDisclaimer: "Conținutul acestei platforme reprezintă viziunile autorilor și este responsabilitatea lor exclusivă.",
       timelineLabel: "Calendarul proiectului", timelineTitle: "Plan de implementare de 24 de luni",
-      partnerLabel: "Consorțiul proiectului", partnerTitle: "5 parteneri. 4 țări. O misiune.",
-      cta: "Ești gata să te implici?",
+      partnerLabel: "Consorțiul proiectului", partnerTitle: "5 parteneri. 4 țări. O misiune.", coordinatorLabel: "Coordonator",
+      cta: "Ești gata să te implici?", ctaLearn: "📚 Învață", ctaCommunity: "🤝 Comunitate", ctaContact: "✉️ Contact",
     },
     toolkitPage: {
       badge: "🤖 Instrument AI educațional", title: "Toolkit și instrument AI de conștientizare a discursului de ură", sub: "Descărcați toolkit-ul nostru bazat pe dovezi și explorați instrumentul nostru educațional AI.",
@@ -416,27 +483,47 @@ export const translations: Record<Locale, {
       tryFullBtn: "Instrumentul AI complet →",
     },
     communityPage: {
-      badge: "✊ Acțiuni comunitare", title: "Împrețnă putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împoștește-ți povestea.",
+      badge: "✊ Acțiuni comunitare", title: "Împreună putem face spațiile online mai sigure", sub: "Semnează Pactul Anti-Ură. Acționează. Împărtășește-ți povestea.",
       tabPact: "✍️ Semnează Pactul", tabActions: "🎯 Acționează", tabStories: "💬 Povești",
       pactTitle: "Pactul Anti-Ură", signPactTitle: "Semnează Pactul",
       signPactSub: "Alătură-te miilor de tineri din Europa care se angajează pentru spații digitale mai sigure.",
       nameLabel: "Nume complet *", emailLabel: "Adresă de e-mail *", cityLabel: "Oraș *", countryLabel: "Țară *", roleLabel: "Sunt un/o... (opțional)",
+      namePlaceholder: "Numele tău", emailPlaceholder: "tu@exemplu.ro", cityPlaceholder: "Orașul tău",
       roleOptions: ["Prefer să nu spun", "Tânăr/ă (sub 25 de ani)", "Educator / Profesor/ă", "ONG / Societate civilă", "Student/ă universitar/ă", "Altul/Alta"],
       consentLabel: "Sunt de acord cu Pactul Anti-Ură și înțeleg că datele mele vor fi folosite doar în acest scop. *",
       displayLabel: "Sunt de acord ca prenumele și țara mea să fie afișate pe zidul public al semnatarilor.",
       signBtn: "✊ Semnează Pactul Anti-Ură",
       successTitle: "Ai semnat pactul!", successSub: "Mulțumim că te-ai ridicat împotriva urii.", takeActionBtn: "Acționează →",
+      heroStats: ["Semnatari ai Pactului", "Țări", "Acțiuni comunitare", "Povești ale tinerilor"],
+      selectCountry: "Selectează țara ta", startLearnBtn: "📚 Învață", signatoryCount: "persoane au semnat deja din 5+ țări", startBtn: "Start →",
       signatoryWall: "Zidul Semnatarilor", actionTitle: "Acționează împotriva urii",
       actionSub: "Acțiunile mici contează. Alege una și share cu #SpeakUPagainstHate.",
       storiesTitle: "Povești ale tinerilor", storiesSub: "Experiențe reale ale tinerilor din toată Europa.",
-      shareTitle: "Împoștește-ți povestea", shareSub: "Ai asistat sau ai contracarat ura online? Expriena ta poate inspira pe alții.",
+      shareTitle: "Împărtășește-ți povestea", shareSub: "Ai asistat sau ai contracarat ura online? Experiența ta poate inspira pe alții.",
       shareBtn: "Trimite povestea ta",
+      gdprNote: "🔒 Prin semnare, ești de acord ca numele tău (dacă ai consimțit) să fie afișat pe zidul public al semnatarilor. E-mailul tău va fi folosit doar pentru confirmare. Conform GDPR.",
+      pactText: "Noi, cei de mai jos, ne angajăm să luăm atitudine împotriva discursului de ură online în comunitățile noastre digitale.\n\nNe angajăm să:\n• Recunoaștem discursul de ură atunci când îl întâlnim — inclusiv formele sale codificate și subtile\n• Nu rămânem tăcuți când ura este îndreptată spre alții în comunitățile noastre\n• Raportăm conținutul de ură prin instrumentele disponibile ale platformelor și canalele legale\n• Sprijinim victimele discursului de ură cu solidaritate și grijă\n• Alegem cuvinte care construiesc respect și incluziune, nu diviziune\n• Nu distribuim, amplificăm sau apreciem niciodată conținut de ură — nici măcar \"ca o glumă\"\n• Ne educăm pe noi și pe alții cu privire la daunele discursului de ură\n• Susținem demnitatea egală a fiecărei persoane, indiferent de identitatea sa\n\nCredem că spațiile digitale mai sigure sunt posibile — și că fiecare dintre noi are un rol de jucat în crearea lor.",
+      actions: [
+        { title: "Creează o postare contra-narrativă", desc: "Proiectează o postare pe rețelele sociale care promovează incluziunea și respectul digital. Share cu #SpeakUPagainstHate.", tag: "Creativ" },
+        { title: "Organizează o discuție școlară", desc: "Facilitează o discuție în clasă despre discursul de ură cu colegii tăi, folosind ghidul nostru gratuit de facilitare.", tag: "Educație" },
+        { title: "Recrutează 5 semnatari ai Pactului", desc: "Distribuie Pactul Anti-Ură la 5 prieteni și invită-i să semneze. Fiecare semnătură contează.", tag: "Comunitate" },
+        { title: "Împărtășește-ți povestea", desc: "Spune-ne despre o dată când ai asistat la sau ai contracarat ura online. Povestea ta poate inspira pe alții.", tag: "Povești" },
+      ],
+      stories: [
+        { name: "Maria, 19", country: "România 🇷🇴", story: "Am văzut un coleg vizat într-un grup de chat din cauza religiei sale. La început nu știam ce să fac, dar după ce am folosit SpeakUP am găsit curajul să vorbesc privat și să raportez mesajele." },
+        { name: "Jakub, 22", country: "Republica Cehă 🇨🇿", story: "Obișnuiam să derulesc comentariile de ură gândind că nu sunt problema mea. Acum înțeleg că tăcerea este și ea o alegere — și de obicei cea greșită." },
+        { name: "Kristiina, 17", country: "Estonia 🇪🇪", story: "Școala noastră a organizat o sesiune SpeakUP și am făcut un Pact Anti-Ură împreună. Mi s-a părut că clasa noastră a devenit mai apropiată și mai conștientă de experiențele celorlalți." },
+      ],
     },
     educatorsPage: {
       badge: "👩‍🏫 Zona educatorilor", title: "Instrumente pentru educatorii care vor să facă diferența", sub: "Planuri de lecție gratuite, ghiduri de atelier și resurse de dezvoltare profesională.",
+      heroStats: ["Resurse gratuite", "Limbi", "Cărți de activități", "Întotdeauna"],
       curriculumLabel: "Curriculum gata pregătit", curriculumTitle: "6 module — gata de utilizat în clasa dvs.",
       curriculumSub: "Fiecare modul include planuri de lecție, ghiduri, prezentări și instrumente de evaluare.",
+      curriculumDesc1: "Fiecare modul SpeakUP vine cu un plan de lecție și materiale suport.",
+      curriculumDesc2: "Toate modulele sunt proiectate pentru aproximativ 60–90 de minute și includ întrebări de discuție și un test.",
       resourceLibLabel: "Biblioteca de resurse", resourceLibTitle: "Descărcați materiale gratuite pentru educatori", downloadBtn: "📥 Descărcă",
+      filterAll: "Toate", moduleLabel: "Modul",
       faqTitle: "Întrebări frecvente",
       joinTitle: "Alătură-te Comunității de Educatori", joinSub: "Conectați-vă cu educatori din Polonia, Estonia, Republica Cehă și România.",
       requestAccessBtn: "Solicită acces", previewBtn: "Previzualizează toate modulele",
@@ -522,10 +609,79 @@ export const translations: Record<Locale, {
       certDesc: "Bezplatný digitální certifikát uznávající váš závazek bojovat s online nenávistným projevem — sdílitelný na LinkedIn a sociálních sítích.",
       beginBtn: "🚀 Začít Modul 01", startBtn: "Začít →",
     },
-    aboutPage: { badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projektu SpeakUP against Hate", sub: "24měsíční nadnárodní projekt financovaný programem CERV Evropské unie." },
-    toolkitPage: { badge: "🤖 Vzdělávací nástroj AI", title: "Sada nástrojů a AI nástroj pro uvědomění o nenávistných projevech", sub: "Stáhněte si naši sadu nástrojů podloženou důkazy a prozkoumejte náš vzdělávací nástroj AI." },
-    communityPage: { badge: "✊ Komunitní akce", title: "Společně můžeme online prostory udělat bezpečnějšími", sub: "Podpiš Pakt proti nenávisti. Jednej. Sdílej svůj příběh.", tabPact: "✍️ Podepsit Pakt", tabActions: "🎯 Jednej", tabStories: "💬 Příběhy" },
-    educatorsPage: { badge: "👩‍🏫 Prostor pro pedagogy", title: "Nástroje pro pedagogy, kteří chtějí změnit svět", sub: "Bezplatné plány hodin, průvodce workshopy a materiály pro profesní rozvoj." },
+    aboutPage: {
+      badge: "🇪🇺 Projekt CERV · 2024–2026", title: "O projektu SpeakUP against Hate", sub: "24měsíční nadnárodní projekt financovaný programem CERV Evropské unie.",
+      problemLabel: "Problém", problemTitle: "Online nenávist roste. Nástroje pro boj s ní — ne.",
+      problemDesc1: "Mladí lidé v Evropě se denně setkávají s nenávistnými projevy na sociálních sítích, v hernch komunitách a chatovacích aplikacích.",
+      problemDesc2: "Dostupné zdroje jsou často jednojazyčné, orientované na dospělé nebo odtržené od realit digitální kultury.",
+      solutionLabel: "Naše řešení", solutionTitle: "Vícejazyčná platforma vytvořená pro skutečnou změnu.",
+      solutionDesc: "SpeakUP against Hate vytváří vzdělávací platformu dostupnou v 5 jazycích EU — zdarma.",
+      problemPoints: ["Nenávistné projevy jsou normalizovány v mnoha online prostorech", "Mládeži chybí nástroje podložené důkazy", "Pedagogové potřebují praktické materiály do tříd", "Většina zdrojů je pouze v angličtině"],
+      solutionPoints: ["6 vzdělávacích modulů pro mládež (EN/PL/RO/CZ/ET)", "Materiály pro pedagogy, plány hodin a průvodci", "Nástroj AI pro uvědomění o nenávistném projevu", "Komunitní akce, Pakty proti nenávisti, mikrokampaně", "Politické dokumenty pro evropské a národní rozhodovatelé"],
+      cervTitle: "Spolufinancováno Evropskou unií",
+      cervDesc: "Tento projekt je financován v rámci programu CERV (Občané, rovnost, práva a hodnoty).",
+      cervDisclaimer: "Obsah této platformy představuje výhradně pohledy autorů a je jejich výlučnou zodpovědností.",
+      timelineLabel: "Harmonogram projektu", timelineTitle: "24měsíční plán realizace",
+      partnerLabel: "Projektové konsorcium", partnerTitle: "5 partnerů. 4 země. Jedna mise.", coordinatorLabel: "Koordinátor",
+      cta: "Jste připraven/a se zapojit?", ctaLearn: "📚 Začít učit se", ctaCommunity: "🤝 Komunita", ctaContact: "✉️ Kontakt",
+    },
+    toolkitPage: {
+      badge: "🤖 Vzdělávací nástroj AI", title: "Sada nástrojů a AI nástroj pro uvědomění o nenávistných projevech", sub: "Stáhněte si naši sadu nástrojů podloženou důkazy a prozkoumejte náš vzdělávací nástroj AI.",
+      demoLabel: "Interaktivní demo", demoTitle: "Naučte se rozpoznávat online nenávist",
+      demoSub: "Přečtěte každý příklad, zamyslete se nad kategorií, poté odhalte analýzu.",
+      revealBtn: "🔍 Odhalit analýzu", prevBtn: "← Předchozí", nextBtn: "Další příklad →", startModulesBtn: "📚 Začít výukové moduly",
+      exampleOf: "Příklad", howCategorise: "Jak byste tuto věc kategorizoval/a?", whatCanYouDo: "💡 CO MŮŽETE UDĚLAT?",
+      downloadsLabel: "Bezplatné stahování", downloadsTitle: "Stáhněte si sadu nástrojů SpeakUP",
+      downloadsSub: "Všechny zdroje jsou zdarma a licencovány pro vzdělávací použití.", downloadBtn: "📥 Stáhnout",
+      ethicalLabel: "Etické a bezpečné použití", tryAIBtn: "🤖 Vyzkoušet demo AI", downloadToolkitBtn: "📥 Stáhnout sadu nástrojů",
+      tryFullBtn: "Plný nástroj AI →",
+    },
+    communityPage: {
+      badge: "✊ Komunitní akce", title: "Společně můžeme online prostory udělat bezpečnějšími", sub: "Podpiš Pakt proti nenávisti. Jednej. Sdílej svůj příběh.",
+      tabPact: "✍️ Podepsat Pakt", tabActions: "🎯 Jednej", tabStories: "💬 Příběhy",
+      pactTitle: "Pakt proti nenávisti", signPactTitle: "Podepsat Pakt",
+      signPactSub: "Připoj se k tisícům mladých lidí z Evropy, kteří se zavazují k bezpečnějším digitálním prostorům.",
+      nameLabel: "Celé jméno *", emailLabel: "E-mailová adresa *", cityLabel: "Město *", countryLabel: "Země *", roleLabel: "Jsem... (nepovinné)",
+      namePlaceholder: "Vaše jméno", emailPlaceholder: "vy@příklad.cz", cityPlaceholder: "Vaše město",
+      roleOptions: ["Raději neuvádím", "Mladý/á člověk/žena (do 25 let)", "Pedagog/Učitel/ka", "NGO / Občanská společnost", "Student/ka", "Jiné"],
+      consentLabel: "Souhlasím s Paktem proti nenávisti a chápu, že moje data budou použita pouze k tomuto účelu. *",
+      displayLabel: "Souhlasím s tím, aby mé jméno a země byly zobrazeny na veřejné zdi signatářů.",
+      signBtn: "✊ Podepsat Pakt proti nenávisti",
+      successTitle: "Podepsal/a jste pakt!", successSub: "Děkujeme, že se stavíte proti nenávisti.", takeActionBtn: "Jednejte →",
+      heroStats: ["Osob podepsalo Pakt", "Země", "Komunitní akce", "Příběhy mládeže"],
+      selectCountry: "Vyberte zemi", startLearnBtn: "📚 Začít se učit", signatoryCount: "lidí již podepsalo z 5+ zemí", startBtn: "Začít →",
+      signatoryWall: "Zeď signatářů", actionTitle: "Jednej proti nenávisti",
+      actionSub: "Malé akce se sčítají. Vyber jednu a sdílej s #SpeakUPagainstHate.",
+      storiesTitle: "Příběhy mládeže", storiesSub: "Skutečné zkušenosti mladých lidí z celé Evropy.",
+      shareTitle: "Sdílej svůj příběh", shareSub: "Byl/a jsi svědkem nebo jsi čelil/a online nenávisti? Tvá zkušenost může inspirovat ostatní.",
+      shareBtn: "Odeslat svůj příběh",
+      gdprNote: "🔒 Podpisem souhlasíte s tím, že vaše jméno (pokud jste souhlasil/a) bude zobrazeno na veřejné zdi signatářů. Váš e-mail bude použit pouze pro potvrzení. V souladu s GDPR.",
+      pactText: "My, níže podepsaní, se zavazujeme mluvit nahlas proti nenávistným projevům v našich digitálních komunitách.\n\nZavazujeme se:\n• Rozpoznávat nenávistné projevy, kdykoli se s nimi setkáme — včetně zakódovaných a subtilních forem\n• Nemlčet, když je nenávist namířena na ostatní v našich komunitách\n• Hlásit nenávistný obsah prostřednictvím dostupných nástrojů platforem a právních kanálů\n• Podporovat oběti nenávistných projevů se solidaritou a péčí\n• Vybírat slova, která budují respekt a inkluzi, ne rozdělení\n• Nikdy nesdílet, nezesilovat ani nelíbovat nenávistný obsah — ani \"jako vtip\"\n• Vzdělávat sebe i ostatní o škodách nenávistných projevů\n• Stát za rovnou důstojností každé osoby bez ohledu na její identitu\n\nVěříme, že bezpečnější digitální prostory jsou možné — a že každý z nás má roli v jejich vytváření.",
+      actions: [
+        { title: "Vytvoř kontranaratívní příspěvek", desc: "Navrhni příspěvek na sociálních sítích propagující inkluzi a digitální respekt. Sdílej s #SpeakUPagainstHate.", tag: "Kreativita" },
+        { title: "Zorganizuj školní diskusi", desc: "Facilituj třídní diskusi o nenávistných projevech se spolužáky pomocí našeho bezplatného průvodce.", tag: "Vzdělávání" },
+        { title: "Získej 5 signatářů Paktu", desc: "Sdílej Pakt proti nenávisti s 5 přáteli a pozvi je k podpisu. Každý podpis se počítá.", tag: "Komunita" },
+        { title: "Sdílej svůj příběh", desc: "Řekni nám o době, kdy jsi byl/a svědkem nebo čelil/a online nenávisti. Tvůj příběh může inspirovat ostatní.", tag: "Příběhy" },
+      ],
+      stories: [
+        { name: "Maria, 19", country: "Rumunsko 🇷🇴", story: "Viděla jsem spolužáka terčem v skupinovém chatu kvůli jeho náboženství. Zpočátku jsem nevěděla, co dělat, ale po použití SpeakUP jsem našla odvahu promluvit soukromě a zprávy nahlásit." },
+        { name: "Jakub, 22", country: "Česká republika 🇨🇿", story: "Dříve jsem přeskakoval nenávistné komentáře s myšlenkou, že to není můj problém. Teď chápu, že mlčení je také volba — a obvykle špatná." },
+        { name: "Kristiina, 17", country: "Estonsko 🇪🇪", story: "Naše škola zorganizovala session SpeakUP a společně jsme uzavřeli Pakt proti nenávisti. Měla jsem pocit, že naše třída se stala bližší a více si uvědomuje zkušenosti ostatních." },
+      ],
+    },
+    educatorsPage: {
+      badge: "👩‍🏫 Prostor pro pedagogy", title: "Nástroje pro pedagogy, kteří chtějí změnit svět", sub: "Bezplatné plány hodin, průvodce workshopy a materiály pro profesní rozvoj.",
+      heroStats: ["Bezplatné zdroje", "Jazyky", "Karty aktivit", "Vždy"],
+      curriculumLabel: "Hotový vzdělávací program", curriculumTitle: "6 modulů — připravených k použití ve třídě",
+      curriculumSub: "Každý modul obsahuje plány hodin, průvodce, prezentace a hodnotící nástroje.",
+      curriculumDesc1: "Každý modul SpeakUP obsahuje plán hodiny a podpůrné materiály.",
+      curriculumDesc2: "Všechny moduly jsou navrženy na cca 60–90 minut a obsahují diskusní otázky a kviz.",
+      resourceLibLabel: "Knihovna zdrojů", resourceLibTitle: "Stáhněte si bezplatné materiály pro pedagogy", downloadBtn: "📥 Stáhnout",
+      filterAll: "Vše", moduleLabel: "Modul",
+      faqTitle: "Nejčastější dotazy",
+      joinTitle: "Připojte se ke komunitě pedagogů", joinSub: "Spojte se s pedagogy z Polska, Estonska, České republiky a Rumunska.",
+      requestAccessBtn: "Požádat o přístup", previewBtn: "Prohlédnout všechny moduly",
+    },
     contactPage: {
       badge: "✉️ Kontaktujte nás", title: "Kontakt", sub: "Dotazy, partnerství, tiskové dotazy nebo obavy o bezpečnost — jsme zde.",
       send: "📨 Odeslat zprávu", sending: "⏳ Odesílání...", success: "Zpráva odeslána!",
@@ -610,12 +766,18 @@ export const translations: Record<Locale, {
     aboutPage: {
       badge: "🇪🇺 CERV projekt · 2024–2026", title: "SpeakUP against Hate projektist", sub: "24-kuuline riikidevaheline projekt, mida rahastab Euroopa Liidu CERV programm.",
       problemLabel: "Probleem", problemTitle: "Vaenukõne veebis kasvab. Selle vastu võitlemise vahendid ei kasva.",
+      problemDesc1: "Euroopa noored kohtavad igapäevaselt vaenukõnet sotsiaalmeedias, mängukogukondades ja sõnumirakendustes.",
+      problemDesc2: "Olemasolevad ressursid on sageli ühekeelsed, täiskasvanutele suunatud või digitaalkultuurist lahutatud.",
       solutionLabel: "Meie lahendus", solutionTitle: "Mitmekeelne platvorm, mis on loodud tõeliseks muutuseks.",
+      solutionDesc: "SpeakUP against Hate ehitab haridusplatvormi, mis on tasuta kättesaadav 5 EL keeles.",
       problemPoints: ["Vaenukõne on normaliseeritud paljudes veebikeskkondades", "Noortel puuduvad tõenduspõhised, vanusele vastavad vahendid", "Õpetajatel on vaja praktilisi klassiruumi ressursse", "Enamik ressursse on ainult inglise keeles"],
       solutionPoints: ["6 õppemoodulit noortele (EN/PL/RO/CZ/ET)", "Pedagoogilised ressursid, tunnikavad ja töötoa juhendid", "AI-toetatud vaenukõne teadlikkuse tõstmise tööriist", "Kogukonna tegevused, Anti-Hate Paktid", "Poliitikabriifid Euroopa ja riiklikele otsustajatele"],
+      cervTitle: "Kaasrahastab Euroopa Liit",
+      cervDesc: "Seda projekti rahastatakse CERV programmi (Kodanikud, võrdõiguslikkus, õigused ja väärtused) raames.",
+      cervDisclaimer: "Platvormi sisu väljendab ainult autorite seisukohti ning on nende ainuvästutus.",
       timelineLabel: "Projekti ajakava", timelineTitle: "24-kuuline rakendusplaan",
-      partnerLabel: "Projekti konsortsium", partnerTitle: "5 partnerit. 4 riiki. Üks missioon.",
-      cta: "Valmis osalema?",
+      partnerLabel: "Projekti konsortsium", partnerTitle: "5 partnerit. 4 riiki. Üks missioon.", coordinatorLabel: "Koordinaator",
+      cta: "Valmis osalema?", ctaLearn: "📚 Alusta õppimist", ctaCommunity: "🤝 Kogukond", ctaContact: "✉️ Kontakt",
     },
     toolkitPage: {
       badge: "🤖 Hariduslik AI tööriist", title: "Tööriistad ja AI vaenukõne teadlikkuse tõstmiseks", sub: "Laadi alla meie tõenduspõhine tööriistad ja uuri meie hariduslikku AI tööriista.",
@@ -632,24 +794,44 @@ export const translations: Record<Locale, {
       badge: "✊ Kogukonna tegevused", title: "Koos saame veebiruumi turvalisemaks muuta", sub: "Kirjuta alla Anti-Hate Paktile. Tegutse. Jaga oma lugu.",
       tabPact: "✍️ Kirjuta alla Paktile", tabActions: "🎯 Tegutse", tabStories: "💬 Lood",
       pactTitle: "Anti-Hate Pakt", signPactTitle: "Allkirjasta Pakt",
-      signPactSub: "Liitu tuhandetesse noorte inimestega üle Euroopa, kes köhustuvad looma turvalisemaid digitaalseid ruume.",
+      signPactSub: "Liitu tuhandete noorte inimestega üle Euroopa, kes kohustuvad looma turvalisemaid digitaalseid ruume.",
       nameLabel: "Täisnimi *", emailLabel: "E-posti aadress *", cityLabel: "Linn *", countryLabel: "Riik *", roleLabel: "Mina olen... (valikuline)",
-      roleOptions: ["Ei soovi öelda", "Noor inimene (alla 25 a.)", "Õpetaja / Pedagoog", "MTÜ / Kodanikuühiskond", "Üliopilane", "Muu"],
+      namePlaceholder: "Teie nimi", emailPlaceholder: "sina@näide.ee", cityPlaceholder: "Teie linn",
+      roleOptions: ["Ei soovi öelda", "Noor inimene (alla 25 a.)", "Õpetaja / Pedagoog", "MTÜ / Kodanikuühiskond", "Üliõpilane", "Muu"],
       consentLabel: "Nõustun Anti-Hate Paktiga ja saan aru, et minu andmeid kasutatakse ainult sel eesmärgil. *",
       displayLabel: "Nõustun, et minu eesnimi ja riik kuvatakse avalikul allakirjutajate seinale.",
       signBtn: "✊ Allkirjasta Anti-Hate Pakt",
       successTitle: "Kirjutasite paktile alla!", successSub: "Täname, et seisate vaenukõne vastu.", takeActionBtn: "Tegutse →",
+      heroStats: ["Pakti allakirjutajad", "Riigid", "Kogukonna tegevused", "Noorte lood"],
+      selectCountry: "Vali oma riik", startLearnBtn: "📚 Alusta õppimist", signatoryCount: "inimest on juba alla kirjutanud 5+ riigist", startBtn: "Alusta →",
       signatoryWall: "Allakirjutajate sein", actionTitle: "Tegutse vaenukõne vastu",
       actionSub: "Väikesed teod liituvad. Valige üks ja jagage kasutades #SpeakUPagainstHate.",
       storiesTitle: "Noorte lood", storiesSub: "Tõelikud kogemused noorte inimestelt üle Euroopa.",
       shareTitle: "Jaga oma lugu", shareSub: "Kas olete tunnistanud veebis vaenukõnet? Teie kogemus võib teisi inspireerida.",
       shareBtn: "Saada oma lugu",
+      gdprNote: "🔒 Allkirjastamisega nõustute, et teie nimi (kui olete nõus) kuvatakse avalikul allakirjutajate seinale. Teie e-posti aadressi kasutatakse ainult kinnitamiseks. GDPR-iga kooskõlas.",
+      pactText: "Meie, allakirjutanud, kohustume vaenukõne vastu sõna võtma oma digitaalsetes kogukondades.\n\nMe lubame:\n• Tuvastada vaenukõnet alati, kui sellega kokku puutume — kaasa arvatud kodeeritud ja peened vormid\n• Mitte vaikida, kui viha on suunatud teistele meie kogukondades\n• Teatada vihkavast sisust kättesaadavate platvormivahendite ja õiguslike kanalite kaudu\n• Toetada vaenukõne ohvreid solidaarsuse ja hoolitsusega\n• Valida sõnu, mis ehitavad austust ja kaasatust, mitte lõhet\n• Mitte kunagi jagada, võimendada ega meeldida märkida vihkavat sisu — isegi mitte \"naljana\"\n• Harida ennast ja teisi vaenukõne kahjulikkuse osas\n• Seista iga inimese võrdse väärikuse eest, olenemata nende identiteedist\n\nUsume, et turvalisemad digitaalruumid on võimalikud — ja et igaühel meist on roll nende loomisel.",
+      actions: [
+        { title: "Loo vastunäitlik postitus", desc: "Kujunda sotsiaalmeedia postitus, mis edendab kaasatust ja digitaalset austust. Jaga #SpeakUPagainstHate.", tag: "Loovus" },
+        { title: "Korraldage kooli arutelu", desc: "Juhenda klassiarutelu vaenukõne teemal kaaslastega, kasutades meie tasuta juhendaja juhendit.", tag: "Haridus" },
+        { title: "Värbake 5 Pakti allakirjutajat", desc: "Jaga Anti-Hate Pakti 5 sõbraga ja kutsu neid alla kirjutama. Iga allkiri loeb.", tag: "Kogukond" },
+        { title: "Jaga oma lugu", desc: "Räägi meile ajast, mil oled tunnistanud või vastu seisnud veebis levivale vihkamisele. Sinu lugu võib teisi inspireerida.", tag: "Lood" },
+      ],
+      stories: [
+        { name: "Maria, 19", country: "Rumeenia 🇷🇴", story: "Nägin, kuidas kaasõpilast sihtis grupichat tema religiooni tõttu. Alguses ei teadnud, mida teha, kuid pärast SpeakUP kasutamist leidsin julguse privaatselt rääkida ja sõnumeid teatada." },
+        { name: "Jakub, 22", country: "Tšehhi 🇨🇿", story: "Varem kerisin vihkavatest kommentaaridest mööda, arvates, et see pole minu probleem. Nüüd mõistan, et vaikimine on samuti valik — ja tavaliselt vale valik." },
+        { name: "Kristiina, 17", country: "Eesti 🇪🇪", story: "Meie kool korraldas SpeakUP seansi ja me tegime koos Anti-Hate Pakti. Tundus, et meie klass sai lähemaks ja teadlikumaks üksteise kogemustest." },
+      ],
     },
     educatorsPage: {
       badge: "👩‍🏫 Õpetajate valdkond", title: "Vahendid õpetajatele, kes soovivad muutust luua", sub: "Tasuta tunnikavad, töötoa juhendid ja professionaalse arengu ressursid.",
+      heroStats: ["Tasuta ressursid", "Keeled", "Tegevuskaardid", "Alati"],
       curriculumLabel: "Valmis õppekava", curriculumTitle: "6 moodulit — valmis kasutamiseks teie klassiruumis",
       curriculumSub: "Iga moodul sisaldab tunnikavasid, juhendeid, slaidikavasid ja hindamisvahendeid.",
+      curriculumDesc1: "Iga SpeakUP moodul sisaldab tunnipappi ja abimaterjale.",
+      curriculumDesc2: "Kõik moodulid on mõeldud u. 60–90 minutiks ning sisaldavad arutlusküsimusi ja viktoriini.",
       resourceLibLabel: "Ressursside raamatukogu", resourceLibTitle: "Laadige alla tasuta pedagoogilised materjalid", downloadBtn: "📥 Laadi alla",
+      filterAll: "Kõik", moduleLabel: "Moodul",
       faqTitle: "Korduma kippuvad küsimused",
       joinTitle: "Liitu pedagoogide kogukonnaga", joinSub: "Ühendage end pedagoogidega Poolast, Eestist, Tšehhi Vabariigist ja Rumeeniast.",
       requestAccessBtn: "Taotle juurdepääsu", previewBtn: "Vaata kõiki mooduleid",
