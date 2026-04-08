@@ -21,7 +21,7 @@ export const translations: Record<Locale, {
   pact: { title: string; sub: string; cta: string };
   footer: { tagline: string; eu: string; cerv: string; copyright: string; partners: string; learnLinks: string[]; communityLinks: string[]; legalLinks: string[] };
   learnPage: { badge: string; title: string; sub: string };
-  aboutPage: { badge: string; title: string; sub: string; problem: string; solution: string };
+  aboutPage: { badge: string; title: string; sub: string };
   toolkitPage: { badge: string; title: string; sub: string };
   communityPage: { badge: string; title: string; sub: string; tabPact: string; tabActions: string; tabStories: string };
   educatorsPage: { badge: string; title: string; sub: string };
