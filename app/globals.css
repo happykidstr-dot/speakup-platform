@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* ── Design Tokens ────────────────────────────────────────────────── */
+:root {
+  /* Brand Colors */
+  --color-primary: 13 110 253;       /* Blue - trust, civic */
+  --color-primary-dark: 10 88 202;
+  --color-accent: 255 100 55;        /* Orange - energy, youth */
+  --color-accent-dark: 220 70 30;
+  --color-success: 16 185 129;
+  --color-warning: 245 158 11;
+  --color-danger: 239 68 68;
+
+  /* Neutrals */
+  --color-bg: 250 251 255;
+  --color-surface: 255 255 255;
+  --color-surface-2: 244 246 250;
+  --color-border: 226 232 240;
+  --color-text: 15 23 42;
+  --color-text-muted: 100 116 139;
+
+  /* EU Brand */
+  --color-eu-blue: 0 51 153;
+  --color-eu-yellow: 255 204 0;
+
+  /* Spacing */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.06);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.12);
+
+  /* Transitions */
+  --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Base Reset ───────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100dvh;
+}
+
+/* ── Typography ───────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.75rem); }
+
+p { line-height: 1.7; }
+
+a {
+  color: rgb(var(--color-primary));
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover { color: rgb(var(--color-primary-dark)); }
+
+/* ── Focus Accessibility ─────────────────────────────────────────── */
+:focus-visible {
+  outline: 3px solid rgb(var(--color-primary));
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Utility Classes ─────────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: all var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: rgb(var(--color-primary));
+  color: white;
+  box-shadow: 0 4px 14px rgba(13, 110, 253, 0.35);
+}
+
+.btn-primary:hover {
+  background: rgb(var(--color-primary-dark));
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.45);
+  color: white;
+}
+
+.btn-accent {
+  background: rgb(var(--color-accent));
+  color: white;
+  box-shadow: 0 4px 14px rgba(255, 100, 55, 0.35);
+}
+
+.btn-accent:hover {
+  background: rgb(var(--color-accent-dark));
+  transform: translateY(-1px);
+  color: white;
+}
+
+.btn-outline {
+  background: transparent;
+  color: rgb(var(--color-primary));
+  border: 2px solid rgb(var(--color-primary));
+}
+
+.btn-outline:hover {
+  background: rgb(var(--color-primary));
+  color: white;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: rgb(var(--color-text));
+  border: 2px solid rgb(var(--color-border));
+}
+
+.btn-ghost:hover {
+  background: rgb(var(--color-surface-2));
+}
+
+.btn-lg {
+  padding: 1rem 2rem;
+  font-size: 1.05rem;
+}
+
+.btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+/* Cards */
+.card {
+  background: rgb(var(--color-surface));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgb(var(--color-border));
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-primary {
+  background: rgba(13, 110, 253, 0.1);
+  color: rgb(var(--color-primary));
+}
+
+.badge-accent {
+  background: rgba(255, 100, 55, 0.1);
+  color: rgb(var(--color-accent));
+}
+
+.badge-eu {
+  background: rgb(var(--color-eu-blue));
+  color: rgb(var(--color-eu-yellow));
+}
+
+/* Section spacing */
+.section { padding: 5rem 0; }
+.section-lg { padding: 7rem 0; }
+.section-sm { padding: 3rem 0; }
+
+/* EU Co-funding bar */
+.eu-funded-bar {
+  background: rgb(var(--color-eu-blue));
+  color: white;
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.4rem 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.eu-funded-bar .eu-flag {
+  font-size: 1rem;
+  margin-right: 0.4rem;
+}
+
+/* ── Animations ─────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.3); }
+  50%       { box-shadow: 0 0 0 12px rgba(13, 110, 253, 0); }
+}
+
+.animate-fade-up   { animation: fadeInUp 0.6s ease forwards; }
+.animate-fade-in   { animation: fadeIn 0.5s ease forwards; }
+.animate-slide-left { animation: slideInLeft 0.6s ease forwards; }
+.animate-pulse-glow { animation: pulse-glow 2.5s infinite; }
+
+/* Stagger delays */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+/* ── Hero Gradient ───────────────────────────────────────────────── */
+.hero-gradient {
+  background: linear-gradient(135deg, 
+    rgb(0, 51, 153) 0%,       /* EU Blue */
+    rgb(13, 80, 200) 40%,
+    rgb(60, 130, 255) 75%,
+    rgb(30, 160, 200) 100%
+  );
+}
+
+.hero-pattern {
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(255,204,0,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255,100,55,0.04) 0%, transparent 70%);
+}
+
+/* ── Accessibility ───────────────────────────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to main link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: rgb(var(--color-primary));
+  color: white;
+  padding: 1rem 1.5rem;
+  font-weight: 700;
+  z-index: 9999;
+  border-radius: 0 0 var(--radius-md) 0;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid rgb(var(--color-eu-yellow));
+}
+
+/* ── Responsive ──────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section { padding: 3rem 0; }
+  .section-lg { padding: 4rem 0; }
+  .btn-lg { padding: 0.875rem 1.5rem; font-size: 1rem; }
+}
