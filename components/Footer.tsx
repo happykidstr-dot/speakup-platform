@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const partners = [
   { name: "FERI", country: "Poland", flag: "🇵🇱", role: "Coordinator" },
@@ -8,21 +10,20 @@ const partners = [
   { name: "Smart Secure Networks", country: "Poland", flag: "🇵🇱", role: "Partner" },
 ];
 
+const learnHrefs = ["/learn", "/educators", "/toolkit", "/resources"];
+const communityHrefs = ["/community", "/news", "/policy", "/contact"];
+const legalHrefs = ["/legal/privacy", "/legal/gdpr", "/accessibility", "/legal/safeguarding"];
+
 export default function Footer() {
+  const { t } = useLanguage();
+
   return (
-    <footer style={{
-      background: "rgb(10, 15, 35)",
-      color: "rgba(255,255,255,0.8)",
-      marginTop: "auto",
-    }}>
+    <footer style={{ background: "rgb(10, 15, 35)", color: "rgba(255,255,255,0.8)", marginTop: "auto" }}>
       {/* Partner strip */}
-      <div style={{
-        borderBottom: "1px solid rgba(255,255,255,0.08)",
-        padding: "2rem 0",
-      }}>
+      <div style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "2rem 0" }}>
         <div className="container">
           <p style={{ fontSize: "0.75rem", textAlign: "center", color: "rgba(255,255,255,0.4)", marginBottom: "1rem", textTransform: "uppercase", letterSpacing: "0.1em" }}>
-            Project Partners
+            {t.footer.partners}
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "1.5rem" }}>
             {partners.map((p) => (
@@ -51,23 +52,16 @@ export default function Footer() {
                 <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.4)", letterSpacing: "0.1em" }}>AGAINST HATE</div>
               </div>
             </div>
-            <p style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "rgba(255,255,255,0.5)" }}>
-              Empowering young people and educators to recognise, respond to, and counter online hate speech.
-            </p>
+            <p style={{ fontSize: "0.85rem", lineHeight: 1.6, color: "rgba(255,255,255,0.5)" }}>{t.footer.tagline}</p>
           </div>
 
-          {/* Learn */}
+          {/* Learn links */}
           <div>
             <h4 style={{ color: "white", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.75rem" }}>
-              Learn
+              {t.nav.learn}
             </h4>
-            {[
-              ["Youth Learning Area", "/learn"],
-              ["Educator Resources", "/educators"],
-              ["Toolkit & AI Tool", "/toolkit"],
-              ["Resource Library", "/resources"],
-            ].map(([label, href]) => (
-              <Link key={href} href={href} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
+            {t.footer.learnLinks.map((label, i) => (
+              <Link key={i} href={learnHrefs[i]} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "white"}
                 onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
                 {label}
@@ -75,18 +69,13 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Community */}
+          {/* Community links */}
           <div>
             <h4 style={{ color: "white", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.75rem" }}>
-              Community
+              {t.nav.community}
             </h4>
-            {[
-              ["Community Actions", "/community"],
-              ["News & Events", "/news"],
-              ["Policy Briefs", "/policy"],
-              ["Contact Us", "/contact"],
-            ].map(([label, href]) => (
-              <Link key={href} href={href} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
+            {t.footer.communityLinks.map((label, i) => (
+              <Link key={i} href={communityHrefs[i]} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "white"}
                 onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
                 {label}
@@ -94,18 +83,13 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Legal */}
+          {/* Legal links */}
           <div>
             <h4 style={{ color: "white", fontSize: "0.85rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "0.75rem" }}>
               Legal
             </h4>
-            {[
-              ["Privacy Policy", "/legal/privacy"],
-              ["GDPR Notice", "/legal/gdpr"],
-              ["Accessibility", "/accessibility"],
-              ["Safeguarding", "/legal/safeguarding"],
-            ].map(([label, href]) => (
-              <Link key={href} href={href} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
+            {t.footer.legalLinks.map((label, i) => (
+              <Link key={i} href={legalHrefs[i]} style={{ display: "block", color: "rgba(255,255,255,0.5)", fontSize: "0.85rem", marginBottom: "0.4rem", textDecoration: "none", transition: "color 0.2s" }}
                 onMouseEnter={(e) => e.currentTarget.style.color = "white"}
                 onMouseLeave={(e) => e.currentTarget.style.color = "rgba(255,255,255,0.5)"}>
                 {label}
@@ -115,33 +99,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div style={{
-          marginTop: "2.5rem",
-          paddingTop: "1.5rem",
-          borderTop: "1px solid rgba(255,255,255,0.08)",
-          display: "flex",
-          flexWrap: "wrap",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: "1rem",
-        }}>
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "0.75rem",
-            background: "rgba(0, 51, 153, 0.4)",
-            border: "1px solid rgba(0, 51, 153, 0.5)",
-            borderRadius: "var(--radius-md)",
-            padding: "0.6rem 1rem",
-          }}>
+        <div style={{ marginTop: "2.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", background: "rgba(0, 51, 153, 0.4)", border: "1px solid rgba(0, 51, 153, 0.5)", borderRadius: "var(--radius-md)", padding: "0.6rem 1rem" }}>
             <span style={{ fontSize: "1.5rem" }}>🇪🇺</span>
             <div>
-              <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgb(255,204,0)" }}>Co-funded by the European Union</div>
-              <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>CERV — Citizens, Equality, Rights and Values Programme</div>
+              <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgb(255,204,0)" }}>{t.footer.eu}</div>
+              <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>{t.footer.cerv}</div>
             </div>
           </div>
           <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.3)" }}>
-            © {new Date().getFullYear()} SpeakUP against Hate. All rights reserved.
+            © {new Date().getFullYear()} {t.footer.copyright}
           </p>
         </div>
       </div>
