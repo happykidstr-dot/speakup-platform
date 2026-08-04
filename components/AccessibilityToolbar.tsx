@@ -12,7 +12,7 @@ export interface ShortcutDef {
 }
 
 export interface AccessibilityToolbarProps extends UseAccessibilityReturn {
-  lang: 'tr' | 'en';
+  lang: 'en' | 'pl' | 'ro' | 'cz' | 'et';
   /** Extra keyboard-shortcut rows to show in the shortcuts modal */
   extraShortcuts?: ShortcutDef[];
   /** Text-to-Speech controls (optional — gracefully omitted if not provided) */
@@ -41,7 +41,7 @@ export function AccessibilityToolbar({
   toggleDyslexiaFont, toggleReadingGuide, cycleThemeFilter, cycleTtsSpeed,
   toggleGlossary, resetA11y,
 }: AccessibilityToolbarProps) {
-  const t = (tr: string, en: string) => lang === 'tr' ? tr : en;
+  const t = (_tr: string, en: string) => en;
 
   /* ── Dynamic CSS (calm, focus, magnifier modes) ── */
   const dynamicCSS = `
@@ -560,7 +560,7 @@ function MagnifierLens() {
             </div>
             {allShortcuts.map(s => (
               <div key={s.key} className="a11y-shortcut-row">
-                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>{lang === 'tr' ? s.desc_tr : s.desc_en}</span>
+                <span style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>{s.desc_en}</span>
                 <span className="a11y-shortcut-key">{s.key}</span>
               </div>
             ))}

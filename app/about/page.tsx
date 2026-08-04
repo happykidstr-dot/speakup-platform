@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useLanguage } from "../../contexts/LanguageContext";
 
 const partnerMeta = [
-  { name: "FUNDACJA EDUKACJI ROZWOJU I INNOWACJI FERI", short: "FERI", country: "Poland", flag: "🇵🇱", pic: "909290805", role: "Coordinator", color: "rgb(0,51,153)", logoIcon: "🏛️", logoBg: "rgba(0,51,153,0.1)" },
-  { name: "Skill Empowerment Solutions OÜ", short: "Skill Empowerment", country: "Estonia", flag: "🇪🇪", pic: "873858742", role: "Partner", color: "rgb(13,110,253)", logoIcon: "⚡", logoBg: "rgba(13,110,253,0.1)" },
-  { name: "Mission: Reconnect, z.s.", short: "Mission: Reconnect", country: "Czech Republic", flag: "🇨🇿", pic: "896755786", role: "Partner", color: "rgb(16,185,129)", logoIcon: "🔄", logoBg: "rgba(16,185,129,0.1)" },
-  { name: "Universitatea Lucian Blaga din Sibiu", short: "ULBS", country: "Romania", flag: "🇷🇴", pic: "975502423", role: "Partner", color: "rgb(245,158,11)", logoIcon: "🎓", logoBg: "rgba(245,158,11,0.1)" },
-  { name: "Smart Secure Networks Sp. z o.o.", short: "Smart Secure Networks", country: "Poland", flag: "🇵🇱", pic: "888408257", role: "Partner", color: "rgb(139,92,246)", logoIcon: "🛡️", logoBg: "rgba(139,92,246,0.1)" },
+  { name: "FUNDACJA EDUKACJI ROZWOJU I INNOWACJI FERI", short: "FERI", country: "Poland", flag: "🇵🇱", pic: "909290805", role: "Coordinator", color: "rgb(0,51,153)", logoUrl: "/partner-feri.svg" },
+  { name: "Skill Empowerment Solutions OÜ", short: "Skill Empowerment", country: "Estonia", flag: "🇪🇪", pic: "873858742", role: "Partner", color: "rgb(13,110,253)", logoUrl: "/partner-skill-empowerment.png" },
+  { name: "Mission: Reconnect, z.s.", short: "Mission: Reconnect", country: "Czech Republic", flag: "🇨🇿", pic: "896755786", role: "Partner", color: "rgb(16,185,129)", logoUrl: "/partner-mission-reconnect.svg" },
+  { name: "Universitatea Lucian Blaga din Sibiu", short: "ULBS", country: "Romania", flag: "🇷🇴", pic: "975502423", role: "Partner", color: "rgb(245,158,11)", logoUrl: "/partner-ulbs.svg" },
+  { name: "Smart Secure Networks Sp. z o.o.", short: "Smart Secure Networks", country: "Poland", flag: "🇵🇱", pic: "888408257", role: "Partner", color: "rgb(139,92,246)", logoUrl: "/partner-ssn.svg" },
 ];
 
 const timelineMeta = [
@@ -197,14 +197,14 @@ export default function AboutPage() {
                       fontSize: "0.65rem", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.06em",
                     }}>{t.aboutPage.coordinatorLabel}</span>
                   )}
-                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1rem" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.25rem" }}>
                     <div style={{
-                      width: 48, height: 48, borderRadius: "12px",
-                      background: p.logoBg, border: `1.5px solid ${p.color}30`,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      fontSize: "1.5rem", flexShrink: 0
+                      height: 56, width: 140, borderRadius: "10px",
+                      background: "white", border: "1px solid rgb(var(--color-border))",
+                      padding: "0.4rem 0.6rem", display: "flex", alignItems: "center", justifyContent: "center",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.04)", flexShrink: 0
                     }}>
-                      {p.logoIcon}
+                      <img src={p.logoUrl} alt={p.name} style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "contain" }} />
                     </div>
                     <div>
                       <div style={{ fontWeight: 800, fontSize: "1.05rem", color: p.color, display: "flex", alignItems: "center", gap: "0.4rem" }}>

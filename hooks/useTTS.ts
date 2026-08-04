@@ -1,10 +1,7 @@
 'use client';
 import { useState, useCallback, useRef, useEffect } from 'react';
 
-/* ═══════════════════════════════════════════════════════════════
-   useTTS — Text-to-Speech hook using Web Speech API
-   Supports bilingual speech (tr-TR / en-US)
-   ═══════════════════════════════════════════════════════════════ */
+export type TTSLocale = 'en' | 'pl' | 'ro' | 'cz' | 'et';
 
 export interface UseTTSOptions {
   /** Default speech rate (0.5 – 2). Default: 1 */
@@ -12,10 +9,10 @@ export interface UseTTSOptions {
 }
 
 export interface UseTTSReturn {
-  /** Read text aloud */
-  speak: (text: string, lang?: 'tr' | 'en') => void;
+  /** Read text aloud in partner language (UK accent for English) */
+  speak: (text: string, lang?: TTSLocale) => void;
   /** Read the currently selected text on the page */
-  speakSelection: (lang?: 'tr' | 'en') => void;
+  speakSelection: (lang?: TTSLocale) => void;
   /** Stop speaking */
   stop: () => void;
   /** Pause speaking */
@@ -34,9 +31,12 @@ export interface UseTTSReturn {
   setRate: (r: number) => void;
 }
 
-const LANG_MAP: Record<string, string> = {
-  tr: 'tr-TR',
-  en: 'en-US',
+const LANG_MAP: Record<TTSLocale, string> = {
+  en: 'en-GB', // UK Accent as explicitly requested
+  pl: 'pl-PL', // Polish
+  ro: 'ro-RO', // Romanian
+  cz: 'cs-CZ', // Czech
+  et: 'et-EE', // Estonian
 };
 
 export function useTTS(opts?: UseTTSOptions): UseTTSReturn {
@@ -50,22 +50,40 @@ export function useTTS(opts?: UseTTSOptions): UseTTSReturn {
     setIsSupported(typeof window !== 'undefined' && 'speechSynthesis' in window);
   }, []);
 
-  const speak = useCallback((text: string, lang: 'tr' | 'en' = 'tr') => {
+  const speak = useCallback((text: string, lang: TTSLocale = 'en') => {
     if (!isSupported || !text.trim()) return;
 
     // Stop any in-progress speech
     window.speechSynthesis.cancel();
 
     const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = LANG_MAP[lang] || 'en-US';
+    const bcp47 = LANG_MAP[lang] || 'en-GB';
+    utter.lang = bcp47;
     utter.rate = rate;
     utter.pitch = 1;
     utter.volume = 1;
 
-    // Try to find a matching voice
+    // Voice matching: Prioritize UK accent for English and native partner voices
     const voices = window.speechSynthesis.getVoices();
-    const match = voices.find(v => v.lang.startsWith(lang === 'tr' ? 'tr' : 'en'));
-    if (match) utter.voice = match;
+    let match = voices.find(v => v.lang === bcp47 || v.lang === bcp47.replace('-', '_'));
+
+    if (!match && lang === 'en') {
+      match = voices.find(v =>
+        v.lang.toLowerCase().includes('gb') ||
+        v.lang.toLowerCase().includes('uk') ||
+        v.name.toLowerCase().includes('united kingdom') ||
+        v.name.toLowerCase().includes('uk english')
+      );
+    }
+
+    if (!match) {
+      const primaryLang = bcp47.split('-')[0];
+      match = voices.find(v => v.lang.toLowerCase().startsWith(primaryLang));
+    }
+
+    if (match) {
+      utter.voice = match;
+    }
 
     utter.onstart = () => { setIsSpeaking(true); setIsPaused(false); };
     utter.onend = () => { setIsSpeaking(false); setIsPaused(false); };
@@ -75,7 +93,7 @@ export function useTTS(opts?: UseTTSOptions): UseTTSReturn {
     window.speechSynthesis.speak(utter);
   }, [isSupported, rate]);
 
-  const speakSelection = useCallback((lang: 'tr' | 'en' = 'tr') => {
+  const speakSelection = useCallback((lang: TTSLocale = 'en') => {
     const sel = window.getSelection()?.toString().trim();
     if (sel) speak(sel, lang);
   }, [speak]);

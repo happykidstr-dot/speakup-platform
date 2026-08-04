@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <rect width="400" height="120" rx="16" fill="#FFFFFF"/>
+  <g transform="translate(20, 20)">
+    <!-- University Crest / Graduation Seal -->
+    <rect x="8" y="8" width="64" height="64" rx="12" fill="#F59E0B"/>
+    <polygon points="40,16 64,30 40,44 16,30" fill="#FFFFFF"/>
+    <rect x="26" y="44" width="28" height="14" rx="3" fill="#FFFFFF"/>
+    <circle cx="40" cy="51" r="3" fill="#F59E0B"/>
+  </g>
+  <!-- Text -->
+  <text x="110" y="48" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="28" fill="#B45309" letter-spacing="1">ULBS</text>
+  <text x="110" y="70" font-family="'Inter', sans-serif" font-weight="700" font-size="11" fill="#1F2937">UNIVERSITATEA LUCIAN BLAGA</text>
+  <text x="110" y="85" font-family="'Inter', sans-serif" font-weight="600" font-size="11" fill="#4B5563">DIN SIBIU · ROMANIA</text>
+</svg>

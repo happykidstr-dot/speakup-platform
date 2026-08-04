@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <rect width="400" height="120" rx="16" fill="#FFFFFF"/>
+  <g transform="translate(20, 20)">
+    <!-- Security Shield & Network node -->
+    <path d="M 40,8 L 70,20 L 70,50 C 70,68 40,78 40,78 C 40,78 10,68 10,50 L 10,20 Z" fill="#8B5CF6"/>
+    <circle cx="40" cy="35" r="8" fill="#FFFFFF"/>
+    <circle cx="28" cy="52" r="5" fill="#DDD6FE"/>
+    <circle cx="52" cy="52" r="5" fill="#DDD6FE"/>
+    <line x1="40" y1="35" x2="28" y2="52" stroke="#FFFFFF" stroke-width="3"/>
+    <line x1="40" y1="35" x2="52" y2="52" stroke="#FFFFFF" stroke-width="3"/>
+  </g>
+  <!-- Text -->
+  <text x="110" y="50" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="24" fill="#6D28D9">SMART SECURE NETWORKS</text>
+  <text x="110" y="74" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#4B5563">SP. Z O.O. · POLAND</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <rect width="400" height="120" rx="16" fill="#FFFFFF"/>
+  <g transform="translate(20, 20)">
+    <!-- Reconnect loop symbol -->
+    <circle cx="40" cy="40" r="32" fill="none" stroke="#10B981" stroke-width="8"/>
+    <path d="M 24,40 C 24,25 56,25 56,40 C 56,55 24,55 24,40" fill="none" stroke="#059669" stroke-dasharray="6,4" stroke-width="6"/>
+    <circle cx="40" cy="40" r="8" fill="#10B981"/>
+  </g>
+  <!-- Text -->
+  <text x="110" y="52" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="22" fill="#047857">MISSION: RECONNECT</text>
+  <text x="110" y="76" font-family="'Inter', sans-serif" font-weight="600" font-size="12" fill="#4B5563">CZECH REPUBLIC · z.s.</text>
+</svg>

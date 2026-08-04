@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect } from 'react';
 import { useAccessibility } from '../hooks/useAccessibility';
-import { useTTS } from '../hooks/useTTS';
+import { useTTS, TTSLocale } from '../hooks/useTTS';
 import { useSTT } from '../hooks/useSTT';
 import { AccessibilityToolbar } from './AccessibilityToolbar';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -12,7 +12,8 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
   const tts = useTTS({ defaultRate: a11y.ttsSpeed });
   const stt = useSTT();
 
-  const lang = (locale === 'en' ? 'en' : 'tr') as 'tr' | 'en';
+  // Always use English for Accessibility Toolkit UI (never Turkish)
+  const lang = 'en';
 
   /* ── Font size scaling ── */
   useEffect(() => {
@@ -27,6 +28,13 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
     document.documentElement.style.setProperty('--a11y-letter-spacing', `${a11y.letterSpacing}px`);
     document.documentElement.style.setProperty('--a11y-word-spacing', `${a11y.wordSpacing}px`);
   }, [a11y.lineSpacing, a11y.letterSpacing, a11y.wordSpacing]);
+
+  // Wrap TTS speak to pass the current project locale (UK accent for EN, partner voices for PL, RO, CZ, ET)
+  const wrappedTTS = {
+    ...tts,
+    speak: (text: string) => tts.speak(text, locale as TTSLocale),
+    speakSelection: () => tts.speakSelection(locale as TTSLocale),
+  };
 
   return (
     <>
@@ -54,7 +62,7 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
 
       <AccessibilityToolbar
         lang={lang}
-        tts={tts}
+        tts={wrappedTTS}
         stt={stt}
         {...a11y}
       />
