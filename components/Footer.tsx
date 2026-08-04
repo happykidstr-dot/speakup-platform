@@ -98,15 +98,41 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ marginTop: "2.5rem", paddingTop: "1.5rem", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: "1rem" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", background: "rgba(0, 51, 153, 0.4)", border: "1px solid rgba(0, 51, 153, 0.5)", borderRadius: "var(--radius-md)", padding: "0.6rem 1rem" }}>
-            <span style={{ fontSize: "1.5rem" }}>🇪🇺</span>
-            <div>
-              <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "rgb(255,204,0)" }}>{t.footer.eu}</div>
-              <div style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.5)" }}>{t.footer.cerv}</div>
-            </div>
+        {/* EU Disclaimer Card with EU Logo on Left */}
+        <div style={{
+          marginTop: "2.5rem",
+          padding: "1.5rem",
+          background: "rgba(0, 51, 153, 0.25)",
+          border: "1px solid rgba(0, 51, 153, 0.5)",
+          borderRadius: "var(--radius-lg)",
+          display: "flex",
+          gap: "1.5rem",
+          alignItems: "center",
+          flexWrap: "wrap",
+        }}>
+          {/* EU Logo on Left */}
+          <div style={{ flexShrink: 0, background: "white", padding: "0.5rem", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <img src="/eu-cofunded-logo.svg" alt="Co-funded by the European Union" style={{ width: "130px", height: "auto", display: "block" }} />
           </div>
+
+          {/* Disclaimer Content on Right */}
+          <div style={{ flex: 1, minWidth: 260 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.4rem", flexWrap: "wrap" }}>
+              <span style={{ fontSize: "0.85rem", fontWeight: 800, color: "rgb(255,204,0)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                {t.footer.disclaimerTitle || "Disclaimer"}
+              </span>
+              <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.1)", padding: "0.15rem 0.5rem", borderRadius: "999px" }}>
+                {t.footer.cerv}
+              </span>
+            </div>
+            <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.75)", lineHeight: 1.6, margin: 0 }}>
+              {t.footer.disclaimer}
+            </p>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div style={{ marginTop: "1.5rem", textAlign: "center" }}>
           <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.3)" }}>
             © {new Date().getFullYear()} {t.footer.copyright}
           </p>

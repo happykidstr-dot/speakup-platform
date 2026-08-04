@@ -106,7 +106,9 @@ export default function AboutPage() {
               borderRadius: "var(--radius-lg)", padding: "2.5rem",
               display: "flex", gap: "2rem", alignItems: "center", flexWrap: "wrap",
             }}>
-              <div style={{ fontSize: "3rem" }}>🇪🇺</div>
+              <div style={{ flexShrink: 0, background: "white", padding: "0.5rem 0.8rem", border: "1px solid rgb(var(--color-border))", borderRadius: "12px", boxShadow: "var(--shadow-sm)" }}>
+                <img src="/eu-cofunded-logo.svg" alt="Co-funded by the European Union" style={{ width: "140px", height: "auto", display: "block" }} />
+              </div>
               <div style={{ flex: 1, minWidth: 280 }}>
                 <h3 style={{ marginBottom: "0.5rem" }}>{t.aboutPage.cervTitle}</h3>
                 <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.9rem", lineHeight: 1.7, marginBottom: "0.5rem" }}>

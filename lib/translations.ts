@@ -19,7 +19,7 @@ export const translations: Record<Locale, {
   features: { badge: string; title: string; items: { title: string; desc: string; link: string }[] };
   moduleSection: { badge: string; title: string; sub: string; cta: string };
   pact: { title: string; sub: string; cta: string };
-  footer: { tagline: string; eu: string; cerv: string; copyright: string; partners: string; learnLinks: string[]; communityLinks: string[]; legalLinks: string[] };
+  footer: { tagline: string; eu: string; cerv: string; disclaimerTitle: string; disclaimer: string; copyright: string; partners: string; learnLinks: string[]; communityLinks: string[]; legalLinks: string[] };
   learnPage: {
     badge: string; title: string; sub: string;
     moduleTitles: string[]; moduleTags: string[]; moduleDescs: string[];
@@ -133,8 +133,7 @@ export const translations: Record<Locale, {
     pact: { title: "Sign the Anti-Hate Pact", sub: "Join thousands of young people and educators across Europe committing to make online spaces safer and more respectful for everyone.", cta: "🤝 Sign the Pact" },
     footer: {
       tagline: "Empowering young people and educators to recognise, respond to, and counter online hate speech.",
-      eu: "Co-funded by the European Union", cerv: "CERV — Citizens, Equality, Rights and Values Programme",
-      copyright: "SpeakUP against Hate. All rights reserved.",
+      eu: "Co-funded by the European Union", cerv: "CERV — Citizens, Equality, Rights and Values Programme", disclaimerTitle: "Disclaimer", disclaimer: "Co-funded by the European Union. Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither the European Union nor the granting authority can be held responsible for them.", copyright: "SpeakUP against Hate. All rights reserved.",
       partners: "Project Partners",
       learnLinks: ["Youth Learning Area", "Educator Resources", "Toolkit & AI Tool", "Resource Library"],
       communityLinks: ["Community Actions", "News & Events", "Policy Briefs", "Contact Us"],
@@ -343,8 +342,7 @@ export const translations: Record<Locale, {
     pact: { title: "Podpisz Pakt Antynienawiści", sub: "Dołącz do tysięcy młodych Europejczyków zobowiązujących się do tworzenia bezpieczniejszych przestrzeni online.", cta: "🤝 Podpisz Pakt" },
     footer: {
       tagline: "Wspieramy młodych ludzi i nauczycieli w rozpoznawaniu, reagowaniu i przeciwdziałaniu mowie nienawiści.",
-      eu: "Współfinansowane przez Unię Europejską", cerv: "Program CERV — Obywatele, Równość, Prawa i Wartości",
-      copyright: "SpeakUP against Hate. Wszelkie prawa zastrzeżone.",
+      eu: "Współfinansowane przez Unię Europejską", cerv: "Program CERV — Obywatele, Równość, Prawa i Wartości", disclaimerTitle: "Wyłączenie Odpowiedzialności", disclaimer: "Współfinansowane przez Unię Europejską. Wyrażone poglądy i opinie są jednak wyłącznie poglądami autora (autorów) i nie muszą odzwierciedlać poglądów Unii Europejskiej ani Europejskiej Agencji Wykonawczej ds. Edukacji i Kultury (EACEA). Ani Unia Europejska, ani organ przyznający dotację nie mogą ponosić za nie odpowiedzialności.", copyright: "SpeakUP against Hate. Wszelkie prawa zastrzeżone.",
       partners: "Partnerzy projektu",
       learnLinks: ["Strefa nauki dla młodzieży", "Zasoby dla nauczycieli", "Narzędzia i AI", "Biblioteka zasobów"],
       communityLinks: ["Działania społecznościowe", "Aktualności i wydarzenia", "Policy Briefs", "Kontakt"],
@@ -553,8 +551,7 @@ export const translations: Record<Locale, {
     pact: { title: "Semnează Pactul Anti-Ură", sub: "Alătură-te miilor de tineri europeni care se angajează să creeze spații online mai sigure.", cta: "🤝 Semnează Pactul" },
     footer: {
       tagline: "Împuternicim tinerii și educatorii să recunoască, să răspundă și să lupte împotriva discursului de ură online.",
-      eu: "Cofinanțat de Uniunea Europeană", cerv: "Programul CERV — Cetățeni, Egalitate, Drepturi și Valori",
-      copyright: "SpeakUP against Hate. Toate drepturile rezervate.",
+      eu: "Cofinanțat de Uniunea Europeană", cerv: "Programul CERV — Cetățeni, Egalitate, Drepturi și Valori", disclaimerTitle: "Declinarea Responsabilității", disclaimer: "Cofinanțat de Uniunea Europeană. Cu toate acestea, opiniile exprimate aparțin doar autorului (autorilor) și nu reflectă neapărat cele ale Uniunii Europene sau ale EACEA. Nici Uniunea Europeană și nici autoritatea finanțatoare nu pot fi făcute responsabile pentru acestea.", copyright: "SpeakUP against Hate. Toate drepturile rezervate.",
       partners: "Parteneri de proiect",
       learnLinks: ["Zona de învățare pentru tineri", "Resurse pentru educatori", "Instrumente și AI", "Bibliotecă de resurse"],
       communityLinks: ["Acțiuni comunitare", "Știri și evenimente", "Documente de politică", "Contactați-ne"],
@@ -763,8 +760,7 @@ export const translations: Record<Locale, {
     pact: { title: "Podpiš Pakt proti nenávisti", sub: "Připoj se k tisícům mladých Evropanů, kteří se zavazují vytvářet bezpečnější online prostory.", cta: "🤝 Podepsat Pakt" },
     footer: {
       tagline: "Pomáháme mladým lidem a pedagogům rozpoznávat, reagovat a čelit nenávistným projevům online.",
-      eu: "Spolufinancováno Evropskou unií", cerv: "Program CERV — Občané, rovnost, práva a hodnoty",
-      copyright: "SpeakUP against Hate. Všechna práva vyhrazena.",
+      eu: "Spolufinancováno Evropskou unií", cerv: "Program CERV — Občané, rovnost, práva a hodnoty", disclaimerTitle: "Vyloučení Odpovědnosti", disclaimer: "Spolufinancováno Evropskou unií. Vyjádřené názory a stanoviska představují pouze názory autora (autorů) a nemusí nutně odrážet názory Evropské unie nebo agentury EACEA. Evropská unie ani poskytovatel dotace za ně nenesou odpovědnost.", copyright: "SpeakUP against Hate. Všechna práva vyhrazena.",
       partners: "Projektové partnery",
       learnLinks: ["Vzdělávací prostor pro mládež", "Zdroje pro pedagogy", "Nástroje a AI", "Knihovna zdrojů"],
       communityLinks: ["Komunitní akce", "Aktuality a události", "Politické dokumenty", "Kontaktujte nás"],
@@ -973,8 +969,7 @@ export const translations: Record<Locale, {
     pact: { title: "Kirjuta alla Anti-Hate Paktile", sub: "Liitu tuhandete Euroopa noorte ja õpetajatega, kes võtavad kohustuse teha veebiruum turvalisemaks.", cta: "🤝 Kirjuta alla Paktile" },
     footer: {
       tagline: "Anname noortele ja õpetajatele vahendid veebis esineva vaenukõne äratundmiseks, sellele reageerimiseks ja võitlemiseks.",
-      eu: "Kaasrahastab Euroopa Liit", cerv: "CERV programm — Kodanikud, võrdõiguslikkus, õigused ja väärtused",
-      copyright: "SpeakUP against Hate. Kõik õigused kaitstud.",
+      eu: "Kaasrahastab Euroopa Liit", cerv: "CERV programm — Kodanikud, võrdõiguslikkus, õigused ja väärtused", disclaimerTitle: "Lahtiütlus", disclaimer: "Kaasrahastab Euroopa Liit. Avaldatud seisukohad ja arvamused on ainult autori(te) omad ega pruugi kajastada Euroopa Liidu ega EACEA seisukohti. Euroopa Liit ega toetuse andja ei vastuta nende eest.", copyright: "SpeakUP against Hate. Kõik õigused kaitstud.",
       partners: "Projektipartnerid",
       learnLinks: ["Noorte õppimisvaldkond", "Õpetajate ressursid", "Tööriistad ja AI", "Ressursside kogu"],
       communityLinks: ["Kogukonna tegevused", "Uudised ja üritused", "Poliitikadokumendid", "Võtke meiega ühendust"],
