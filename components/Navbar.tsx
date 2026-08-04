@@ -39,17 +39,12 @@ export default function Navbar() {
         }} aria-label="Main navigation">
 
           {/* Logo */}
-          <Link href="/" style={{ display: "flex", alignItems: "center", gap: "0.6rem", textDecoration: "none" }}>
-            <div style={{
-              width: 36, height: 36, borderRadius: "10px",
-              background: "linear-gradient(135deg, rgb(0,51,153), rgb(13,110,253))",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: "1.1rem", boxShadow: "0 3px 10px rgba(13,110,253,0.3)",
-            }}>🗣️</div>
-            <div>
-              <div style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800, fontSize: "0.95rem", color: "rgb(0,51,153)", lineHeight: 1.1 }}>SpeakUP</div>
-              <div style={{ fontSize: "0.6rem", color: "rgb(var(--color-text-muted))", fontWeight: 500, letterSpacing: "0.05em" }}>AGAINST HATE</div>
-            </div>
+          <Link href="/" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
+            <img
+              src="/speakup-logo.svg"
+              alt="SpeakUP Against Hate"
+              style={{ height: "42px", width: "auto", objectFit: "contain" }}
+            />
           </Link>
 
           {/* Desktop Nav */}

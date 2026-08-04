@@ -272,12 +272,33 @@ a:hover { color: rgb(var(--color-primary-dark)); }
 .animate-slide-left { animation: slideInLeft 0.6s ease forwards; }
 .animate-pulse-glow { animation: pulse-glow 2.5s infinite; }
 
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(0.8deg); }
+}
+.animate-float { animation: floatSlow 5s ease-in-out infinite; }
+
 /* Stagger delays */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-400 { animation-delay: 0.4s; }
 .delay-500 { animation-delay: 0.5s; }
+
+/* ── Hero Grid & Layout ─────────────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+@media (max-width: 992px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
 
 /* ── Hero Gradient ───────────────────────────────────────────────── */
 .hero-gradient {

@@ -53,41 +53,88 @@ export default function HomePage() {
 
         {/* Hero */}
         <section style={{
-          padding: "6rem 0 5rem", position: "relative", overflow: "hidden",
+          padding: "5rem 0 4.5rem", position: "relative", overflow: "hidden",
           background: "radial-gradient(circle at 20% 80%, rgba(255,204,0,0.08) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06) 0%, transparent 50%), linear-gradient(135deg, rgb(0,51,153) 0%, rgb(13,80,200) 40%, rgb(60,130,255) 75%, rgb(30,160,200) 100%)",
         }}>
           <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,204,0,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
           <div className="container" style={{ position: "relative", zIndex: 1 }}>
-            <div style={{ maxWidth: "720px" }}>
-              <div style={{ marginBottom: "1.5rem" }}>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: "rgba(255,204,0,0.15)", color: "rgb(255,204,0)", border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px", padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
-                  {t.hero.badge}
-                </span>
+            <div className="hero-grid">
+              {/* Left Side Content */}
+              <div>
+                <div style={{ marginBottom: "1.5rem" }}>
+                  <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: "rgba(255,204,0,0.15)", color: "rgb(255,204,0)", border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px", padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
+                    {t.hero.badge}
+                  </span>
+                </div>
+                <h1 className="animate-fade-up" style={{ color: "white", marginBottom: "1.5rem", lineHeight: 1.1 }}>
+                  {t.hero.line1}<br />
+                  <span style={{ color: "rgb(255,204,0)" }}>{t.hero.line2}</span><br />
+                  {t.hero.line3}
+                </h1>
+                <p className="animate-fade-up delay-100" style={{ color: "rgba(255,255,255,0.85)", fontSize: "1.1rem", maxWidth: "580px", lineHeight: 1.7, marginBottom: "2rem" }}>
+                  {t.hero.desc}
+                </p>
+                <div className="animate-fade-up delay-200" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
+                  <Link href="/learn" className="btn btn-accent btn-lg animate-pulse-glow">{t.hero.cta1}</Link>
+                  <Link href="/toolkit" className="btn btn-ghost btn-lg" style={{ color: "white", borderColor: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.08)" }}>{t.hero.cta2}</Link>
+                </div>
+                <div className="animate-fade-up delay-300" style={{ display: "flex", gap: "2rem", marginTop: "3rem", flexWrap: "wrap" }}>
+                  {[
+                    { val: "5", label: t.stats.countries },
+                    { val: "5", label: t.stats.languages },
+                    { val: "6", label: t.stats.modules },
+                    { val: "24", label: t.stats.months },
+                  ].map((s, i) => (
+                    <div key={i} style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "white", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{statIcons[i]} {s.val}</div>
+                      <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>{s.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h1 className="animate-fade-up" style={{ color: "white", marginBottom: "1.5rem", lineHeight: 1.1 }}>
-                {t.hero.line1}<br />
-                <span style={{ color: "rgb(255,204,0)" }}>{t.hero.line2}</span><br />
-                {t.hero.line3}
-              </h1>
-              <p className="animate-fade-up delay-100" style={{ color: "rgba(255,255,255,0.85)", fontSize: "1.1rem", maxWidth: "580px", lineHeight: 1.7, marginBottom: "2rem" }}>
-                {t.hero.desc}
-              </p>
-              <div className="animate-fade-up delay-200" style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <Link href="/learn" className="btn btn-accent btn-lg animate-pulse-glow">{t.hero.cta1}</Link>
-                <Link href="/toolkit" className="btn btn-ghost btn-lg" style={{ color: "white", borderColor: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.08)" }}>{t.hero.cta2}</Link>
-              </div>
-              <div className="animate-fade-up delay-300" style={{ display: "flex", gap: "2rem", marginTop: "3rem", flexWrap: "wrap" }}>
-                {[
-                  { val: "5", label: t.stats.countries },
-                  { val: "5", label: t.stats.languages },
-                  { val: "6", label: t.stats.modules },
-                  { val: "24", label: t.stats.months },
-                ].map((s, i) => (
-                  <div key={i} style={{ textAlign: "center" }}>
-                    <div style={{ fontSize: "1.75rem", fontWeight: 800, color: "white", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{statIcons[i]} {s.val}</div>
-                    <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.55)", textTransform: "uppercase" as const, letterSpacing: "0.08em" }}>{s.label}</div>
-                  </div>
-                ))}
+
+              {/* Right Side Large SpeakUP Logo Display */}
+              <div className="animate-fade-up delay-200" style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+                {/* Glow aura */}
+                <div style={{
+                  position: "absolute",
+                  width: "110%",
+                  height: "110%",
+                  background: "radial-gradient(circle, rgba(255,204,0,0.22) 0%, rgba(13,110,253,0.2) 50%, transparent 75%)",
+                  filter: "blur(40px)",
+                  pointerEvents: "none",
+                  zIndex: 0
+                }} />
+
+                {/* Logo Glass Card */}
+                <div className="animate-float" style={{
+                  position: "relative",
+                  zIndex: 1,
+                  width: "100%",
+                  maxWidth: "480px",
+                  background: "rgba(255, 255, 255, 0.96)",
+                  backdropFilter: "blur(20px)",
+                  WebkitBackdropFilter: "blur(20px)",
+                  borderRadius: "32px",
+                  padding: "2.5rem 2rem",
+                  boxShadow: "0 25px 60px rgba(0, 30, 90, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.4)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  transition: "all 0.3s ease"
+                }}>
+                  <img
+                    src="/speakup-logo.svg"
+                    alt="SpeakUP Against Hate Logo"
+                    style={{
+                      width: "100%",
+                      maxHeight: "320px",
+                      objectFit: "contain",
+                      filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.06))"
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </div>
