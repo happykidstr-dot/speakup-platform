@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const resourceMeta = [
   { icon: "📝", pages: "12 pages", level: "Secondary", lang: "EN / PL / RO / CZ / ET", color: "rgb(13,110,253)" },

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LanguageProvider } from "../contexts/LanguageContext";
 
 export const metadata: Metadata = {
   title: { default: "SpeakUP against Hate", template: "%s | SpeakUP against Hate" },

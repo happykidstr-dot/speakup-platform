@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { Locale, localeNames } from "@/lib/translations";
+import { useLanguage } from "../contexts/LanguageContext";
+import { Locale, localeNames } from "../lib/translations";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

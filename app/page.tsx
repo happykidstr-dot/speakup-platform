@@ -1,8 +1,8 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const moduleColors = [
   "rgb(13,110,253)", "rgb(245,158,11)", "rgb(16,185,129)",
@@ -103,57 +103,20 @@ export default function HomePage() {
                 {/* Glow aura */}
                 <div style={{
                   position: "absolute",
-                  width: "100%",
-                  height: "100%",
-                  background: "radial-gradient(circle, rgba(255,204,0,0.3) 0%, rgba(13,110,253,0.25) 50%, transparent 75%)",
-                  filter: "blur(35px)",
+                  width: "110%",
+                  height: "110%",
+                  background: "radial-gradient(circle, rgba(255,204,0,0.35) 0%, rgba(13,110,253,0.3) 50%, transparent 75%)",
+                  filter: "blur(40px)",
                   pointerEvents: "none",
                   zIndex: 0
                 }} />
 
-                {/* Logo White Glass Card */}
-                <div className="animate-float" style={{
-                  position: "relative",
-                  zIndex: 1,
-                  width: "100%",
-                  maxWidth: "460px",
-                  background: "#FFFFFF",
-                  borderRadius: "28px",
-                  padding: "2rem 1.75rem",
-                  boxShadow: "0 25px 60px rgba(0, 20, 70, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.5)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center"
-                }}>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 400" style={{ width: "100%", height: "auto", display: "block" }}>
-                    <!-- Speech Bubble Background -->
-                    <path d="M 50 60 L 320 60 A 20 20 0 0 1 340 80 L 340 170 A 20 20 0 0 1 320 190 L 120 190 L 80 225 L 85 190 L 50 190 A 20 20 0 0 1 30 170 L 30 80 A 20 20 0 0 1 50 60 Z" fill="#072046" />
-
-                    <!-- SPEAK Text inside Speech Bubble -->
-                    <text x="180" y="152" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">SPEAK</text>
-
-                    <!-- UP Text with Up Arrow on 'U' -->
-                    <g fill="#E30613">
-                      <!-- Up Arrow head above U -->
-                      <path d="M 375 15 L 402 52 L 387 52 L 387 150 A 18 18 0 0 1 364 168 L 364 168 A 18 18 0 0 1 345 150 L 345 95 L 364 95 L 364 147 A 3 3 0 0 0 367 150 L 367 150 A 3 3 0 0 0 370 147 L 370 52 L 348 52 Z" />
-                      <!-- P Letter -->
-                      <text x="402" y="166" font-family="'Impact', 'Arial Black', sans-serif" font-size="108" font-weight="900">P</text>
-                    </g>
-
-                    <!-- AGAINST HATE Text -->
-                    <g font-family="'Impact', 'Arial Black', sans-serif" font-size="54" font-weight="900" letter-spacing="1">
-                      <text x="65" y="258" fill="#E30613">AGAINST</text>
-                      <text x="305" y="258" fill="#072046">HATE</text>
-                    </g>
-
-                    <!-- Divider lines & WORDS MATTER -->
-                    <g stroke="#072046" stroke-width="3.5" stroke-linecap="round">
-                      <line x1="65" y1="295" x2="140" y2="295" />
-                      <line x1="370" y1="295" x2="445" y2="295" />
-                    </g>
-                    <text x="255" y="302" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#072046" text-anchor="middle" letter-spacing="4">WORDS MATTER</text>
-                  </svg>
+                {/* Logo White Glass Hover Card */}
+                <div className="hero-logo-hover-card animate-float">
+                  <img
+                    src="/speakup-hero-logo.png"
+                    alt="SpeakUP Against Hate - Words Matter"
+                  />
                 </div>
               </div>
             </div>

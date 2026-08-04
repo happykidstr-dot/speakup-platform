@@ -1,8 +1,8 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const moduleColors = [
   { tagColor: "rgb(13,110,253)", icon: "💬", num: "01", duration: "20 min", level: "beginner" as const },

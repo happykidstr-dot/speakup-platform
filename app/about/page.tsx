@@ -1,8 +1,8 @@
 "use client";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import Link from "next/link";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const partnerMeta = [
   { name: "FUNDACJA EDUKACJI ROZWOJU I INNOWACJI FERI", short: "FERI", country: "Poland", flag: "🇵🇱", pic: "909290805", role: "Coordinator", color: "rgb(0,51,153)" },

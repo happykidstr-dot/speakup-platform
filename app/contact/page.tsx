@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { useLanguage } from "@/contexts/LanguageContext";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const contactReasonIcons = ["💬", "👩‍🏫", "🤝", "📰", "✍️", "🔧", "🛡️"];
 const contactReasonValues = ["general", "educator", "partner", "media", "story", "technical", "safeguarding"];
