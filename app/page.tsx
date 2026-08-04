@@ -58,12 +58,7 @@ export default function HomePage() {
         }}>
           <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,204,0,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
           <div className="container" style={{ position: "relative", zIndex: 1 }}>
-            <div style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "3rem",
-              alignItems: "center"
-            }} className="hero-grid">
+            <div className="hero-grid">
               {/* Left Side Content */}
               <div style={{ maxWidth: "600px" }}>
                 <div style={{ marginBottom: "1.5rem" }}>

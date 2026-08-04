@@ -13,6 +13,7 @@ export default function Navbar() {
     { href: "/educators", label: t.nav.educators },
     { href: "/toolkit", label: t.nav.toolkit },
     { href: "/community", label: t.nav.community },
+    { href: "/news", label: "News & Events" },
     { href: "/about", label: t.nav.about },
   ];
 
