@@ -58,9 +58,14 @@ export default function HomePage() {
         }}>
           <div style={{ position: "absolute", top: "-20%", right: "-10%", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(255,204,0,0.06) 0%, transparent 70%)", pointerEvents: "none" }} />
           <div className="container" style={{ position: "relative", zIndex: 1 }}>
-            <div className="hero-grid">
+            <div style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "3rem",
+              alignItems: "center"
+            }} className="hero-grid">
               {/* Left Side Content */}
-              <div>
+              <div style={{ maxWidth: "600px" }}>
                 <div style={{ marginBottom: "1.5rem" }}>
                   <span style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", background: "rgba(255,204,0,0.15)", color: "rgb(255,204,0)", border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px", padding: "0.3rem 0.9rem", fontSize: "0.72rem", fontWeight: 600, textTransform: "uppercase" as const, letterSpacing: "0.06em" }}>
                     {t.hero.badge}
@@ -94,46 +99,61 @@ export default function HomePage() {
               </div>
 
               {/* Right Side Large SpeakUP Logo Display */}
-              <div className="animate-fade-up delay-200" style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
+              <div style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative" }}>
                 {/* Glow aura */}
                 <div style={{
                   position: "absolute",
-                  width: "110%",
-                  height: "110%",
-                  background: "radial-gradient(circle, rgba(255,204,0,0.22) 0%, rgba(13,110,253,0.2) 50%, transparent 75%)",
-                  filter: "blur(40px)",
+                  width: "100%",
+                  height: "100%",
+                  background: "radial-gradient(circle, rgba(255,204,0,0.3) 0%, rgba(13,110,253,0.25) 50%, transparent 75%)",
+                  filter: "blur(35px)",
                   pointerEvents: "none",
                   zIndex: 0
                 }} />
 
-                {/* Logo Glass Card */}
+                {/* Logo White Glass Card */}
                 <div className="animate-float" style={{
                   position: "relative",
                   zIndex: 1,
                   width: "100%",
-                  maxWidth: "480px",
-                  background: "rgba(255, 255, 255, 0.96)",
-                  backdropFilter: "blur(20px)",
-                  WebkitBackdropFilter: "blur(20px)",
-                  borderRadius: "32px",
-                  padding: "2.5rem 2rem",
-                  boxShadow: "0 25px 60px rgba(0, 30, 90, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.4)",
+                  maxWidth: "460px",
+                  background: "#FFFFFF",
+                  borderRadius: "28px",
+                  padding: "2rem 1.75rem",
+                  boxShadow: "0 25px 60px rgba(0, 20, 70, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.5)",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "center",
-                  transition: "all 0.3s ease"
+                  justifyContent: "center"
                 }}>
-                  <img
-                    src="/speakup-logo.svg"
-                    alt="SpeakUP Against Hate Logo"
-                    style={{
-                      width: "100%",
-                      maxHeight: "320px",
-                      objectFit: "contain",
-                      filter: "drop-shadow(0 10px 15px rgba(0,0,0,0.06))"
-                    }}
-                  />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 400" style={{ width: "100%", height: "auto", display: "block" }}>
+                    <!-- Speech Bubble Background -->
+                    <path d="M 50 60 L 320 60 A 20 20 0 0 1 340 80 L 340 170 A 20 20 0 0 1 320 190 L 120 190 L 80 225 L 85 190 L 50 190 A 20 20 0 0 1 30 170 L 30 80 A 20 20 0 0 1 50 60 Z" fill="#072046" />
+
+                    <!-- SPEAK Text inside Speech Bubble -->
+                    <text x="180" y="152" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">SPEAK</text>
+
+                    <!-- UP Text with Up Arrow on 'U' -->
+                    <g fill="#E30613">
+                      <!-- Up Arrow head above U -->
+                      <path d="M 375 15 L 402 52 L 387 52 L 387 150 A 18 18 0 0 1 364 168 L 364 168 A 18 18 0 0 1 345 150 L 345 95 L 364 95 L 364 147 A 3 3 0 0 0 367 150 L 367 150 A 3 3 0 0 0 370 147 L 370 52 L 348 52 Z" />
+                      <!-- P Letter -->
+                      <text x="402" y="166" font-family="'Impact', 'Arial Black', sans-serif" font-size="108" font-weight="900">P</text>
+                    </g>
+
+                    <!-- AGAINST HATE Text -->
+                    <g font-family="'Impact', 'Arial Black', sans-serif" font-size="54" font-weight="900" letter-spacing="1">
+                      <text x="65" y="258" fill="#E30613">AGAINST</text>
+                      <text x="305" y="258" fill="#072046">HATE</text>
+                    </g>
+
+                    <!-- Divider lines & WORDS MATTER -->
+                    <g stroke="#072046" stroke-width="3.5" stroke-linecap="round">
+                      <line x1="65" y1="295" x2="140" y2="295" />
+                      <line x1="370" y1="295" x2="445" y2="295" />
+                    </g>
+                    <text x="255" y="302" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="800" fill="#072046" text-anchor="middle" letter-spacing="4">WORDS MATTER</text>
+                  </svg>
                 </div>
               </div>
             </div>
