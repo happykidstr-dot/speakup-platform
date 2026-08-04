@@ -1,4 +1,6 @@
-'use client';
+const fs = require('fs');
+
+const fullToolbarCode = `'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import type { UseAccessibilityReturn } from '../hooks/useAccessibility';
 import type { UseTTSReturn } from '../hooks/useTTS';
@@ -210,15 +212,15 @@ export function AccessibilityToolbar({
     return dict[key] || A11Y_TEXTS.en[key] || key;
   };
 
-  const dynamicCSS = `
-    ${calmMode ? `
+  const dynamicCSS = \`
+    \${calmMode ? \`
       *, *::before, *::after {
         animation: none !important;
         transition: none !important;
       }
       [style*="gradient"] { background: rgba(99,102,241,0.3) !important; }
-    ` : ''}
-    ${focusMode ? `
+    \` : ''}
+    \${focusMode ? \`
       [data-main-scroll] > div > div:not(:hover):not(:focus-within) > div:not([id^="section-"]) {
         opacity: 0.3;
         transition: opacity 0.3s;
@@ -233,8 +235,8 @@ export function AccessibilityToolbar({
       [data-main-scroll] [id^="section-"]:hover {
         opacity: 1 !important;
       }
-    ` : ''}
-  `;
+    \` : ''}
+  \`;
 
   function MagnifierLens() {
     const [pos, setPos] = useState({ x: -9999, y: -9999 });
@@ -262,7 +264,7 @@ export function AccessibilityToolbar({
           let node: HTMLElement | null = el;
           let found = '';
           while (node && node !== document.body) {
-            const tVal = (node.innerText || '').trim().replace(/\s+/g, ' ');
+            const tVal = (node.innerText || '').trim().replace(/\\s+/g, ' ');
             if (tVal.length > 3 && tVal.length < 600) {
               found = tVal;
               break;
@@ -317,8 +319,8 @@ export function AccessibilityToolbar({
   const btnStyle = (active: boolean, color = 'rgba(167,139,250') => ({
     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
     width: '100%', padding: '7px 10px', borderRadius: 8,
-    background: active ? `${color},0.22)` : 'rgba(255,255,255,0.06)',
-    border: `1.5px solid ${active ? `${color},0.6)` : 'rgba(255,255,255,0.1)'}`,
+    background: active ? \`\${color},0.22)\` : 'rgba(255,255,255,0.06)',
+    border: \`1.5px solid \${active ? \`\${color},0.6)\` : 'rgba(255,255,255,0.1)'}\`,
     color: active ? '#ffffff' : 'rgba(255,255,255,0.8)',
     fontSize: 11, fontWeight: 700, cursor: 'pointer',
     transition: 'all 0.15s ease', marginBottom: 4,
@@ -473,7 +475,7 @@ export function AccessibilityToolbar({
                         padding: '6px 2px', borderRadius: 7,
                         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 2,
                         background: active ? 'rgba(255,204,0,0.25)' : 'rgba(255,255,255,0.06)',
-                        border: `1.5px solid ${active ? '#FFCC00' : 'rgba(255,255,255,0.1)'}`,
+                        border: \`1.5px solid \${active ? '#FFCC00' : 'rgba(255,255,255,0.1)'}\`,
                         color: active ? '#FFCC00' : 'rgba(255,255,255,0.8)',
                         cursor: 'pointer', transition: 'all 0.15s',
                       }}
@@ -622,3 +624,7 @@ export function AccessibilityToolbar({
     </>
   );
 }
+`;
+
+fs.writeFileSync('G:\\Drive\'ım\\YEDEK1404-Project Factory AI Workspace\\pfai-workspace\\speakup-platform\\components\\AccessibilityToolbar.tsx', fullToolbarCode, 'utf8');
+console.log('AccessibilityToolbar.tsx written with valid JS code');

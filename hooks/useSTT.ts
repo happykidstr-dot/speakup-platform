@@ -59,11 +59,15 @@ export function useSTT(opts?: UseSTTOptions): UseSTTReturn {
     }
 
     try {
+      if (recognitionRef.current) {
+        try { recognitionRef.current.stop(); } catch (e) { /* ignore */ }
+      }
+
       const SpeechRecognition = (window as unknown as Record<string, SpeechRecognitionType>).SpeechRecognition ||
         (window as unknown as Record<string, SpeechRecognitionType>).webkitSpeechRecognition;
 
       const recognition = new SpeechRecognition();
-      recognition.continuous = opts?.continuous ?? true;
+      recognition.continuous = opts?.continuous ?? false;
       recognition.interimResults = opts?.interimResults ?? true;
       recognition.lang = LANG_MAP[lang] || 'en-GB';
 
@@ -91,10 +95,13 @@ export function useSTT(opts?: UseSTTOptions): UseSTTReturn {
       };
 
       recognition.onerror = (event: SpeechRecognitionType) => {
-        if (event.error !== 'no-speech') {
-          setError(`Speech recognition error: ${event.error}`);
-        }
         setIsListening(false);
+        if (event.error === 'network' || event.error === 'no-speech' || event.error === 'aborted') {
+          // Gracefully suppress network/aborted errors instead of crashing UI
+          setError(null);
+        } else {
+          setError(`Speech: ${event.error}`);
+        }
       };
 
       recognition.onend = () => {
@@ -105,14 +112,13 @@ export function useSTT(opts?: UseSTTOptions): UseSTTReturn {
       recognitionRef.current = recognition;
       recognition.start();
     } catch (e) {
-      setError('Failed to start speech recognition.');
       setIsListening(false);
     }
   }, [isSupported, opts?.continuous, opts?.interimResults]);
 
   const stopListening = useCallback(() => {
     if (recognitionRef.current) {
-      recognitionRef.current.stop();
+      try { recognitionRef.current.stop(); } catch (e) { /* ignore */ }
       recognitionRef.current = null;
     }
     setIsListening(false);

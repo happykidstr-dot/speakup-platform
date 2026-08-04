@@ -9,12 +9,12 @@ export default function Navbar() {
   const { locale, setLocale, t } = useLanguage();
 
   const navLinks = [
+    { href: "/about", label: t.nav.about },
     { href: "/learn", label: t.nav.learn },
     { href: "/educators", label: t.nav.educators },
     { href: "/toolkit", label: t.nav.toolkit },
     { href: "/community", label: t.nav.community },
-    { href: "/news", label: "News & Events" },
-    { href: "/about", label: t.nav.about },
+    { href: "/news", label: t.nav.news },
   ];
 
   return (

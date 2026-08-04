@@ -12,8 +12,8 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
   const tts = useTTS({ defaultRate: a11y.ttsSpeed });
   const stt = useSTT();
 
-  // Always use English for Accessibility Toolkit UI (never Turkish)
-  const lang = 'en';
+  // Dynamically map locale to partner languages
+  const lang = (['en', 'pl', 'ro', 'cz', 'et'].includes(locale) ? locale : 'en') as TTSLocale;
 
   /* ── Font size scaling ── */
   useEffect(() => {
@@ -32,8 +32,8 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
   // Wrap TTS speak to pass the current project locale (UK accent for EN, partner voices for PL, RO, CZ, ET)
   const wrappedTTS = {
     ...tts,
-    speak: (text: string) => tts.speak(text, locale as TTSLocale),
-    speakSelection: () => tts.speakSelection(locale as TTSLocale),
+    speak: (text: string) => tts.speak(text, lang),
+    speakSelection: () => tts.speakSelection(lang),
   };
 
   return (
@@ -55,7 +55,7 @@ export function AccessibilityProvider({ children }: { children: React.ReactNode 
       <div
         id="main-content"
         style={a11y.containerStyle}
-        {...a11y.containerDataAttrs(lang)}
+        {...a11y.containerDataAttrs(lang === 'en' ? 'en' : 'tr')}
       >
         {children}
       </div>
