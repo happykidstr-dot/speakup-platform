@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Link from "next/link";
@@ -6,6 +7,15 @@ import { useLanguage } from "../../contexts/LanguageContext";
 
 export default function NewsPage() {
   const { t } = useLanguage();
+  const [selectedCategory, setSelectedCategory] = useState("All Updates");
+
+  const categories = [
+    "All Updates",
+    "Project Milestone",
+    "Resource Release",
+    "EU Event",
+    "Youth Network"
+  ];
 
   const newsItems = [
     {
@@ -39,8 +49,28 @@ export default function NewsPage() {
       title: "Youth Anti-Hate Pact Reaches 1,000 Signatories Across Europe",
       desc: "Young leaders and educators from Poland, Romania, Czechia, Estonia, and beyond have joined our online pledge to build respectful digital communities.",
       readMore: "Join the Pact →"
+    },
+    {
+      date: "April 2026",
+      tag: "Resource Release",
+      tagColor: "rgb(16,185,129)",
+      title: "6 Interactive Learning Modules Released in 5 EU Languages",
+      desc: "Complete online curriculum covering hate speech definitions, counter-narrative creation, safe reporting, and digital rights published for free open access.",
+      readMore: "Explore Modules →"
+    },
+    {
+      date: "March 2026",
+      tag: "Project Milestone",
+      tagColor: "rgb(13,110,253)",
+      title: "Transnational Partner Meeting Held in Sibiu, Romania",
+      desc: "Project coordinators and research teams convened at Lucian Blaga University of Sibiu to finalize AI scenario datasets and educator workshop guidelines.",
+      readMore: "Read Minutes →"
     }
   ];
+
+  const filteredItems = selectedCategory === "All Updates"
+    ? newsItems
+    : newsItems.filter(item => item.tag === selectedCategory);
 
   return (
     <>
@@ -54,7 +84,7 @@ export default function NewsPage() {
         }}>
           <div className="container">
             <span style={{
-              display: "inline-block", background: "rgba(255,254,0,0.15)", color: "rgb(255,204,0)",
+              display: "inline-block", background: "rgba(255,204,0,0.15)", color: "rgb(255,204,0)",
               border: "1px solid rgba(255,204,0,0.3)", borderRadius: "999px",
               padding: "0.3rem 0.9rem", fontSize: "0.75rem", fontWeight: 700,
               textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: "1rem"
@@ -70,11 +100,44 @@ export default function NewsPage() {
           </div>
         </section>
 
-        {/* News Grid */}
-        <section className="section">
+        {/* Filter Categories */}
+        <section className="section" style={{ paddingBottom: "1.5rem" }}>
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "2rem" }}>
-              {newsItems.map((item, index) => (
+            <div style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap", alignItems: "center" }}>
+              <span style={{ fontWeight: 700, fontSize: "0.85rem", color: "rgb(var(--color-text-muted))", marginRight: "0.5rem" }}>
+                Filter Updates:
+              </span>
+              {categories.map((cat) => {
+                const isActive = selectedCategory === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    style={{
+                      padding: "0.5rem 1.25rem",
+                      borderRadius: "999px",
+                      fontSize: "0.85rem",
+                      fontWeight: isActive ? 700 : 500,
+                      cursor: "pointer",
+                      border: isActive ? "2px solid rgb(13,110,253)" : "1px solid rgb(var(--color-border))",
+                      background: isActive ? "rgba(13,110,253,0.1)" : "white",
+                      color: isActive ? "rgb(13,110,253)" : "rgb(var(--color-text))",
+                      transition: "all 0.2s ease"
+                    }}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* News Grid */}
+        <section className="section" style={{ paddingTop: "1rem" }}>
+          <div className="container">
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "2rem" }}>
+              {filteredItems.map((item, index) => (
                 <div key={index} className="card" style={{ padding: "2rem", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
@@ -90,15 +153,15 @@ export default function NewsPage() {
                         {item.date}
                       </span>
                     </div>
-                    <h3 style={{ fontSize: "1.25rem", marginBottom: "0.85rem", lineHeight: 1.4 }}>
+                    <h3 style={{ fontSize: "1.2rem", marginBottom: "0.85rem", lineHeight: 1.4 }}>
                       {item.title}
                     </h3>
-                    <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.95rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
+                    <p style={{ color: "rgb(var(--color-text-muted))", fontSize: "0.92rem", lineHeight: 1.6, marginBottom: "1.5rem" }}>
                       {item.desc}
                     </p>
                   </div>
                   <Link href="/contact" style={{
-                    color: item.tagColor, fontWeight: 700, fontSize: "0.9rem",
+                    color: item.tagColor, fontWeight: 700, fontSize: "0.88rem",
                     textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "0.3rem"
                   }}>
                     {item.readMore}

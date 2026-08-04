@@ -65,6 +65,26 @@ export default function Navbar() {
 
           {/* Right side: Language selector + CTA */}
           <div style={{ display: "flex", alignItems: "center", gap: "0.65rem" }}>
+            {/* Accessibility Trigger Button */}
+            <button
+              onClick={() => {
+                const btn = document.querySelector('.wk-a11y-fab') as HTMLElement;
+                if (btn) btn.click();
+              }}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: "0.35rem",
+                background: "rgba(13,110,253,0.08)", color: "rgb(13,110,253)",
+                border: "1px solid rgba(13,110,253,0.25)",
+                borderRadius: "999px", padding: "0.38rem 0.85rem",
+                fontSize: "0.8rem", fontWeight: 600, cursor: "pointer",
+                transition: "all 0.15s ease"
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.background = "rgb(13,110,253)"; e.currentTarget.style.color = "white"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.background = "rgba(13,110,253,0.08)"; e.currentTarget.style.color = "rgb(13,110,253)"; }}
+            >
+              ♿ Accessibility
+            </button>
+
             {/* Language selector — now functional */}
             <select
               aria-label="Select language"

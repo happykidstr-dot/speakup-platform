@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "../contexts/LanguageContext";
+import { AccessibilityProvider } from "../components/AccessibilityProvider";
 
 export const metadata: Metadata = {
   title: { default: "SpeakUP against Hate", template: "%s | SpeakUP against Hate" },
@@ -19,7 +20,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <a href="#main-content" className="skip-link">Skip to main content</a>
         <LanguageProvider>
-          {children}
+          <AccessibilityProvider>
+            {children}
+          </AccessibilityProvider>
         </LanguageProvider>
       </body>
     </html>
