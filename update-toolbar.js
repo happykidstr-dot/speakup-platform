@@ -44,7 +44,7 @@ const A11Y_TEXTS: Record<string, Record<string, string>> = {
     colorBlind: "Color Blind Filter",
     audio: "Audio Controls",
     speechSpeed: "Speech Speed",
-    readSelection: "Read Selected Text",
+    readSelection: "Text-to-Speech (TTS)",
     voiceInput: "Voice Input",
     stopReading: "Stop",
     pause: "Pause",
@@ -78,7 +78,7 @@ const A11Y_TEXTS: Record<string, Record<string, string>> = {
     colorBlind: "Filtr dla Daltonistów",
     audio: "Sterowanie Dźwiękiem",
     speechSpeed: "Prędkość Mowy",
-    readSelection: "Czytaj Zaznaczony Tekst",
+    readSelection: "Synteza Mowy (TTS)",
     voiceInput: "Wprowadzanie Głosem",
     stopReading: "Zatrzymaj",
     pause: "Pauza",
@@ -112,7 +112,7 @@ const A11Y_TEXTS: Record<string, Record<string, string>> = {
     colorBlind: "Filtru Daltonism",
     audio: "Control Audio & Vorbire",
     speechSpeed: "Viteză Vorbire",
-    readSelection: "Citește Textul Selectat",
+    readSelection: "Lectură Text (TTS)",
     voiceInput: "Introducere Vocală",
     stopReading: "Oprește",
     pause: "Pauză",
@@ -146,7 +146,7 @@ const A11Y_TEXTS: Record<string, Record<string, string>> = {
     colorBlind: "Filtr pro Daltoniky",
     audio: "Ovládání Zvuku a Řeči",
     speechSpeed: "Rychlost Řeči",
-    readSelection: "Přečíst Vybraný Text",
+    readSelection: "Čtení Textu (TTS)",
     voiceInput: "Hlasový Vstup",
     stopReading: "Zastavit",
     pause: "Pauza",
@@ -180,7 +180,7 @@ const A11Y_TEXTS: Record<string, Record<string, string>> = {
     colorBlind: "Värvipimeduse Filter",
     audio: "Heli ja Kõne Juhtimine",
     speechSpeed: "Kõne Kiirus",
-    readSelection: "Loe Valitud Tekst",
+    readSelection: "Teksti Ettelugemine (TTS)",
     voiceInput: "Häälsiestus",
     stopReading: "Peata",
     pause: "Paus",
@@ -330,7 +330,11 @@ export function AccessibilityToolbar({
 
   const handleReadSelection = () => {
     if (!tts) return;
-    const sel = window.getSelection()?.toString().trim();
+    let sel = window.getSelection()?.toString().trim();
+    if (!sel) {
+      const mainHead = document.querySelector('#main-content h1, #main-content p');
+      if (mainHead) sel = (mainHead as HTMLElement).innerText;
+    }
     if (sel) {
       tts.setRate(ttsSpeed);
       tts.speak(sel);
@@ -627,4 +631,4 @@ export function AccessibilityToolbar({
 `;
 
 fs.writeFileSync('G:\\Drive\'ım\\YEDEK1404-Project Factory AI Workspace\\pfai-workspace\\speakup-platform\\components\\AccessibilityToolbar.tsx', fullToolbarCode, 'utf8');
-console.log('AccessibilityToolbar.tsx written with valid JS code');
+console.log('AccessibilityToolbar.tsx updated with Text-to-Speech (TTS) labels across all languages');
